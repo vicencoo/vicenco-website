@@ -1,5 +1,5 @@
 import Link from "next/link";
-import type { Dictionary } from "@/app/[lang]/dictionaries/en";
+import type { Dictionary } from "@/lib/dictionaries/en";
 import { site } from "@/lib/site";
 import { Reveal } from "./Reveal";
 import { ContactForm } from "./ContactForm";
@@ -68,14 +68,14 @@ export function ServicesGrid({ t }: { t: Dictionary }) {
 }
 
 /** Compact numbered list used on the home page. */
-export function ServicesList({ t, lang }: { t: Dictionary; lang: string }) {
+export function ServicesList({ t }: { t: Dictionary }) {
   return (
     <ul className="border-t border-line">
       {t.services.items.map((s, i) => (
         <Reveal key={s.title} delay={i * 60}>
           <li>
             <Link
-              href={`/${lang}/services`}
+              href="/services"
               className="spotlight group grid grid-cols-[auto_1fr_auto] items-center gap-6 border-b border-line px-2 py-7 transition-colors duration-500 hover:bg-surface sm:gap-10 sm:px-6"
             >
               <span className="font-serif text-lg text-faint transition-colors group-hover:text-gold">0{i + 1}</span>

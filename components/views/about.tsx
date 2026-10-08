@@ -1,18 +1,16 @@
-import { load, pageMetadata } from "../dictionaries";
+"use client";
+
+import { useLanguage } from "@/lib/i18n";
 import { Reveal } from "@/components/Reveal";
 import { CtaBand, PageHero, SectionHead } from "@/components/ui";
 import { ManifestoQuote, ProcessSteps, Stats, Values } from "@/components/sections";
 
-export function generateMetadata({ params }: PageProps<"/[lang]/about">) {
-  return pageMetadata(params, "about");
-}
-
-export default async function AboutPage({ params }: PageProps<"/[lang]/about">) {
-  const { lang, t } = await load(params);
+export function AboutView() {
+  const { t } = useLanguage();
 
   return (
     <>
-      <PageHero lang={lang} home={t.nav.home} crumb={t.nav.about} title={t.about.title} em={t.about.titleEm} lead={t.about.lead} />
+      <PageHero home={t.nav.home} crumb={t.nav.about} title={t.about.title} em={t.about.titleEm} lead={t.about.lead} />
 
       {/* Story */}
       <section className="py-24 sm:py-32">
@@ -59,7 +57,7 @@ export default async function AboutPage({ params }: PageProps<"/[lang]/about">) 
         </div>
       </section>
 
-      <CtaBand lang={lang} t={t.cta} />
+      <CtaBand t={t.cta} />
     </>
   );
 }

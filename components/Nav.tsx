@@ -3,14 +3,13 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import type { Dictionary } from "@/app/[lang]/dictionaries/en";
+import { languages, setLanguage, useLanguage } from "@/lib/i18n";
+import { pageKeys } from "@/lib/site";
 import { Logo } from "./Logo";
 
-import { pageKeys } from "@/lib/site";
-
-type Props = { lang: string; t: Dictionary["nav"] };
-
-export function Nav({ lang, t }: Props) {
+export function Nav() {
+  const { lang, t: dict } = useLanguage();
+  const t = dict.nav;
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
@@ -33,10 +32,8 @@ export function Nav({ lang, t }: Props) {
     document.body.style.overflow = open ? "hidden" : "";
   }, [open]);
 
-  const links = pageKeys.map((k) => ({ href: `/${lang}/${k}`, label: t[k] }));
+  const links = pageKeys.map((k) => ({ href: `/${k}`, label: t[k] }));
   const isActive = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
-  // Same page in the other language, e.g. /en/work -> /sq/work
-  const rest = pathname.split("/").slice(2).join("/");
 
   return (
     <header
@@ -45,7 +42,7 @@ export function Nav({ lang, t }: Props) {
       }`}
     >
       <nav className="mx-auto flex h-18 max-w-7xl items-center justify-between px-5 sm:px-8">
-        <Link href={`/${lang}`} className="flex items-center gap-3">
+        <Link href="/" className="flex items-center gap-3">
           <Logo />
           <span className="font-serif text-2xl tracking-wide">Vicenco</span>
         </Link>
@@ -68,21 +65,23 @@ export function Nav({ lang, t }: Props) {
 
         <div className="flex items-center gap-3 sm:gap-5">
           <div className="flex items-center rounded-full border border-line p-1 text-[11px] font-medium tracking-[0.15em]">
-            {(["en", "sq"] as const).map((l) => (
-              <Link
+            {languages.map((l) => (
+              <button
                 key={l}
-                href={`/${l}${rest ? `/${rest}` : ""}`}
-                aria-current={lang === l ? "true" : undefined}
-                className={`rounded-full px-2.5 py-1 transition-all duration-300 ${
+                type="button"
+                onClick={() => setLanguage(l)}
+                aria-pressed={lang === l}
+                aria-label={l === "sq" ? "Shqip" : "English"}
+                className={`cursor-pointer rounded-full px-2.5 py-1 transition-all duration-300 ${
                   lang === l ? "bg-ink text-bg" : "text-muted hover:text-ink"
                 }`}
               >
                 {l === "sq" ? "AL" : "EN"}
-              </Link>
+              </button>
             ))}
           </div>
           <Link
-            href={`/${lang}/contact`}
+            href="/contact"
             className="hidden rounded-full border border-gold/40 px-5 py-2.5 text-[13px] tracking-wide text-gold-2 transition-all duration-500 hover:border-gold hover:bg-gold hover:text-bg sm:inline-block"
           >
             {t.cta}
@@ -107,7 +106,7 @@ export function Nav({ lang, t }: Props) {
         }`}
       >
         <ul className="flex h-[calc(100svh-4.5rem)] flex-col justify-center gap-2 px-6 pb-20">
-          {[{ href: `/${lang}`, label: t.home }, ...links].map((l, i) => (
+          {[{ href: "/", label: t.home }, ...links].map((l, i) => (
             <li key={l.href}>
               <Link
                 href={l.href}
@@ -123,7 +122,7 @@ export function Nav({ lang, t }: Props) {
           ))}
           <li className="pt-8">
             <Link
-              href={`/${lang}/contact`}
+              href="/contact"
               onClick={() => setOpen(false)}
               className="inline-block rounded-full bg-gold px-7 py-3.5 text-sm font-medium text-bg"
             >

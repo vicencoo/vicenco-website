@@ -223,3 +223,8 @@ select.field option { background: var(--surface); color: var(--ink); }
   0% { transform: translateY(-100%); }
   100% { transform: translateY(200%); }
 }
+
+/* Hidden for a moment while a saved non-English language is applied (see lib/i18n.tsx). */
+html[data-pending] body {
+  opacity: 0;
+}

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import type { Dictionary } from "@/app/[lang]/dictionaries/en";
+import type { Dictionary } from "@/lib/dictionaries/en";
 import { Arrow } from "./Logo";
 
 // No backend needed: the form composes an email in the visitor's mail app.

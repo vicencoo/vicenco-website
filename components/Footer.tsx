@@ -1,15 +1,18 @@
+"use client";
+
 import Link from "next/link";
-import type { Dictionary } from "@/app/[lang]/dictionaries/en";
+import { useLanguage } from "@/lib/i18n";
 import { pageKeys, site } from "@/lib/site";
 import { Logo } from "./Logo";
 
-export function Footer({ lang, t }: { lang: string; t: Dictionary }) {
+export function Footer() {
+  const { t } = useLanguage();
   return (
     <footer className="relative overflow-hidden border-t border-line bg-bg-2">
       <div className="mx-auto max-w-7xl px-5 pt-20 sm:px-8">
         <div className="flex flex-col justify-between gap-10 md:flex-row md:items-end">
           <div>
-            <Link href={`/${lang}`} className="flex items-center gap-3">
+            <Link href="/" className="flex items-center gap-3">
               <Logo />
               <span className="font-serif text-2xl">Vicenco</span>
             </Link>
@@ -17,7 +20,7 @@ export function Footer({ lang, t }: { lang: string; t: Dictionary }) {
           </div>
           <nav className="flex flex-wrap gap-x-8 gap-y-3 text-sm text-muted">
             {pageKeys.map((k) => (
-              <Link key={k} href={`/${lang}/${k}`} className="transition-colors hover:text-gold-2">
+              <Link key={k} href={`/${k}`} className="transition-colors hover:text-gold-2">
                 {t.nav[k]}
               </Link>
             ))}

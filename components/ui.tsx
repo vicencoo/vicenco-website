@@ -1,5 +1,5 @@
 import Link from "next/link";
-import type { Dictionary } from "@/app/[lang]/dictionaries/en";
+import type { Dictionary } from "@/lib/dictionaries/en";
 import { Reveal } from "./Reveal";
 import { Arrow } from "./Logo";
 
@@ -33,14 +33,12 @@ export function SectionHead({
 
 /** Large header at the top of every inner page. */
 export function PageHero({
-  lang,
   home,
   crumb,
   title,
   em,
   lead,
 }: {
-  lang: string;
   home: string;
   crumb: string;
   title: string;
@@ -57,7 +55,7 @@ export function PageHero({
       />
       <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
         <nav className="fade-up flex items-center gap-3 text-[11px] uppercase tracking-[0.3em] text-muted" aria-label="Breadcrumb">
-          <Link href={`/${lang}`} className="transition-colors hover:text-gold-2">
+          <Link href="/" className="transition-colors hover:text-gold-2">
             {home}
           </Link>
           <span className="h-px w-6 bg-gold" />
@@ -94,7 +92,7 @@ export function MoreLink({ href, children }: { href: string; children: React.Rea
 }
 
 /** Closing call-to-action shown at the bottom of most pages. */
-export function CtaBand({ lang, t }: { lang: string; t: Dictionary["cta"] }) {
+export function CtaBand({ t }: { t: Dictionary["cta"] }) {
   return (
     <section className="relative overflow-hidden border-t border-line py-28 sm:py-36">
       <div className="orb left-1/2 top-1/2 h-[460px] w-[460px] -translate-x-1/2 -translate-y-1/2 bg-gold/15" />
@@ -104,7 +102,7 @@ export function CtaBand({ lang, t }: { lang: string; t: Dictionary["cta"] }) {
         </h2>
         <p className="mx-auto mt-6 max-w-lg text-lg text-muted">{t.lead}</p>
         <Link
-          href={`/${lang}/contact`}
+          href="/contact"
           className="group mt-10 inline-flex items-center gap-3 rounded-full bg-gold px-9 py-4 text-sm font-semibold text-bg transition-all duration-500 hover:bg-gold-2 hover:shadow-[0_0_50px_-5px_rgba(201,169,110,0.6)]"
         >
           {t.button}

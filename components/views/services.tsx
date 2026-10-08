@@ -1,17 +1,15 @@
-import { load, pageMetadata } from "../dictionaries";
+"use client";
+
+import { useLanguage } from "@/lib/i18n";
 import { CtaBand, PageHero, SectionHead } from "@/components/ui";
 import { Marquee, ProcessSteps, ServicesGrid } from "@/components/sections";
 
-export function generateMetadata({ params }: PageProps<"/[lang]/services">) {
-  return pageMetadata(params, "services");
-}
-
-export default async function ServicesPage({ params }: PageProps<"/[lang]/services">) {
-  const { lang, t } = await load(params);
+export function ServicesView() {
+  const { t } = useLanguage();
 
   return (
     <>
-      <PageHero lang={lang} home={t.nav.home} crumb={t.nav.services} title={t.services.title} em={t.services.titleEm} lead={t.pages.services} />
+      <PageHero home={t.nav.home} crumb={t.nav.services} title={t.services.title} em={t.services.titleEm} lead={t.pages.services} />
 
       <section className="py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
@@ -30,7 +28,7 @@ export default async function ServicesPage({ params }: PageProps<"/[lang]/servic
         </div>
       </section>
 
-      <CtaBand lang={lang} t={t.cta} />
+      <CtaBand t={t.cta} />
     </>
   );
 }

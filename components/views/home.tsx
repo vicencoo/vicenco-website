@@ -1,13 +1,15 @@
+"use client";
+
+import { useLanguage } from "@/lib/i18n";
 import Link from "next/link";
-import { load } from "./dictionaries";
 import { site } from "@/lib/site";
 import { Arrow } from "@/components/Logo";
 import { Reveal } from "@/components/Reveal";
 import { CtaBand, MoreLink, RotatingBadge, SectionHead } from "@/components/ui";
 import { ManifestoQuote, Marquee, ServicesList, Stats, Values, WorkGrid } from "@/components/sections";
 
-export default async function Home({ params }: PageProps<"/[lang]">) {
-  const { lang, t } = await load(params);
+export function HomeView() {
+  const { t } = useLanguage();
 
   return (
     <>
@@ -44,14 +46,14 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
               </p>
               <div className="fade-up mt-10 flex flex-wrap items-center gap-4" style={{ animationDelay: "850ms" }}>
                 <Link
-                  href={`/${lang}/contact`}
+                  href="/contact"
                   className="group inline-flex items-center gap-3 rounded-full bg-gold px-8 py-4 text-sm font-semibold text-bg transition-all duration-500 hover:bg-gold-2 hover:shadow-[0_0_50px_-5px_rgba(201,169,110,0.6)]"
                 >
                   {t.hero.primary}
                   <Arrow />
                 </Link>
                 <Link
-                  href={`/${lang}/work`}
+                  href="/work"
                   className="inline-flex items-center gap-3 rounded-full border border-line-2 px-8 py-4 text-sm transition-colors duration-500 hover:border-ink"
                 >
                   {t.hero.secondary}
@@ -66,7 +68,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
               </p>
             </div>
 
-            <RotatingBadge text={`${t.hero.eyebrow} • ${site.name} • `} href={`/${lang}/contact`} />
+            <RotatingBadge text={`${t.hero.eyebrow} • ${site.name} • `} href="/contact" />
           </div>
         </div>
 
@@ -90,11 +92,11 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
           <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
             <SectionHead eyebrow={t.services.eyebrow} title={t.services.title} em={t.services.titleEm} lead={t.services.lead} index="01" />
             <Reveal className="shrink-0">
-              <MoreLink href={`/${lang}/services`}>{t.more.services}</MoreLink>
+              <MoreLink href="/services">{t.more.services}</MoreLink>
             </Reveal>
           </div>
           <div className="mt-16">
-            <ServicesList t={t} lang={lang} />
+            <ServicesList t={t} />
           </div>
         </div>
       </section>
@@ -105,7 +107,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
           <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
             <SectionHead eyebrow={t.work.eyebrow} title={t.work.title} em={t.work.titleEm} lead={t.work.lead} index="02" />
             <Reveal className="shrink-0">
-              <MoreLink href={`/${lang}/work`}>{t.more.work}</MoreLink>
+              <MoreLink href="/work">{t.more.work}</MoreLink>
             </Reveal>
           </div>
           <div className="mt-16">
@@ -123,12 +125,12 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
             <Values t={t} />
           </div>
           <Reveal className="mt-14 text-center">
-            <MoreLink href={`/${lang}/about`}>{t.more.about}</MoreLink>
+            <MoreLink href="/about">{t.more.about}</MoreLink>
           </Reveal>
         </div>
       </section>
 
-      <CtaBand lang={lang} t={t.cta} />
+      <CtaBand t={t.cta} />
     </>
   );
 }

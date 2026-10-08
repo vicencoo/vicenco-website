@@ -1,17 +1,15 @@
-import { load, pageMetadata } from "../dictionaries";
+"use client";
+
+import { useLanguage } from "@/lib/i18n";
 import { PageHero, SectionHead } from "@/components/ui";
 import { ContactBlock, FaqList } from "@/components/sections";
 
-export function generateMetadata({ params }: PageProps<"/[lang]/contact">) {
-  return pageMetadata(params, "contact");
-}
-
-export default async function ContactPage({ params }: PageProps<"/[lang]/contact">) {
-  const { lang, t } = await load(params);
+export function ContactView() {
+  const { t } = useLanguage();
 
   return (
     <>
-      <PageHero lang={lang} home={t.nav.home} crumb={t.nav.contact} title={t.contact.title} em={t.contact.titleEm} lead={t.pages.contact} />
+      <PageHero home={t.nav.home} crumb={t.nav.contact} title={t.contact.title} em={t.contact.titleEm} lead={t.pages.contact} />
 
       <section className="relative overflow-hidden py-24 sm:py-32">
         <div className="orb -right-40 top-20 h-[480px] w-[480px] bg-gold/15" />
