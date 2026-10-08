@@ -1,0 +1,242 @@
+import type { Dictionary } from "./en";
+
+export const sq: Dictionary = {
+  meta: {
+    title: "Vicenco — Faqe Interneti & Platforma Dixhitale",
+    description:
+      "Studio dixhitale e pavarur që dizajnon dhe ndërton faqe interneti premium, platforma web dhe dyqane online. Në shqip dhe anglisht.",
+  },
+  nav: {
+    home: "Kryefaqja",
+    services: "Shërbimet",
+    work: "Punët",
+    about: "Rreth meje",
+    contact: "Kontakt",
+    cta: "Fillo një projekt",
+    menu: "Menu",
+    close: "Mbyll",
+  },
+  pages: {
+    services: "Faqe interneti, platforma web, dyqane online, dizajn UI/UX, SEO dhe mirëmbajtje — gjithçka që marka juaj ka nevojë online.",
+    work: "Projekte dhe koncepte të përzgjedhura — secili i dizajnuar dhe ndërtuar nga zero.",
+    about: "Një studio e pavarur e fiksuar pas detajeve, që ndërton përvoja dixhitale premium për marka ambicioze.",
+    contact: "Më tregoni për projektin tuaj — përgjigjem brenda 24 orëve me ide dhe hapat e ardhshëm.",
+  },
+  more: {
+    services: "Shiko të gjitha shërbimet",
+    work: "Shiko të gjitha punët",
+    about: "Më shumë rreth meje",
+  },
+  cta: {
+    title: "Keni një projekt në mendje?",
+    titleEm: "Le të flasim.",
+    lead: "Konsultim falas, ofertë e qartë dhe përgjigje brenda 24 orëve.",
+    button: "Fillo projektin tënd",
+  },
+  about: {
+    eyebrow: "Rreth meje",
+    title: "Një studio me një person,",
+    titleEm: "e ndërtuar mbi mjeshtëri.",
+    lead: "Jam dizajner dhe zhvillues web që beson se një faqe interneti duhet të jetë po aq e menduar sa biznesi pas saj.",
+    storyTitle: "Historia",
+    story: [
+      "Vicenco lindi nga një zhgënjim i thjeshtë: shumë biznese pranojnë faqe që duken si të gjithë të tjerat. Shabllone, faqe të ngadalta dhe dizajne që nuk thonë asgjë për to.",
+      "Prandaj unë punoj ndryshe. Çdo projekt dizajnohet nga një faqe e bardhë dhe ndërtohet me teknologji moderne — i shpejtë, i sigurt dhe i bërë për t'u rritur bashkë me ju. Punoni direkt me mua nga biseda e parë deri në ditën e lansimit dhe më tej.",
+      "Qoftë një biznes lokal në Shqipëri apo një markë kudo në botë, qëllimi im është i njëjtë: një prani dixhitale që jeni krenarë ta ndani.",
+    ],
+    approachTitle: "Si punoj",
+    valuesTitle: "Çfarë mund të prisni",
+  },
+  hero: {
+    eyebrow: "Studio dixhitale e pavarur",
+    titleA: "Faqe interneti & platforma,",
+    titleB: "të punuara si",
+    titleEm: "vepra arti.",
+    lead: "Dizajnoj dhe ndërtoj produkte dixhitale të shpejta, të bukura dhe unike — nga faqe elegante për markën tuaj deri te platforma të plota web — për biznese që nuk pranojnë të duken të zakonshëm.",
+    primary: "Fillo projektin tënd",
+    secondary: "Shiko punët",
+    available: "Aktualisht pranoj projekte të reja",
+    scroll: "Lëviz",
+  },
+  stats: [
+    { value: "100%", label: "Dizajn unik, pa shabllone" },
+    { value: "<1s", label: "Synimi i kohës së ngarkimit" },
+    { value: "95+", label: "Synimi i performancës Lighthouse" },
+    { value: "SQ · EN", label: "Komunikim në dy gjuhë" },
+  ],
+  marquee: [
+    "Faqe për marka",
+    "Platforma web",
+    "Dyqane online",
+    "Panele administrimi",
+    "Landing page",
+    "Dizajn UI / UX",
+    "SEO",
+    "Sisteme rezervimi",
+  ],
+  services: {
+    eyebrow: "Shërbimet",
+    title: "Gjithçka që marka juaj ka nevojë",
+    titleEm: "online.",
+    lead: "Një partner i vetëm nga skica e parë deri te lansimi dhe më tej. Pa ndërmjetës, pa agjenci — vetëm punë e përkushtuar.",
+    items: [
+      {
+        title: "Faqe Premium",
+        text: "Faqe interneti të personalizuara për marka dhe biznese, me dizajn të rafinuar, animacione të buta dhe performancë të përsosur në çdo pajisje.",
+        tags: ["Dizajn", "Next.js", "CMS"],
+      },
+      {
+        title: "Platforma & Aplikacione Web",
+        text: "Platforma të personalizuara, portale për klientë, panele dhe sisteme rezervimi — të ndërtuara për t'u rritur bashkë me biznesin tuaj.",
+        tags: ["SaaS", "Llogari", "Databaza"],
+      },
+      {
+        title: "Dyqane Online",
+        text: "Dyqane online që ndihen luksoze dhe shesin — pagesë e shpejtë, pagesa me kartë, inventar dhe statistika.",
+        tags: ["Stripe", "Pagesa", "Katalog"],
+      },
+      {
+        title: "Dizajn UI / UX",
+        text: "Ndërfaqe të dizajnuara me qëllim: hierarki e qartë, tipografi e kujdesshme dhe përvoja që njerëzit i shijojnë.",
+        tags: ["Wireframe", "Prototipe", "Sisteme"],
+      },
+      {
+        title: "SEO & Performancë",
+        text: "SEO teknike, Core Web Vitals dhe të dhëna të strukturuara që faqja juaj të gjendet — dhe të hapet menjëherë.",
+        tags: ["Core Web Vitals", "Metadata", "Analitikë"],
+      },
+      {
+        title: "Mirëmbajtje & Kujdes",
+        text: "Përditësime, hosting, siguri dhe funksione të reja pas lansimit, që prania juaj dixhitale të përmirësohet vazhdimisht.",
+        tags: ["Hosting", "Siguri", "Mbështetje"],
+      },
+    ],
+  },
+  work: {
+    eyebrow: "Punë të përzgjedhura",
+    title: "Ndërtuar me",
+    titleEm: "pasion.",
+    lead: "Një përzgjedhje projektesh dhe konceptesh në industri të ndryshme. Secili dizajnohet dhe ndërtohet nga zero.",
+    view: "Shiko projektin",
+    items: [
+      {
+        name: "Maison Lumière",
+        category: "Mikpritje · Faqe interneti",
+        text: "Një përvojë zhytëse për një hotel butik, me rezervim online dhe përmbajtje shumëgjuhëshe.",
+        year: "Koncept",
+      },
+      {
+        name: "Atelier Noir",
+        category: "Modë · Dyqan online",
+        text: "Dyqan online editorial me prezantim kinematografik të produkteve dhe pagesë pa pengesa.",
+        year: "Koncept",
+      },
+      {
+        name: "Nexa Dashboard",
+        category: "SaaS · Platformë",
+        text: "Platformë analitike me të dhëna në kohë reale, llogari ekipi dhe akses sipas roleve.",
+        year: "Koncept",
+      },
+      {
+        name: "Vicenco Studio",
+        category: "Markë · Faqe interneti",
+        text: "Pikërisht kjo faqe — dygjuhëshe, e ndërtuar me dorë dhe e optimizuar për shpejtësi dhe detaje.",
+        year: "2026",
+      },
+    ],
+  },
+  process: {
+    eyebrow: "Procesi",
+    title: "Nga ideja te lansimi,",
+    titleEm: "pa asnjë pengesë.",
+    steps: [
+      {
+        title: "Zbulim",
+        text: "Flasim për qëllimet, audiencën dhe vizionin tuaj. Përcaktoj qartë fushën, afatet dhe ofertën.",
+        time: "Java 1",
+      },
+      {
+        title: "Dizajn",
+        text: "Moodboard, struktura dhe një dizajn i detajuar që ju e miratoni para se të shkruhet kodi.",
+        time: "Java 1–2",
+      },
+      {
+        title: "Zhvillim",
+        text: "Kod i pastër dhe modern. I përshtatshëm për çdo ekran, i aksesueshëm dhe i shpejtë — me pamje paraprake të rregullta.",
+        time: "Java 2–4",
+      },
+      {
+        title: "Lansim & Rritje",
+        text: "Domain, hosting, SEO dhe analitikë të konfiguruara. Pastaj mbështetje e vazhdueshme ndërsa biznesi rritet.",
+        time: "Vazhdimisht",
+      },
+    ],
+  },
+  manifesto: {
+    quote: "Faqja juaj është shtrëngimi i parë i dorës me çdo klient. Duhet të ndihet",
+    quoteEm: "e paharrueshme.",
+    values: [
+      { title: "Bashkëpunim i drejtpërdrejtë", text: "Punoni direkt me mua — pa ndërmjetës, pa mesazhe të humbura." },
+      { title: "Obsesion për detajet", text: "Çdo piksel, ndërveprim dhe milisekondë mendohet me kujdes." },
+      { title: "E ndërtuar për të zgjatur", text: "Teknologji moderne që mbetet e shpejtë, e sigurt dhe e lehtë për t'u zgjeruar." },
+      { title: "Transparencë", text: "Çmime të qarta, afate të qarta, pa surpriza." },
+    ],
+  },
+  faq: {
+    eyebrow: "Pyetje",
+    title: "Pyetje,",
+    titleEm: "të përgjigjura.",
+    items: [
+      {
+        q: "Sa kohë duhet për një faqe interneti?",
+        a: "Një faqe më e vogël zakonisht merr 1–2 javë; një faqe e plotë premium 3–5 javë. Platformat dhe dyqanet online varen nga fusha — do të merrni afat të saktë në ofertë.",
+      },
+      {
+        q: "A do të mund ta ndryshoj vetë përmbajtjen?",
+        a: "Po. Mund të lidh një sistem të thjeshtë menaxhimi përmbajtjeje që të përditësoni tekste, foto dhe produkte pa prekur kodin.",
+      },
+      {
+        q: "A merreni me domain dhe hosting?",
+        a: "Patjetër. Mund të konfiguroj domainin, email profesional, hostingun dhe SSL, ose të punoj me atë që keni tashmë.",
+      },
+      {
+        q: "A punoni me klientë jashtë Shqipërisë?",
+        a: "Po — punoj në distancë me klientë kudo, në shqip ose anglisht.",
+      },
+      {
+        q: "Si funksionon pagesa?",
+        a: "Zakonisht 50% në fillim dhe 50% në lansim. Për projekte më të mëdha mund ta ndajmë pagesën sipas fazave.",
+      },
+      {
+        q: "Çfarë ndodh pas lansimit?",
+        a: "Merrni mbështetje të përfshirë në paketë, si dhe plane mujore opsionale për përditësime, backup dhe funksione të reja.",
+      },
+    ],
+  },
+  contact: {
+    eyebrow: "Kontakt",
+    title: "Le të krijojmë diçka",
+    titleEm: "të jashtëzakonshme.",
+    lead: "Më tregoni për projektin tuaj. Përgjigjem brenda 24 orëve me ide dhe hapat e ardhshëm.",
+    name: "Emri juaj",
+    email: "Adresa e email-it",
+    type: "Lloji i projektit",
+    types: ["Faqe interneti", "Platformë web / Aplikacion", "Dyqan online", "Ridizajnim", "Tjetër"],
+    budget: "Buxheti",
+    budgets: ["< €1,000", "€1,000 – €3,000", "€3,000 – €7,000", "€7,000+"],
+    message: "Më tregoni për projektin tuaj",
+    send: "Dërgo mesazhin",
+    sent: "Po hapet aplikacioni i email-it…",
+    or: "Ose më kontaktoni direkt",
+    emailLabel: "Email",
+    whatsapp: "WhatsApp",
+    instagram: "Instagram",
+    subject: "Kërkesë për projekt të ri",
+  },
+  footer: {
+    tagline: "Faqe interneti & platforma dixhitale, të punuara me qëllim.",
+    rights: "Të gjitha të drejtat e rezervuara.",
+    made: "Dizajnuar & ndërtuar nga Vicenco",
+    top: "Kthehu lart",
+  },
+};

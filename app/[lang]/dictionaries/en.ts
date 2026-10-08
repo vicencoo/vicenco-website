@@ -1,0 +1,242 @@
+export const en = {
+  meta: {
+    title: "Vicenco — Websites & Digital Platforms, Crafted",
+    description:
+      "Independent digital studio designing and building premium websites, web platforms and e-commerce experiences. Available in English and Albanian.",
+  },
+  nav: {
+    home: "Home",
+    services: "Services",
+    work: "Work",
+    about: "About",
+    contact: "Contact",
+    cta: "Start a project",
+    menu: "Menu",
+    close: "Close",
+  },
+  pages: {
+    services: "Websites, web platforms, e-commerce, UI/UX design, SEO and maintenance — everything your brand needs online.",
+    work: "Selected projects and concepts — every one designed and engineered from scratch.",
+    about: "An independent studio obsessed with detail, building premium digital experiences for ambitious brands.",
+    contact: "Tell me about your project — I reply within 24 hours with ideas and next steps.",
+  },
+  more: {
+    services: "Explore all services",
+    work: "View all work",
+    about: "More about me",
+  },
+  cta: {
+    title: "Have a project in mind?",
+    titleEm: "Let's talk.",
+    lead: "Free consultation, a clear proposal and a reply within 24 hours.",
+    button: "Start your project",
+  },
+  about: {
+    eyebrow: "About",
+    title: "A studio of one,",
+    titleEm: "built on craft.",
+    lead: "I'm a web designer and developer who believes a website should feel as considered as the business behind it.",
+    storyTitle: "The story",
+    story: [
+      "Vicenco started from a simple frustration: too many businesses settle for websites that look like everyone else's. Templates, slow pages, and designs that say nothing about who they are.",
+      "So I do it differently. Every project is designed from a blank page and built with modern technology — fast, secure, and made to grow with you. You work directly with me from the first conversation to launch day and beyond.",
+      "Whether you're a local business in Albania or a brand anywhere in the world, my goal is the same: a digital presence you're proud to share.",
+    ],
+    approachTitle: "How I work",
+    valuesTitle: "What you can expect",
+  },
+  hero: {
+    eyebrow: "Independent digital studio",
+    titleA: "Websites & platforms,",
+    titleB: "crafted like",
+    titleEm: "fine objects.",
+    lead: "I design and build fast, beautiful, custom digital products — from elegant brand websites to full web platforms — for businesses that refuse to look ordinary.",
+    primary: "Start your project",
+    secondary: "See the work",
+    available: "Currently accepting new projects",
+    scroll: "Scroll",
+  },
+  stats: [
+    { value: "100%", label: "Custom design, no templates" },
+    { value: "<1s", label: "Target load time" },
+    { value: "95+", label: "Lighthouse performance goal" },
+    { value: "EN · SQ", label: "Bilingual communication" },
+  ],
+  marquee: [
+    "Brand websites",
+    "Web platforms",
+    "E-commerce",
+    "Dashboards",
+    "Landing pages",
+    "UI / UX design",
+    "SEO",
+    "Booking systems",
+  ],
+  services: {
+    eyebrow: "Services",
+    title: "Everything your brand needs",
+    titleEm: "online.",
+    lead: "One partner from first sketch to launch and beyond. No hand-offs, no agency layers — just focused craft.",
+    items: [
+      {
+        title: "Premium Websites",
+        text: "Bespoke brand and business websites with refined design, smooth motion and flawless performance on every device.",
+        tags: ["Design", "Next.js", "CMS"],
+      },
+      {
+        title: "Web Platforms & Apps",
+        text: "Custom platforms, client portals, dashboards and booking systems — built to scale with your business.",
+        tags: ["SaaS", "Auth", "Databases"],
+      },
+      {
+        title: "E-commerce",
+        text: "Online stores that feel luxurious and convert — fast checkout, payments, inventory and analytics.",
+        tags: ["Stripe", "Payments", "Catalog"],
+      },
+      {
+        title: "UI / UX Design",
+        text: "Interfaces designed with intent: clear hierarchy, considered typography and experiences people enjoy using.",
+        tags: ["Wireframes", "Prototypes", "Systems"],
+      },
+      {
+        title: "SEO & Performance",
+        text: "Technical SEO, Core Web Vitals and structured data so your site is found — and loads instantly when it is.",
+        tags: ["Core Web Vitals", "Metadata", "Analytics"],
+      },
+      {
+        title: "Care & Maintenance",
+        text: "Updates, hosting, security and new features after launch, so your digital presence keeps improving.",
+        tags: ["Hosting", "Security", "Support"],
+      },
+    ],
+  },
+  work: {
+    eyebrow: "Selected work",
+    title: "Built with",
+    titleEm: "obsession.",
+    lead: "A selection of projects and concepts across industries. Each one is designed and engineered from scratch.",
+    view: "View project",
+    items: [
+      {
+        name: "Maison Lumière",
+        category: "Hospitality · Website",
+        text: "An immersive boutique-hotel experience with online booking and multilingual content.",
+        year: "Concept",
+      },
+      {
+        name: "Atelier Noir",
+        category: "Fashion · E-commerce",
+        text: "Editorial online store with a cinematic product presentation and seamless checkout.",
+        year: "Concept",
+      },
+      {
+        name: "Nexa Dashboard",
+        category: "SaaS · Platform",
+        text: "Analytics platform with real-time data, team accounts and role-based access.",
+        year: "Concept",
+      },
+      {
+        name: "Vicenco Studio",
+        category: "Brand · Website",
+        text: "This very website — bilingual, hand-built and tuned for speed and detail.",
+        year: "2026",
+      },
+    ],
+  },
+  process: {
+    eyebrow: "Process",
+    title: "From idea to launch,",
+    titleEm: "without friction.",
+    steps: [
+      {
+        title: "Discover",
+        text: "We talk about your goals, audience and vision. I map out scope, timeline and a clear proposal.",
+        time: "Week 1",
+      },
+      {
+        title: "Design",
+        text: "Moodboards, layouts and a high-fidelity design you approve before a single line of code.",
+        time: "Week 1–2",
+      },
+      {
+        title: "Develop",
+        text: "Clean, modern code. Responsive, accessible, fast — with regular previews so you see progress live.",
+        time: "Week 2–4",
+      },
+      {
+        title: "Launch & Grow",
+        text: "Domain, hosting, SEO and analytics set up. Then ongoing support as your business grows.",
+        time: "Ongoing",
+      },
+    ],
+  },
+  manifesto: {
+    quote: "Your website is the first handshake with every client. It should feel",
+    quoteEm: "unforgettable.",
+    values: [
+      { title: "Direct collaboration", text: "You work with me directly — no middlemen, no lost messages." },
+      { title: "Detail-obsessed", text: "Every pixel, interaction and millisecond is considered." },
+      { title: "Built to last", text: "Modern technology that stays fast, secure and easy to grow." },
+      { title: "Transparent", text: "Clear pricing, clear timelines, no surprises." },
+    ],
+  },
+  faq: {
+    eyebrow: "FAQ",
+    title: "Questions,",
+    titleEm: "answered.",
+    items: [
+      {
+        q: "How long does a website take?",
+        a: "A smaller website usually takes 1–2 weeks; a complete premium website 3–5 weeks. Platforms and e-commerce depend on scope — you'll get a precise timeline in the proposal.",
+      },
+      {
+        q: "Will I be able to edit the content myself?",
+        a: "Yes. I can connect a simple content management system so you can update text, images and products without touching code.",
+      },
+      {
+        q: "Do you handle domain and hosting?",
+        a: "Absolutely. I can set up your domain, professional email, hosting and SSL, or work with what you already have.",
+      },
+      {
+        q: "Do you work with clients outside Albania?",
+        a: "Yes — I work remotely with clients everywhere, in English or Albanian.",
+      },
+      {
+        q: "How does payment work?",
+        a: "Typically 50% to start and 50% at launch. For larger projects we can split payments by milestones.",
+      },
+      {
+        q: "What happens after launch?",
+        a: "You get support included with your package, and optional monthly care plans for updates, backups and new features.",
+      },
+    ],
+  },
+  contact: {
+    eyebrow: "Contact",
+    title: "Let's create something",
+    titleEm: "remarkable.",
+    lead: "Tell me about your project. I reply within 24 hours with ideas and next steps.",
+    name: "Your name",
+    email: "Email address",
+    type: "Project type",
+    types: ["Website", "Web platform / App", "E-commerce", "Redesign", "Other"],
+    budget: "Budget",
+    budgets: ["< €1,000", "€1,000 – €3,000", "€3,000 – €7,000", "€7,000+"],
+    message: "Tell me about your project",
+    send: "Send message",
+    sent: "Opening your email app…",
+    or: "Or reach me directly",
+    emailLabel: "Email",
+    whatsapp: "WhatsApp",
+    instagram: "Instagram",
+    subject: "New project inquiry",
+  },
+  footer: {
+    tagline: "Websites & digital platforms, crafted with intent.",
+    rights: "All rights reserved.",
+    made: "Designed & built by Vicenco",
+    top: "Back to top",
+  },
+};
+
+export type Dictionary = typeof en;
