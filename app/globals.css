@@ -8,7 +8,7 @@
   --line-2: rgba(237, 232, 223, 0.16);
   --ink: #ede8df;
   --muted: #9b958b;
-  --faint: #5f5a52;
+  --faint: #7a746b;
   --gold: #c9a96e;
   --gold-2: #ecd9ae;
   --gold-3: #8a6d3b;
@@ -194,19 +194,38 @@ details[open] .faq-q { color: var(--gold-2); }
 /* Form fields */
 .field {
   width: 100%;
-  background: transparent;
-  border: 0;
-  border-bottom: 1px solid var(--line-2);
-  padding: 0.9rem 0;
+  background-color: rgba(237, 232, 223, 0.03);
+  border: 1px solid var(--line-2);
+  border-radius: 0.9rem;
+  padding: 0.85rem 1rem;
   color: var(--ink);
   outline: none;
-  transition: border-color 0.3s;
-  border-radius: 0;
+  transition: border-color 0.3s, box-shadow 0.3s, background-color 0.3s;
 }
 .field::placeholder { color: var(--faint); }
-.field:focus { border-color: var(--gold); }
-select.field { appearance: none; cursor: pointer; }
+.field:hover { border-color: rgba(237, 232, 223, 0.28); }
+.field:focus {
+  border-color: var(--gold);
+  background-color: rgba(237, 232, 223, 0.05);
+  box-shadow: 0 0 0 3px rgba(201, 169, 110, 0.15);
+}
+select.field {
+  appearance: none;
+  cursor: pointer;
+  padding-right: 2.75rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 12 12%27 fill=%27none%27 stroke=%27%23c9a96e%27 stroke-width=%271.6%27%3E%3Cpath d=%27M2.5 4.5 6 8l3.5-3.5%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 12px;
+}
 select.field option { background: var(--surface); color: var(--ink); }
+
+/* Visible focus for keyboard users */
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+.field:focus-visible { outline: none; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {

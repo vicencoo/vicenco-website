@@ -6,6 +6,7 @@ import { site } from "@/lib/site";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { Spotlight } from "@/components/Spotlight";
+import { WhatsAppButton } from "@/components/WhatsAppButton";
 import "./globals.css";
 
 const serif = Instrument_Serif({
@@ -51,6 +52,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Nav />
           <main>{children}</main>
           <Footer />
+          <WhatsAppButton />
         </LanguageProvider>
       </body>
     </html>

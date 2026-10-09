@@ -1,4 +1,5 @@
-// Your contact details — edit these and they update everywhere on the site.
+// Your company and contact details — edit these and they update everywhere on the site.
+// `name` is used in every page text (EN + SQ), the nav, footer and page titles.
 export const site = {
   name: "Vicenco",
   email: "hello@vicenco.com",

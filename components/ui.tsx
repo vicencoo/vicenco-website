@@ -131,9 +131,9 @@ export function RotatingBadge({ text, href }: { text: string; href: string }) {
   );
 }
 
-export function Star() {
+export function Star({ className = "h-6 w-6" }: { className?: string }) {
   return (
-    <svg viewBox="0 0 24 24" className="h-6 w-6 shrink-0 text-gold" fill="currentColor" aria-hidden>
+    <svg viewBox="0 0 24 24" className={`${className} shrink-0 text-gold`} fill="currentColor" aria-hidden>
       <path d="M12 0 C12.6 7.2 16.8 11.4 24 12 C16.8 12.6 12.6 16.8 12 24 C11.4 16.8 7.2 12.6 0 12 C7.2 11.4 11.4 7.2 12 0Z" />
     </svg>
   );
@@ -166,10 +166,28 @@ export function ServiceIcon({ index }: { index: number }) {
     // care
     <><path d="M16 27 C6 20 4 15 4 11.5 A6 6 0 0 1 16 9 a6 6 0 0 1 12 2.5 C28 15 26 20 16 27Z" /></>,
   ];
+  return <IconTile>{paths[index % paths.length]}</IconTile>;
+}
+
+export function StepIcon({ index }: { index: number }) {
+  const paths = [
+    // discover
+    <><path d="M5 8a3 3 0 0 1 3-3h16a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3H13l-6 5v-5H8a3 3 0 0 1-3-3Z" /><path d="M11 11.5h10M11 15.5h6" /></>,
+    // design
+    <><rect x="4" y="5" width="24" height="22" rx="2.5" /><path d="M4 11h24M12 11v16" /></>,
+    // develop
+    <><path d="M11 10 5 16l6 6M21 10l6 6-6 6M18 7l-4 18" /></>,
+    // launch
+    <><path d="M16 4c5 3 7.5 8 6.2 14.5L19.5 21h-7l-2.7-2.5C8.5 12 11 7 16 4Z" /><circle cx="16" cy="12.5" r="2.5" /><path d="M10 17.5 6 21l1.5 4.5 4.5-3M22 17.5l4 3.5-1.5 4.5-4.5-3M14 24.5l2 3.5 2-3.5" /></>,
+  ];
+  return <IconTile>{paths[index % paths.length]}</IconTile>;
+}
+
+function IconTile({ children }: { children: React.ReactNode }) {
   return (
-    <span className="flex h-14 w-14 items-center justify-center rounded-2xl border border-line-2 bg-bg-2 text-gold transition-all duration-500 group-hover:border-gold/50 group-hover:shadow-[0_0_30px_-8px_rgba(201,169,110,0.5)]">
+    <span className="relative flex h-14 w-14 items-center justify-center rounded-2xl border border-line-2 bg-bg-2 text-gold transition-all duration-500 group-hover:border-gold/50 group-hover:shadow-[0_0_30px_-8px_rgba(201,169,110,0.5)]">
       <svg viewBox="0 0 32 32" className="h-7 w-7" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-        {paths[index % paths.length]}
+        {children}
       </svg>
     </span>
   );

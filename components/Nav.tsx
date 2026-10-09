@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { languages, setLanguage, useLanguage } from "@/lib/i18n";
-import { pageKeys } from "@/lib/site";
+import { pageKeys, site } from "@/lib/site";
 import { Logo } from "./Logo";
 
 export function Nav() {
@@ -32,8 +32,8 @@ export function Nav() {
     document.body.style.overflow = open ? "hidden" : "";
   }, [open]);
 
-  const links = pageKeys.map((k) => ({ href: `/${k}`, label: t[k] }));
-  const isActive = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
+  const links = [{ href: "/", label: t.home }, ...pageKeys.map((k) => ({ href: `/${k}`, label: t[k] }))];
+  const isActive = (href: string) => pathname === href || (href !== "/" && pathname.startsWith(`${href}/`));
 
   return (
     <header
@@ -41,13 +41,13 @@ export function Nav() {
         scrolled || open ? "border-b border-line bg-bg/80 backdrop-blur-xl" : "border-b border-transparent"
       }`}
     >
-      <nav className="mx-auto flex h-18 max-w-7xl items-center justify-between px-5 sm:px-8">
+      <nav className="mx-auto flex h-18 max-w-[1600px] items-center justify-between px-5 sm:px-8 lg:px-12 xl:px-16">
         <Link href="/" className="flex items-center gap-3">
           <Logo />
-          <span className="font-serif text-2xl tracking-wide">Vicenco</span>
+          <span className="font-serif text-2xl tracking-wide">{site.name}</span>
         </Link>
 
-        <ul className="hidden items-center gap-9 lg:flex">
+        <ul className="hidden items-center gap-9 lg:flex xl:gap-11">
           {links.map((l) => (
             <li key={l.href}>
               <Link
@@ -63,7 +63,7 @@ export function Nav() {
           ))}
         </ul>
 
-        <div className="flex items-center gap-3 sm:gap-5">
+        <div className="flex items-center gap-3 sm:gap-5 lg:gap-6">
           <div className="flex items-center rounded-full border border-line p-1 text-[11px] font-medium tracking-[0.15em]">
             {languages.map((l) => (
               <button
@@ -82,7 +82,7 @@ export function Nav() {
           </div>
           <Link
             href="/contact"
-            className="hidden rounded-full border border-gold/40 px-5 py-2.5 text-[13px] tracking-wide text-gold-2 transition-all duration-500 hover:border-gold hover:bg-gold hover:text-bg sm:inline-block"
+            className="hidden rounded-full border border-gold/40 px-5 py-2.5 text-[13px] lg:px-6 lg:py-3 tracking-wide text-gold-2 transition-all duration-500 hover:border-gold hover:bg-gold hover:text-bg sm:inline-block"
           >
             {t.cta}
           </Link>
@@ -106,16 +106,15 @@ export function Nav() {
         }`}
       >
         <ul className="flex h-[calc(100svh-4.5rem)] flex-col justify-center gap-2 px-6 pb-20">
-          {[{ href: "/", label: t.home }, ...links].map((l, i) => (
+          {links.map((l) => (
             <li key={l.href}>
               <Link
                 href={l.href}
                 onClick={() => setOpen(false)}
-                className={`flex items-baseline gap-4 border-b border-line py-4 font-serif text-4xl ${
+                className={`block border-b border-line py-4 font-serif text-4xl ${
                   pathname === l.href ? "text-gold-2" : ""
                 }`}
               >
-                <span className="font-sans text-xs text-gold">0{i + 1}</span>
                 {l.label}
               </Link>
             </li>

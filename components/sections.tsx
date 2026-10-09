@@ -3,9 +3,9 @@ import type { Dictionary } from "@/lib/dictionaries/en";
 import { site } from "@/lib/site";
 import { Reveal } from "./Reveal";
 import { ContactForm } from "./ContactForm";
-import { ProjectVisual } from "./ProjectVisual";
+import Image from "next/image";
 import { Arrow, Logo } from "./Logo";
-import { Check, ServiceIcon, Star } from "./ui";
+import { Check, ServiceIcon, Star, StepIcon } from "./ui";
 
 export function Stats({ t }: { t: Dictionary }) {
   return (
@@ -28,12 +28,12 @@ export function Stats({ t }: { t: Dictionary }) {
 
 export function Marquee({ t }: { t: Dictionary }) {
   return (
-    <div className="marquee overflow-hidden border-b border-line py-8" aria-hidden>
+    <div className="marquee overflow-hidden border-b border-line py-4 sm:py-5" aria-hidden>
       <div className="marquee-track flex w-max">
         {[...t.marquee, ...t.marquee].map((item, i) => (
-          <span key={i} className="flex items-center gap-10 pr-10 font-serif text-4xl italic text-ink/80 sm:text-5xl">
+          <span key={i} className="flex items-center gap-5 pr-5 font-serif text-lg italic text-ink/75 sm:gap-6 sm:pr-6 sm:text-xl">
             {item}
-            <Star />
+            <Star className="h-3 w-3" />
           </span>
         ))}
       </div>
@@ -55,7 +55,7 @@ export function ServicesGrid({ t }: { t: Dictionary }) {
             <p className="mt-4 flex-1 leading-relaxed text-muted">{s.text}</p>
             <ul className="mt-8 flex flex-wrap gap-2">
               {s.tags.map((tag) => (
-                <li key={tag} className="rounded-full border border-line-2 px-3 py-1 text-[11px] tracking-wide text-muted">
+                <li key={tag} className="rounded-full border border-line-2 px-3 py-1 text-xs tracking-wide text-muted">
                   {tag}
                 </li>
               ))}
@@ -100,10 +100,23 @@ export function WorkGrid({ t, limit }: { t: Dictionary; limit?: number }) {
     <div className="grid gap-6 md:grid-cols-2 lg:gap-8">
       {items.map((p, i) => (
         <Reveal key={p.name} delay={(i % 2) * 150} className={i % 2 === 1 ? "md:mt-20" : ""}>
-          <article className="group">
+          <a
+            href={p.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`${p.name} — ${t.work.view}`}
+            className="group block"
+          >
             <div className="gold-border relative aspect-[4/3.2] overflow-hidden rounded-3xl">
-              <ProjectVisual index={i} />
-              <div className="absolute left-5 top-5 z-10 rounded-full border border-white/15 bg-black/40 px-3 py-1 text-[10px] uppercase tracking-[0.2em] text-white/80 backdrop-blur">
+              <Image
+                src={p.image}
+                alt={p.name}
+                fill
+                sizes="(min-width: 768px) 50vw, 100vw"
+                className="object-cover transition-transform duration-[1.2s] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]"
+              />
+              <div className="absolute left-5 top-5 z-10 flex items-center gap-2 rounded-full border border-white/15 bg-black/40 px-3 py-1 text-[10px] uppercase tracking-[0.2em] text-white/80 backdrop-blur">
+                <span className="h-1.5 w-1.5 rounded-full bg-[#28c840]" />
                 {p.year}
               </div>
             </div>
@@ -117,7 +130,7 @@ export function WorkGrid({ t, limit }: { t: Dictionary; limit?: number }) {
                 <Arrow />
               </span>
             </div>
-          </article>
+          </a>
         </Reveal>
       ))}
     </div>
@@ -126,17 +139,27 @@ export function WorkGrid({ t, limit }: { t: Dictionary; limit?: number }) {
 
 export function ProcessSteps({ t }: { t: Dictionary }) {
   return (
-    <div className="relative grid gap-12 md:grid-cols-2 lg:grid-cols-4 lg:gap-8">
-      <div className="absolute left-0 right-0 top-7 hidden h-px bg-gradient-to-r from-gold/0 via-gold/50 to-gold/0 lg:block" aria-hidden />
+    <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
       {t.process.steps.map((s, i) => (
-        <Reveal key={s.title} delay={i * 150} className="relative">
-          <div className="relative flex h-14 w-14 items-center justify-center rounded-full border border-gold/50 bg-bg font-serif text-xl text-gold-2">
-            {i + 1}
-            <span className="absolute inset-0 rounded-full border border-gold/20 [animation:ping_3s_cubic-bezier(0,0,0.2,1)_infinite]" />
-          </div>
-          <p className="mt-8 text-[11px] uppercase tracking-[0.25em] text-gold">{s.time}</p>
-          <h3 className="mt-2 font-serif text-3xl">{s.title}</h3>
-          <p className="mt-3 leading-relaxed text-muted">{s.text}</p>
+        <Reveal key={s.title} delay={i * 120} className="h-full">
+          <article className="spotlight group relative flex h-full flex-col overflow-hidden rounded-3xl border border-line bg-surface/60 p-7 transition-all duration-500 hover:-translate-y-1 hover:border-gold/40 sm:p-8">
+            <span
+              className="pointer-events-none absolute -right-1 -top-5 select-none font-serif text-[7.5rem] leading-none text-ink/[0.04] transition-colors duration-500 group-hover:text-gold/10"
+              aria-hidden
+            >
+              0{i + 1}
+            </span>
+            <StepIcon index={i} />
+            <p className="mt-8 text-[11px] uppercase tracking-[0.25em] text-gold">
+              {t.process.step} 0{i + 1}
+            </p>
+            <h3 className="mt-2 font-serif text-3xl">{s.title}</h3>
+            <p className="mt-3 leading-relaxed text-muted">{s.text}</p>
+            <span
+              className="absolute inset-x-0 bottom-0 h-px origin-left scale-x-0 bg-gradient-to-r from-gold to-gold-2 transition-transform duration-700 group-hover:scale-x-100"
+              aria-hidden
+            />
+          </article>
         </Reveal>
       ))}
     </div>
@@ -196,7 +219,14 @@ export function ContactBlock({ t }: { t: Dictionary }) {
   return (
     <div className="relative grid gap-16 lg:grid-cols-[1fr_1.15fr]">
       <Reveal>
-        <p className="max-w-md text-lg leading-relaxed text-muted">{t.contact.lead}</p>
+        <ul className="space-y-4">
+          {t.contact.promises.map((p) => (
+            <li key={p} className="flex items-center gap-4 text-lg">
+              <Check />
+              {p}
+            </li>
+          ))}
+        </ul>
         <p className="mt-14 text-[11px] uppercase tracking-[0.25em] text-faint">{t.contact.or}</p>
         <ul className="mt-5 space-y-1">
           <ContactLink label={t.contact.emailLabel} value={site.email} href={`mailto:${site.email}`} />

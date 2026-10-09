@@ -25,7 +25,7 @@ export function ContactForm({ t, email }: { t: Dictionary["contact"]; email: str
   }
 
   return (
-    <form onSubmit={onSubmit} className="grid gap-x-8 gap-y-7 sm:grid-cols-2">
+    <form onSubmit={onSubmit} className="grid gap-x-5 gap-y-6 sm:grid-cols-2">
       <Field label={t.name}>
         <input name="name" required autoComplete="name" className="field" />
       </Field>
@@ -47,7 +47,7 @@ export function ContactForm({ t, email }: { t: Dictionary["contact"]; email: str
         </select>
       </Field>
       <Field label={t.message} className="sm:col-span-2">
-        <textarea name="message" required rows={4} className="field resize-none" />
+        <textarea name="message" required rows={5} placeholder={t.messagePlaceholder} className="field resize-none" />
       </Field>
       <div className="flex flex-wrap items-center gap-5 pt-2 sm:col-span-2">
         <button
@@ -68,7 +68,7 @@ export function ContactForm({ t, email }: { t: Dictionary["contact"]; email: str
 function Field({ label, children, className = "" }: { label: string; children: React.ReactNode; className?: string }) {
   return (
     <label className={`block ${className}`}>
-      <span className="text-[11px] uppercase tracking-[0.2em] text-muted">{label}</span>
+      <span className="mb-2.5 block text-[11px] uppercase tracking-[0.2em] text-muted">{label}</span>
       {children}
     </label>
   );

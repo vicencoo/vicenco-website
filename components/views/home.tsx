@@ -6,7 +6,14 @@ import { site } from "@/lib/site";
 import { Arrow } from "@/components/Logo";
 import { Reveal } from "@/components/Reveal";
 import { CtaBand, MoreLink, RotatingBadge, SectionHead } from "@/components/ui";
-import { ManifestoQuote, Marquee, ServicesList, Stats, Values, WorkGrid } from "@/components/sections";
+import {
+  ManifestoQuote,
+  Marquee,
+  ServicesList,
+  Stats,
+  Values,
+  WorkGrid,
+} from "@/components/sections";
 
 export function HomeView() {
   const { t } = useLanguage();
@@ -23,7 +30,10 @@ export function HomeView() {
         />
 
         <div className="relative mx-auto w-full max-w-7xl px-5 sm:px-8">
-          <div className="fade-up flex items-center gap-3 text-[11px] uppercase tracking-[0.3em] text-muted" style={{ animationDelay: "100ms" }}>
+          <div
+            className="fade-up flex items-center gap-3 text-[11px] uppercase tracking-[0.3em] text-muted"
+            style={{ animationDelay: "100ms" }}
+          >
             <span className="h-px w-10 bg-gold" />
             {t.hero.eyebrow}
           </div>
@@ -34,17 +44,24 @@ export function HomeView() {
             </span>
             <span className="line-reveal">
               <span style={{ animationDelay: "350ms" }}>
-                {t.hero.titleB} <em className="text-gold-gradient pr-2">{t.hero.titleEm}</em>
+                {t.hero.titleB}{" "}
+                <em className="text-gold-gradient pr-2">{t.hero.titleEm}</em>
               </span>
             </span>
           </h1>
 
           <div className="mt-12 grid items-end gap-10 lg:grid-cols-[1fr_auto]">
             <div>
-              <p className="fade-up max-w-xl text-lg leading-relaxed text-muted sm:text-xl" style={{ animationDelay: "700ms" }}>
+              <p
+                className="fade-up max-w-xl text-lg leading-relaxed text-muted sm:text-xl"
+                style={{ animationDelay: "700ms" }}
+              >
                 {t.hero.lead}
               </p>
-              <div className="fade-up mt-10 flex flex-wrap items-center gap-4" style={{ animationDelay: "850ms" }}>
+              <div
+                className="fade-up mt-10 flex flex-wrap items-center gap-4"
+                style={{ animationDelay: "850ms" }}
+              >
                 <Link
                   href="/contact"
                   className="group inline-flex items-center gap-3 rounded-full bg-gold px-8 py-4 text-sm font-semibold text-bg transition-all duration-500 hover:bg-gold-2 hover:shadow-[0_0_50px_-5px_rgba(201,169,110,0.6)]"
@@ -59,16 +76,12 @@ export function HomeView() {
                   {t.hero.secondary}
                 </Link>
               </div>
-              <p className="fade-up mt-10 flex items-center gap-3 text-sm text-muted" style={{ animationDelay: "1000ms" }}>
-                <span className="relative flex h-2 w-2">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
-                  <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
-                </span>
-                {t.hero.available}
-              </p>
             </div>
 
-            <RotatingBadge text={`${t.hero.eyebrow} • ${site.name} • `} href="/contact" />
+            <RotatingBadge
+              text={`${t.hero.eyebrow} • ${site.name} • `}
+              href="/contact"
+            />
           </div>
         </div>
 
@@ -90,7 +103,13 @@ export function HomeView() {
       <section id="services" className="py-28 sm:py-36">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
-            <SectionHead eyebrow={t.services.eyebrow} title={t.services.title} em={t.services.titleEm} lead={t.services.lead} index="01" />
+            <SectionHead
+              eyebrow={t.services.eyebrow}
+              title={t.services.title}
+              em={t.services.titleEm}
+              lead={t.services.lead}
+              index="01"
+            />
             <Reveal className="shrink-0">
               <MoreLink href="/services">{t.more.services}</MoreLink>
             </Reveal>
@@ -105,7 +124,13 @@ export function HomeView() {
       <section className="border-t border-line bg-bg-2 py-28 sm:py-36">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
-            <SectionHead eyebrow={t.work.eyebrow} title={t.work.title} em={t.work.titleEm} lead={t.work.lead} index="02" />
+            <SectionHead
+              eyebrow={t.work.eyebrow}
+              title={t.work.title}
+              em={t.work.titleEm}
+              lead={t.work.lead}
+              index="02"
+            />
             <Reveal className="shrink-0">
               <MoreLink href="/work">{t.more.work}</MoreLink>
             </Reveal>
