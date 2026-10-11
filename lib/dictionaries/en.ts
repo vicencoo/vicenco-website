@@ -55,12 +55,6 @@ export const en = {
     secondary: "See the work",
     scroll: "Scroll",
   },
-  stats: [
-    { value: "100%", label: "Custom design & development" },
-    { value: "0 → 1", label: "Projects built from the ground up" },
-    { value: "<1s", label: "Target load time" },
-    { value: "EN · SQ", label: "Bilingual communication" },
-  ],
   marquee: [
     "Websites",
     "Web applications",
@@ -236,7 +230,11 @@ export const en = {
     eyebrow: "Contact",
     title: "Let's create something",
     titleEm: "remarkable.",
-    promises: ["Free first consultation", "Reply within 24 hours", "Clear proposal, timeline and price"],
+    promises: [
+      "Free consultation",
+      "Reply within 24 hours",
+      "Clear proposal, timeline and price",
+    ],
     name: "Your name",
     email: "Email address",
     type: "Project type",
@@ -251,7 +249,8 @@ export const en = {
     budget: "Budget",
     budgets: ["< €1,000", "€1,000 – €3,000", "€3,000 – €7,000", "€7,000+"],
     message: "Tell us about your project",
-    messagePlaceholder: "e.g. A website for my business with online booking and an admin panel…",
+    messagePlaceholder:
+      "e.g. A website for my business with online booking and an admin panel…",
     send: "Send message",
     sent: "Opening your email app…",
     or: "Or reach us directly",
@@ -414,7 +413,8 @@ export const en = {
     },
   },
   footer: {
-    tagline: "Websites, software and online stores, delivered through a clear process and direct communication.",
+    tagline:
+      "Websites, software and online stores, delivered through a clear process and direct communication.",
     company: "Company",
     location: "Albania",
     rights: "All rights reserved.",

@@ -56,12 +56,6 @@ export const sq: Dictionary = {
     secondary: "Shiko punët",
     scroll: "Lëviz",
   },
-  stats: [
-    { value: "100%", label: "Dizajn dhe zhvillim i personalizuar" },
-    { value: "0 → 1", label: "Projekte të ndërtuara nga themelet" },
-    { value: "<1s", label: "Synimi i kohës së ngarkimit" },
-    { value: "SQ · EN", label: "Komunikim në dy gjuhë" },
-  ],
   marquee: [
     "Faqe interneti",
     "Aplikacione web",
@@ -237,7 +231,11 @@ export const sq: Dictionary = {
     eyebrow: "Kontakt",
     title: "Le të krijojmë diçka",
     titleEm: "të jashtëzakonshme.",
-    promises: ["Konsultimi i parë falas", "Përgjigje brenda 24 orëve", "Ofertë e qartë, me afate dhe çmim"],
+    promises: [
+      "Konsultimi falas",
+      "Përgjigje brenda 24 orëve",
+      "Ofertë e qartë, me afate dhe çmim",
+    ],
     name: "Emri juaj",
     email: "Adresa e email-it",
     type: "Lloji i projektit",
@@ -252,7 +250,8 @@ export const sq: Dictionary = {
     budget: "Buxheti",
     budgets: ["< €1,000", "€1,000 – €3,000", "€3,000 – €7,000", "€7,000+"],
     message: "Na tregoni për projektin tuaj",
-    messagePlaceholder: "P.sh. Një faqe për biznesin tim me rezervim online dhe panel administrimi…",
+    messagePlaceholder:
+      "P.sh. Një faqe për biznesin tim me rezervim online dhe panel administrimi…",
     send: "Dërgo mesazhin",
     sent: "Po hapet aplikacioni i email-it…",
     or: "Ose na kontaktoni direkt",
@@ -415,7 +414,8 @@ export const sq: Dictionary = {
     },
   },
   footer: {
-    tagline: "Faqe interneti, software dhe dyqane online, të ofruara përmes një procesi të qartë dhe komunikimi të drejtpërdrejtë.",
+    tagline:
+      "Faqe interneti, software dhe dyqane online, të ofruara përmes një procesi të qartë dhe komunikimi të drejtpërdrejtë.",
     company: "Kompania",
     location: "Shqipëri",
     rights: "Të gjitha të drejtat e rezervuara.",

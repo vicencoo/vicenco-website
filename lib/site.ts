@@ -3,7 +3,7 @@
 export const site = {
   name: "Vicenco",
   email: "hello@vicenco.com",
-  whatsapp: "355690000000", // international format, digits only
+  whatsapp: "355695743297", // international format, digits only
   instagram: "vicenco",
   url: "https://vicenco.com",
   year: 2026,

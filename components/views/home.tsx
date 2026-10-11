@@ -10,7 +10,6 @@ import {
   ManifestoQuote,
   Marquee,
   ServicesList,
-  Stats,
   Values,
   WorkGrid,
 } from "@/components/sections";
@@ -96,7 +95,6 @@ export function HomeView() {
         </a>
       </section>
 
-      <Stats t={t} />
       <Marquee t={t} />
 
       {/* ───────────── SERVICES PREVIEW ───────────── */}

@@ -7,31 +7,18 @@ import Image from "next/image";
 import { Arrow, Logo } from "./Logo";
 import { Check, ServiceIcon, Star, StepIcon } from "./ui";
 
-export function Stats({ t }: { t: Dictionary }) {
-  return (
-    <section className="border-y border-line bg-bg-2">
-      <div className="mx-auto grid max-w-7xl grid-cols-2 lg:grid-cols-4">
-        {t.stats.map((s, i) => (
-          <Reveal
-            key={s.label}
-            delay={i * 100}
-            className={`border-line px-5 py-10 sm:px-8 ${i % 2 === 0 ? "border-r" : ""} ${i < 2 ? "border-b lg:border-b-0" : ""} lg:border-r lg:last:border-r-0`}
-          >
-            <div className="font-serif text-5xl text-gold-2 sm:text-6xl">{s.value}</div>
-            <div className="mt-2 text-sm text-muted">{s.label}</div>
-          </Reveal>
-        ))}
-      </div>
-    </section>
-  );
-}
-
 export function Marquee({ t }: { t: Dictionary }) {
   return (
-    <div className="marquee overflow-hidden border-b border-line py-4 sm:py-5" aria-hidden>
+    <div
+      className="marquee overflow-hidden border-b border-line py-4 sm:py-5"
+      aria-hidden
+    >
       <div className="marquee-track flex w-max">
         {[...t.marquee, ...t.marquee].map((item, i) => (
-          <span key={i} className="flex items-center gap-5 pr-5 font-serif text-lg italic text-ink/75 sm:gap-6 sm:pr-6 sm:text-xl">
+          <span
+            key={i}
+            className="flex items-center gap-5 pr-5 font-serif text-lg italic text-ink/75 sm:gap-6 sm:pr-6 sm:text-xl"
+          >
             {item}
             <Star className="h-3 w-3" />
           </span>
@@ -49,13 +36,18 @@ export function ServicesGrid({ t }: { t: Dictionary }) {
           <article className="spotlight group flex h-full flex-col bg-bg p-8 transition-colors duration-500 hover:bg-surface sm:p-10">
             <div className="flex items-start justify-between">
               <ServiceIcon index={i} />
-              <span className="font-serif text-lg text-faint transition-colors duration-500 group-hover:text-gold">0{i + 1}</span>
+              <span className="font-serif text-lg text-faint transition-colors duration-500 group-hover:text-gold">
+                0{i + 1}
+              </span>
             </div>
             <h3 className="mt-10 font-serif text-3xl">{s.title}</h3>
             <p className="mt-4 flex-1 leading-relaxed text-muted">{s.text}</p>
             <ul className="mt-8 flex flex-wrap gap-2">
               {s.tags.map((tag) => (
-                <li key={tag} className="rounded-full border border-line-2 px-3 py-1 text-xs tracking-wide text-muted">
+                <li
+                  key={tag}
+                  className="rounded-full border border-line-2 px-3 py-1 text-xs tracking-wide text-muted"
+                >
                   {tag}
                 </li>
               ))}
@@ -78,10 +70,16 @@ export function ServicesList({ t }: { t: Dictionary }) {
               href="/services"
               className="spotlight group grid grid-cols-[auto_1fr_auto] items-center gap-6 border-b border-line px-2 py-7 transition-colors duration-500 hover:bg-surface sm:gap-10 sm:px-6"
             >
-              <span className="font-serif text-lg text-faint transition-colors group-hover:text-gold">0{i + 1}</span>
+              <span className="font-serif text-lg text-faint transition-colors group-hover:text-gold">
+                0{i + 1}
+              </span>
               <span className="grid gap-2 md:grid-cols-[1fr_1.2fr] md:items-center md:gap-10">
-                <span className="font-serif text-3xl transition-transform duration-500 group-hover:translate-x-2 sm:text-4xl">{s.title}</span>
-                <span className="text-sm leading-relaxed text-muted">{s.text}</span>
+                <span className="font-serif text-3xl transition-transform duration-500 group-hover:translate-x-2 sm:text-4xl">
+                  {s.title}
+                </span>
+                <span className="text-sm leading-relaxed text-muted">
+                  {s.text}
+                </span>
               </span>
               <span className="flex h-11 w-11 items-center justify-center rounded-full border border-line-2 transition-all duration-500 group-hover:border-gold group-hover:bg-gold group-hover:text-bg">
                 <Arrow />
@@ -99,7 +97,11 @@ export function WorkGrid({ t, limit }: { t: Dictionary; limit?: number }) {
   return (
     <div className="grid gap-6 md:grid-cols-2 lg:gap-8">
       {items.map((p, i) => (
-        <Reveal key={p.name} delay={(i % 2) * 150} className={i % 2 === 1 ? "md:mt-20" : ""}>
+        <Reveal
+          key={p.name}
+          delay={(i % 2) * 150}
+          className={i % 2 === 1 ? "md:mt-20" : ""}
+        >
           <a
             href={p.url}
             target="_blank"
@@ -122,8 +124,12 @@ export function WorkGrid({ t, limit }: { t: Dictionary; limit?: number }) {
             </div>
             <div className="mt-6 flex items-start justify-between gap-6">
               <div>
-                <p className="text-[11px] uppercase tracking-[0.25em] text-gold">{p.category}</p>
-                <h3 className="mt-2 font-serif text-3xl sm:text-4xl">{p.name}</h3>
+                <p className="text-[11px] uppercase tracking-[0.25em] text-gold">
+                  {p.category}
+                </p>
+                <h3 className="mt-2 font-serif text-3xl sm:text-4xl">
+                  {p.name}
+                </h3>
                 <p className="mt-3 max-w-md text-muted">{p.text}</p>
               </div>
               <span className="mt-1 flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-line-2 text-ink transition-all duration-500 group-hover:border-gold group-hover:bg-gold group-hover:text-bg">
@@ -171,7 +177,8 @@ export function ManifestoQuote({ t }: { t: Dictionary }) {
     <Reveal className="text-center">
       <Logo className="mx-auto h-14 w-14" />
       <blockquote className="mx-auto mt-10 max-w-5xl font-serif text-[clamp(2rem,5vw,4.5rem)] leading-[1.08] tracking-[-0.01em]">
-        “{t.manifesto.quote} <em className="text-gold-gradient">{t.manifesto.quoteEm}</em>”
+        “{t.manifesto.quote}{" "}
+        <em className="text-gold-gradient">{t.manifesto.quoteEm}</em>”
       </blockquote>
     </Reveal>
   );
@@ -200,9 +207,17 @@ export function FaqList({ t }: { t: Dictionary }) {
         <Reveal key={f.q} delay={i * 60}>
           <details className="group border-b border-line">
             <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-7">
-              <span className="faq-q font-serif text-2xl transition-colors duration-300 sm:text-[1.7rem]">{f.q}</span>
+              <span className="faq-q font-serif text-2xl transition-colors duration-300 sm:text-[1.7rem]">
+                {f.q}
+              </span>
               <span className="faq-icon flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-line-2 text-gold transition-transform duration-500">
-                <svg viewBox="0 0 16 16" className="h-3.5 w-3.5" stroke="currentColor" strokeWidth="1.5" aria-hidden>
+                <svg
+                  viewBox="0 0 16 16"
+                  className="h-3.5 w-3.5"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  aria-hidden
+                >
                   <path d="M8 2v12M2 8h12" strokeLinecap="round" />
                 </svg>
               </span>
@@ -227,11 +242,25 @@ export function ContactBlock({ t }: { t: Dictionary }) {
             </li>
           ))}
         </ul>
-        <p className="mt-14 text-[11px] uppercase tracking-[0.25em] text-faint">{t.contact.or}</p>
+        <p className="mt-14 text-[11px] uppercase tracking-[0.25em] text-faint">
+          {t.contact.or}
+        </p>
         <ul className="mt-5 space-y-1">
-          <ContactLink label={t.contact.emailLabel} value={site.email} href={`mailto:${site.email}`} />
-          <ContactLink label={t.contact.whatsapp} value={`+${site.whatsapp}`} href={`https://wa.me/${site.whatsapp}`} />
-          <ContactLink label={t.contact.instagram} value={`@${site.instagram}`} href={`https://instagram.com/${site.instagram}`} />
+          <ContactLink
+            label={t.contact.emailLabel}
+            value={site.email}
+            href={`mailto:${site.email}`}
+          />
+          <ContactLink
+            label={t.contact.whatsapp}
+            value={`+${site.whatsapp}`}
+            href={`https://wa.me/${site.whatsapp}`}
+          />
+          <ContactLink
+            label={t.contact.instagram}
+            value={`@${site.instagram}`}
+            href={`https://instagram.com/${site.instagram}`}
+          />
         </ul>
       </Reveal>
       <Reveal delay={150}>
@@ -243,7 +272,15 @@ export function ContactBlock({ t }: { t: Dictionary }) {
   );
 }
 
-function ContactLink({ label, value, href }: { label: string; value: string; href: string }) {
+function ContactLink({
+  label,
+  value,
+  href,
+}: {
+  label: string;
+  value: string;
+  href: string;
+}) {
   return (
     <li>
       <a
