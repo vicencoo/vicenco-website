@@ -38,23 +38,52 @@ export const metadata: Metadata = {
   creator: site.name,
   publisher: site.name,
   alternates: { canonical: "/" },
-  openGraph: { ...openGraphBase, url: "/", title: en.meta.title, description: en.meta.description },
-  twitter: { card: "summary_large_image", title: en.meta.title, description: en.meta.description },
+  openGraph: {
+    ...openGraphBase,
+    url: "/",
+    title: en.meta.title,
+    description: en.meta.description,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: en.meta.title,
+    description: en.meta.description,
+  },
   robots: {
     index: true,
     follow: true,
-    googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 },
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
   formatDetection: { telephone: false, email: false, address: false },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     // The language script may change `lang` before React loads.
-    <html lang="en" data-scroll-behavior="smooth" className={`${serif.variable} ${sans.variable} antialiased`} suppressHydrationWarning>
+    <html
+      lang="en"
+      data-scroll-behavior="smooth"
+      className={`${serif.variable} ${sans.variable} antialiased`}
+      suppressHydrationWarning
+    >
       <head>
         <script dangerouslySetInnerHTML={{ __html: languageScript }} />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+          }}
+        />
       </head>
       <body className="min-h-screen bg-bg font-sans text-ink">
         <LanguageProvider>
