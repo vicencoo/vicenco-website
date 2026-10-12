@@ -19,12 +19,12 @@ export function SectionHead({
   return (
     <Reveal>
       <div className="flex items-center gap-4 text-[11px] uppercase tracking-[0.3em] text-muted">
-        {index && <span className="font-serif text-base normal-case tracking-normal text-gold">{index}</span>}
+        {index && <span className="font-serif text-base normal-case tracking-normal text-brand">{index}</span>}
         <span className="h-px w-10 bg-line-2" />
         {eyebrow}
       </div>
       <h2 className="mt-6 max-w-4xl font-serif text-[clamp(2.4rem,5.5vw,4.75rem)] leading-[1.02] tracking-[-0.015em]">
-        {title} <em className="text-gold-gradient pr-1">{em}</em>
+        {title} <em className="text-brand-gradient pr-1">{em}</em>
       </h2>
       {lead && <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted">{lead}</p>}
     </Reveal>
@@ -47,19 +47,19 @@ export function PageHero({
 }) {
   return (
     <section className="relative overflow-hidden border-b border-line pt-40 pb-20 sm:pt-48 sm:pb-28">
-      <div className="orb -left-40 -top-20 h-[420px] w-[420px] bg-gold/15" />
-      <div className="orb -right-40 top-20 h-[380px] w-[380px] bg-[#6b4a2f]/25 [animation-delay:-6s]" />
+      <div className="orb -left-40 -top-20 h-[420px] w-[420px] bg-brand/15" />
+      <div className="orb -right-40 top-20 h-[380px] w-[380px] bg-[#1d3a7a]/25 [animation-delay:-6s]" />
       <div
         className="pointer-events-none absolute inset-0 opacity-30 [background-image:linear-gradient(var(--line)_1px,transparent_1px),linear-gradient(90deg,var(--line)_1px,transparent_1px)] [background-size:88px_88px] [mask-image:radial-gradient(ellipse_at_top,#000_10%,transparent_65%)]"
         aria-hidden
       />
       <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
         <nav className="fade-up flex items-center gap-3 text-[11px] uppercase tracking-[0.3em] text-muted" aria-label="Breadcrumb">
-          <Link href="/" className="transition-colors hover:text-gold-2">
+          <Link href="/" className="transition-colors hover:text-brand-2">
             {home}
           </Link>
-          <span className="h-px w-6 bg-gold" />
-          <span className="text-gold-2">{crumb}</span>
+          <span className="h-px w-6 bg-brand" />
+          <span className="text-brand-2">{crumb}</span>
         </nav>
         <h1 className="mt-8 max-w-5xl font-serif text-[clamp(2.8rem,8vw,7rem)] leading-[0.98] tracking-[-0.02em]">
           <span className="line-reveal">
@@ -67,7 +67,7 @@ export function PageHero({
           </span>
           <span className="line-reveal">
             <span style={{ animationDelay: "250ms" }}>
-              <em className="text-gold-gradient pr-2">{em}</em>
+              <em className="text-brand-gradient pr-2">{em}</em>
             </span>
           </span>
         </h1>
@@ -83,7 +83,7 @@ export function MoreLink({ href, children }: { href: string; children: React.Rea
   return (
     <Link
       href={href}
-      className="group inline-flex items-center gap-3 rounded-full border border-line-2 px-7 py-3.5 text-sm transition-all duration-500 hover:border-gold hover:text-gold-2"
+      className="group inline-flex items-center gap-3 rounded-full border border-line-2 px-7 py-3.5 text-sm transition-all duration-500 hover:border-brand hover:text-brand-2"
     >
       {children}
       <Arrow />
@@ -95,15 +95,15 @@ export function MoreLink({ href, children }: { href: string; children: React.Rea
 export function CtaBand({ t }: { t: Dictionary["cta"] }) {
   return (
     <section className="relative overflow-hidden border-t border-line py-28 sm:py-36">
-      <div className="orb left-1/2 top-1/2 h-[460px] w-[460px] -translate-x-1/2 -translate-y-1/2 bg-gold/15" />
+      <div className="orb left-1/2 top-1/2 h-[460px] w-[460px] -translate-x-1/2 -translate-y-1/2 bg-brand/15" />
       <Reveal className="relative mx-auto max-w-4xl px-5 text-center sm:px-8">
         <h2 className="font-serif text-[clamp(2.6rem,7vw,6rem)] leading-[1] tracking-[-0.02em]">
-          {t.title} <em className="text-gold-gradient pr-2">{t.titleEm}</em>
+          {t.title} <em className="text-brand-gradient pr-2">{t.titleEm}</em>
         </h2>
         <p className="mx-auto mt-6 max-w-lg text-lg text-muted">{t.lead}</p>
         <Link
           href="/contact"
-          className="group mt-10 inline-flex items-center gap-3 rounded-full bg-gold px-9 py-4 text-sm font-semibold text-bg transition-all duration-500 hover:bg-gold-2 hover:shadow-[0_0_50px_-5px_rgba(201,169,110,0.6)]"
+          className="group mt-10 inline-flex items-center gap-3 rounded-full bg-brand px-9 py-4 text-sm font-semibold text-white transition-all duration-500 hover:bg-brand-hover hover:shadow-[0_0_50px_-5px_rgba(47,107,255,0.6)]"
         >
           {t.button}
           <Arrow />
@@ -124,7 +124,7 @@ export function RotatingBadge({ text, href }: { text: string; href: string }) {
           <textPath href="#circle">{text.repeat(2)}</textPath>
         </text>
       </svg>
-      <span className="absolute inset-0 m-auto flex h-16 w-16 items-center justify-center rounded-full bg-gold text-bg transition-transform duration-500 group-hover:scale-110">
+      <span className="absolute inset-0 m-auto flex h-16 w-16 items-center justify-center rounded-full bg-brand text-white transition-transform duration-500 group-hover:scale-110">
         <Arrow className="h-5 w-5" />
       </span>
     </Link>
@@ -133,7 +133,7 @@ export function RotatingBadge({ text, href }: { text: string; href: string }) {
 
 export function Star({ className = "h-6 w-6" }: { className?: string }) {
   return (
-    <svg viewBox="0 0 24 24" className={`${className} shrink-0 text-gold`} fill="currentColor" aria-hidden>
+    <svg viewBox="0 0 24 24" className={`${className} shrink-0 text-brand`} fill="currentColor" aria-hidden>
       <path d="M12 0 C12.6 7.2 16.8 11.4 24 12 C16.8 12.6 12.6 16.8 12 24 C11.4 16.8 7.2 12.6 0 12 C7.2 11.4 11.4 7.2 12 0Z" />
     </svg>
   );
@@ -142,7 +142,7 @@ export function Star({ className = "h-6 w-6" }: { className?: string }) {
 export function Check({ small = false }: { small?: boolean }) {
   return (
     <span
-      className={`flex shrink-0 items-center justify-center rounded-full border border-gold/40 text-gold ${small ? "mt-0.5 h-4 w-4" : "h-9 w-9"}`}
+      className={`flex shrink-0 items-center justify-center rounded-full border border-brand/40 text-brand ${small ? "mt-0.5 h-4 w-4" : "h-9 w-9"}`}
     >
       <svg viewBox="0 0 16 16" className={small ? "h-2.5 w-2.5" : "h-4 w-4"} fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
         <path d="M3 8.5 L6.5 12 L13 4.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -185,7 +185,7 @@ export function StepIcon({ index }: { index: number }) {
 
 function IconTile({ children }: { children: React.ReactNode }) {
   return (
-    <span className="relative flex h-14 w-14 items-center justify-center rounded-2xl border border-line-2 bg-bg-2 text-gold transition-all duration-500 group-hover:border-gold/50 group-hover:shadow-[0_0_30px_-8px_rgba(201,169,110,0.5)]">
+    <span className="relative flex h-14 w-14 items-center justify-center rounded-2xl border border-line-2 bg-bg-2 text-brand transition-all duration-500 group-hover:border-brand/50 group-hover:shadow-[0_0_30px_-8px_rgba(47,107,255,0.5)]">
       <svg viewBox="0 0 32 32" className="h-7 w-7" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
         {children}
       </svg>

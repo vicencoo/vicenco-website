@@ -1,17 +1,19 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #0a0908;
-  --bg-2: #100f0d;
-  --surface: #151411;
-  --line: rgba(237, 232, 223, 0.09);
-  --line-2: rgba(237, 232, 223, 0.16);
-  --ink: #ede8df;
-  --muted: #9b958b;
-  --faint: #7a746b;
-  --gold: #c9a96e;
-  --gold-2: #ecd9ae;
-  --gold-3: #8a6d3b;
+  /* Palette built from the VinsalTech logo: navy #0E1A2B + blue #2F6BFF */
+  --bg: #070d17;
+  --bg-2: #0a1320;
+  --surface: #0e1a2b;
+  --line: rgba(232, 238, 248, 0.09);
+  --line-2: rgba(232, 238, 248, 0.16);
+  --ink: #e8eef8;
+  --muted: #98a4b8;
+  --faint: #7a879c;
+  --brand: #2f6bff;
+  --brand-2: #9bb8ff;
+  --brand-3: #1a3f99;
+  --brand-hover: #1f5af0;
 }
 
 @theme inline {
@@ -23,9 +25,10 @@
   --color-ink: var(--ink);
   --color-muted: var(--muted);
   --color-faint: var(--faint);
-  --color-gold: var(--gold);
-  --color-gold-2: var(--gold-2);
-  --color-gold-3: var(--gold-3);
+  --color-brand: var(--brand);
+  --color-brand-2: var(--brand-2);
+  --color-brand-3: var(--brand-3);
+  --color-brand-hover: var(--brand-hover);
   --font-sans: var(--font-manrope);
   --font-serif: var(--font-instrument);
 }
@@ -44,8 +47,8 @@ body {
 }
 
 ::selection {
-  background: var(--gold);
-  color: var(--bg);
+  background: var(--brand);
+  color: #fff;
 }
 
 /* Film grain overlay */
@@ -78,15 +81,15 @@ body {
   }
 }
 
-/* Gold gradient text */
-.text-gold-gradient {
+/* Brand gradient text */
+.text-brand-gradient {
   background: linear-gradient(
     110deg,
-    var(--gold-3) 0%,
-    var(--gold-2) 35%,
-    var(--gold) 55%,
-    var(--gold-2) 75%,
-    var(--gold-3) 100%
+    var(--brand-3) 0%,
+    var(--brand-2) 35%,
+    var(--brand) 55%,
+    var(--brand-2) 75%,
+    var(--brand-3) 100%
   );
   background-size: 200% auto;
   -webkit-background-clip: text;
@@ -206,7 +209,7 @@ body {
   border-radius: inherit;
   background: radial-gradient(
     500px circle at var(--mx, 50%) var(--my, 50%),
-    rgba(201, 169, 110, 0.12),
+    rgba(47, 107, 255, 0.12),
     transparent 40%
   );
   opacity: 0;
@@ -217,11 +220,11 @@ body {
   opacity: 1;
 }
 
-/* Gold hairline border */
-.gold-border {
+/* Brand hairline border */
+.brand-border {
   position: relative;
 }
-.gold-border::after {
+.brand-border::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -229,10 +232,10 @@ body {
   border-radius: inherit;
   background: linear-gradient(
     140deg,
-    var(--gold-2),
+    var(--brand-2),
     transparent 35%,
     transparent 65%,
-    var(--gold)
+    var(--brand)
   );
   -webkit-mask:
     linear-gradient(#000 0 0) content-box,
@@ -250,13 +253,13 @@ details[open] .faq-icon {
   transform: rotate(45deg);
 }
 details[open] .faq-q {
-  color: var(--gold-2);
+  color: var(--brand-2);
 }
 
 /* Form fields */
 .field {
   width: 100%;
-  background-color: rgba(237, 232, 223, 0.03);
+  background-color: rgba(232, 238, 248, 0.03);
   border: 1px solid var(--line-2);
   border-radius: 0.9rem;
   padding: 0.85rem 1rem;
@@ -271,18 +274,18 @@ details[open] .faq-q {
   color: var(--faint);
 }
 .field:hover {
-  border-color: rgba(237, 232, 223, 0.28);
+  border-color: rgba(232, 238, 248, 0.28);
 }
 .field:focus {
-  border-color: var(--gold);
-  background-color: rgba(237, 232, 223, 0.05);
-  box-shadow: 0 0 0 3px rgba(201, 169, 110, 0.15);
+  border-color: var(--brand);
+  background-color: rgba(232, 238, 248, 0.05);
+  box-shadow: 0 0 0 3px rgba(47, 107, 255, 0.15);
 }
 select.field {
   appearance: none;
   cursor: pointer;
   padding-right: 2.75rem;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 12 12%27 fill=%27none%27 stroke=%27%23c9a96e%27 stroke-width=%271.6%27%3E%3Cpath d=%27M2.5 4.5 6 8l3.5-3.5%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 12 12%27 fill=%27none%27 stroke=%27%232f6bff%27 stroke-width=%271.6%27%3E%3Cpath d=%27M2.5 4.5 6 8l3.5-3.5%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 1rem center;
   background-size: 12px;
@@ -294,7 +297,7 @@ select.field option {
 
 /* Visible focus for keyboard users */
 :focus-visible {
-  outline: 2px solid var(--gold);
+  outline: 2px solid var(--brand);
   outline-offset: 3px;
 }
 .field:focus-visible {

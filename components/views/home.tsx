@@ -21,8 +21,8 @@ export function HomeView() {
     <>
       {/* ───────────── HERO ───────────── */}
       <section className="relative flex min-h-[100svh] flex-col justify-center overflow-hidden pt-28 pb-16">
-        <div className="orb -left-40 top-10 h-[420px] w-[420px] bg-gold/20" />
-        <div className="orb -right-32 bottom-0 h-[520px] w-[520px] bg-[#6b4a2f]/30 [animation-delay:-6s]" />
+        <div className="orb -left-40 top-10 h-[420px] w-[420px] bg-brand/20" />
+        <div className="orb -right-32 bottom-0 h-[520px] w-[520px] bg-[#1d3a7a]/30 [animation-delay:-6s]" />
         <div
           className="pointer-events-none absolute inset-0 opacity-[0.35] [background-image:linear-gradient(var(--line)_1px,transparent_1px),linear-gradient(90deg,var(--line)_1px,transparent_1px)] [background-size:88px_88px] [mask-image:radial-gradient(ellipse_at_center,#000_20%,transparent_70%)]"
           aria-hidden
@@ -33,7 +33,7 @@ export function HomeView() {
             className="fade-up flex items-center gap-3 text-[11px] uppercase tracking-[0.3em] text-muted"
             style={{ animationDelay: "100ms" }}
           >
-            <span className="h-px w-10 bg-gold" />
+            <span className="h-px w-10 bg-brand" />
             {t.hero.eyebrow}
           </div>
 
@@ -44,7 +44,7 @@ export function HomeView() {
             <span className="line-reveal">
               <span style={{ animationDelay: "350ms" }}>
                 {t.hero.titleB}{" "}
-                <em className="text-gold-gradient pr-2">{t.hero.titleEm}</em>
+                <em className="text-brand-gradient pr-2">{t.hero.titleEm}</em>
               </span>
             </span>
           </h1>
@@ -63,7 +63,7 @@ export function HomeView() {
               >
                 <Link
                   href="/contact"
-                  className="group inline-flex items-center gap-3 rounded-full bg-gold px-8 py-4 text-sm font-semibold text-bg transition-all duration-500 hover:bg-gold-2 hover:shadow-[0_0_50px_-5px_rgba(201,169,110,0.6)]"
+                  className="group inline-flex items-center gap-3 rounded-full bg-brand px-8 py-4 text-sm font-semibold text-white transition-all duration-500 hover:bg-brand-hover hover:shadow-[0_0_50px_-5px_rgba(47,107,255,0.6)]"
                 >
                   {t.hero.primary}
                   <Arrow />
@@ -90,7 +90,7 @@ export function HomeView() {
         >
           {t.hero.scroll}
           <span className="h-12 w-px overflow-hidden bg-line">
-            <span className="block h-1/2 w-full animate-[drip_2s_ease-in-out_infinite] bg-gold" />
+            <span className="block h-1/2 w-full animate-[drip_2s_ease-in-out_infinite] bg-brand" />
           </span>
         </a>
       </section>
@@ -141,7 +141,7 @@ export function HomeView() {
 
       {/* ───────────── MANIFESTO ───────────── */}
       <section className="relative overflow-hidden border-t border-line py-28 sm:py-40">
-        <div className="orb left-1/2 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 bg-gold/10" />
+        <div className="orb left-1/2 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 bg-brand/10" />
         <div className="relative mx-auto max-w-6xl px-5 sm:px-8">
           <ManifestoQuote t={t} />
           <div className="mt-20">

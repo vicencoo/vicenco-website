@@ -22,7 +22,7 @@ export function LegalView({ doc }: { doc: "privacy" | "terms" }) {
                   <li key={s.title}>
                     <a
                       href={`#section-${i + 1}`}
-                      className="-ml-px flex gap-3 border-l border-transparent py-1.5 pl-5 text-sm text-muted transition-colors hover:border-gold hover:text-gold-2"
+                      className="-ml-px flex gap-3 border-l border-transparent py-1.5 pl-5 text-sm text-muted transition-colors hover:border-brand hover:text-brand-2"
                     >
                       <span className="text-faint">{String(i + 1).padStart(2, "0")}</span>
                       {s.title}
@@ -35,7 +35,7 @@ export function LegalView({ doc }: { doc: "privacy" | "terms" }) {
 
           <article className="max-w-3xl">
             <p className="inline-flex items-center gap-2 rounded-full border border-line-2 px-4 py-1.5 text-xs text-muted">
-              <span className="h-1.5 w-1.5 rounded-full bg-gold" />
+              <span className="h-1.5 w-1.5 rounded-full bg-brand" />
               {t.legal.updated}: {t.legal.date}
             </p>
 
@@ -43,7 +43,7 @@ export function LegalView({ doc }: { doc: "privacy" | "terms" }) {
               {page.sections.map((s, i) => (
                 <section key={s.title} id={`section-${i + 1}`} className="scroll-mt-28">
                   <h2 className="flex items-baseline gap-4 font-serif text-3xl sm:text-4xl">
-                    <span className="font-sans text-sm text-gold">{String(i + 1).padStart(2, "0")}</span>
+                    <span className="font-sans text-sm text-brand">{String(i + 1).padStart(2, "0")}</span>
                     {s.title}
                   </h2>
                   <div className="mt-5 space-y-4 text-[17px] leading-relaxed text-muted">

@@ -23,8 +23,8 @@ export default async function Image() {
           flexDirection: "column",
           justifyContent: "space-between",
           padding: 80,
-          background: "radial-gradient(circle at 85% 15%, #1a2a4a 0%, #0a0908 55%)",
-          color: "#ede8df",
+          background: "radial-gradient(circle at 85% 15%, #163066 0%, #070d17 55%)",
+          color: "#e8eef8",
         }}
       >
         <img src={logoSrc} width={406 * 1.1} height={73.3 * 1.1} alt="" />

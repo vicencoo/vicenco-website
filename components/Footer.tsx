@@ -5,7 +5,7 @@ import { useLanguage } from "@/lib/i18n";
 import { pageKeys, site } from "@/lib/site";
 import { Wordmark } from "./Logo";
 
-const linkClass = "text-[15px] text-muted transition-colors duration-300 hover:text-gold-2";
+const linkClass = "text-[15px] text-muted transition-colors duration-300 hover:text-brand-2";
 
 export function Footer() {
   const { t } = useLanguage();
@@ -13,7 +13,7 @@ export function Footer() {
 
   return (
     <footer className="relative overflow-hidden border-t border-line bg-bg-2">
-      <div className="orb -bottom-40 left-1/4 h-[360px] w-[360px] bg-gold/[0.07]" aria-hidden />
+      <div className="orb -bottom-40 left-1/4 h-[360px] w-[360px] bg-brand/[0.07]" aria-hidden />
       <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
         <div className="grid grid-cols-2 gap-x-6 gap-y-12 py-16 sm:py-20 lg:grid-cols-[1.4fr_1fr_1fr_1.1fr] lg:gap-0">
           {/* Brand */}
@@ -75,10 +75,10 @@ export function Footer() {
             © {site.year} {site.name}. {t.footer.rights}
           </span>
           <nav className="flex flex-wrap gap-x-6 gap-y-2" aria-label={t.footer.company}>
-            <Link href="/privacy" className="transition-colors hover:text-gold-2">
+            <Link href="/privacy" className="transition-colors hover:text-brand-2">
               {t.legal.privacy.label}
             </Link>
-            <Link href="/terms" className="transition-colors hover:text-gold-2">
+            <Link href="/terms" className="transition-colors hover:text-brand-2">
               {t.legal.terms.label}
             </Link>
           </nav>
@@ -104,7 +104,7 @@ function SocialLink({ href, label, children }: { href: string; label: string; ch
       target="_blank"
       rel="noopener noreferrer"
       aria-label={label}
-      className="flex h-11 w-11 items-center justify-center rounded-xl border border-gold/30 bg-gold/[0.06] text-gold-2 transition-all duration-300 hover:-translate-y-0.5 hover:border-gold hover:bg-gold hover:text-bg"
+      className="flex h-11 w-11 items-center justify-center rounded-xl border border-brand/30 bg-brand/[0.06] text-brand-2 transition-all duration-300 hover:-translate-y-0.5 hover:border-brand hover:bg-brand hover:text-white"
     >
       <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
         {children}

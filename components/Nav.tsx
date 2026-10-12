@@ -52,7 +52,7 @@ export function Nav() {
               <Link
                 href={l.href}
                 aria-current={isActive(l.href) ? "page" : undefined}
-                className={`relative text-[13px] uppercase tracking-[0.18em] transition-colors after:absolute after:-bottom-1 after:left-0 after:h-px after:bg-gold after:transition-all after:duration-500 hover:text-ink hover:after:w-full ${
+                className={`relative text-[13px] uppercase tracking-[0.18em] transition-colors after:absolute after:-bottom-1 after:left-0 after:h-px after:bg-brand after:transition-all after:duration-500 hover:text-ink hover:after:w-full ${
                   isActive(l.href) ? "text-ink after:w-full" : "text-muted after:w-0"
                 }`}
               >
@@ -81,7 +81,7 @@ export function Nav() {
           </div>
           <Link
             href="/contact"
-            className="hidden rounded-full border border-gold/40 px-5 py-2.5 text-[13px] lg:px-6 lg:py-3 tracking-wide text-gold-2 transition-all duration-500 hover:border-gold hover:bg-gold hover:text-bg sm:inline-block"
+            className="hidden rounded-full border border-brand/40 px-5 py-2.5 text-[13px] lg:px-6 lg:py-3 tracking-wide text-brand-2 transition-all duration-500 hover:border-brand hover:bg-brand hover:text-white sm:inline-block"
           >
             {t.cta}
           </Link>
@@ -111,7 +111,7 @@ export function Nav() {
                 href={l.href}
                 onClick={() => setOpen(false)}
                 className={`block border-b border-line py-4 font-serif text-4xl ${
-                  pathname === l.href ? "text-gold-2" : ""
+                  pathname === l.href ? "text-brand-2" : ""
                 }`}
               >
                 {l.label}
@@ -122,7 +122,7 @@ export function Nav() {
             <Link
               href="/contact"
               onClick={() => setOpen(false)}
-              className="inline-block rounded-full bg-gold px-7 py-3.5 text-sm font-medium text-bg"
+              className="inline-block rounded-full bg-brand px-7 py-3.5 text-sm font-medium text-white"
             >
               {t.cta}
             </Link>

@@ -90,7 +90,7 @@ export function ContactForm({
         <button
           type="submit"
           disabled={status === "sending"}
-          className="group disabled:cursor-wait disabled:opacity-60 inline-flex items-center gap-3 rounded-full bg-gold px-8 py-4 text-sm font-semibold text-bg transition-all duration-500 hover:bg-gold-2 hover:shadow-[0_0_40px_-5px_rgba(201,169,110,0.6)]"
+          className="group disabled:cursor-wait disabled:opacity-60 inline-flex items-center gap-3 rounded-full bg-brand px-8 py-4 text-sm font-semibold text-white transition-all duration-500 hover:bg-brand-hover hover:shadow-[0_0_40px_-5px_rgba(47,107,255,0.6)]"
         >
           {status === "sending" ? t.sending : t.send}
           <Arrow />
@@ -102,7 +102,7 @@ export function ContactForm({
               {t.error}{" "}
               <a
                 href={`mailto:${email}`}
-                className="text-gold underline underline-offset-4"
+                className="text-brand underline underline-offset-4"
               >
                 {email}
               </a>

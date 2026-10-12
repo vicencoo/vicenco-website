@@ -36,7 +36,7 @@ export function ServicesGrid({ t }: { t: Dictionary }) {
           <article className="spotlight group flex h-full flex-col bg-bg p-8 transition-colors duration-500 hover:bg-surface sm:p-10">
             <div className="flex items-start justify-between">
               <ServiceIcon index={i} />
-              <span className="font-serif text-lg text-faint transition-colors duration-500 group-hover:text-gold">
+              <span className="font-serif text-lg text-faint transition-colors duration-500 group-hover:text-brand">
                 0{i + 1}
               </span>
             </div>
@@ -70,7 +70,7 @@ export function ServicesList({ t }: { t: Dictionary }) {
               href="/services"
               className="spotlight group grid grid-cols-[auto_1fr_auto] items-center gap-6 border-b border-line px-2 py-7 transition-colors duration-500 hover:bg-surface sm:gap-10 sm:px-6"
             >
-              <span className="font-serif text-lg text-faint transition-colors group-hover:text-gold">
+              <span className="font-serif text-lg text-faint transition-colors group-hover:text-brand">
                 0{i + 1}
               </span>
               <span className="grid gap-2 md:grid-cols-[1fr_1.2fr] md:items-center md:gap-10">
@@ -81,7 +81,7 @@ export function ServicesList({ t }: { t: Dictionary }) {
                   {s.text}
                 </span>
               </span>
-              <span className="flex h-11 w-11 items-center justify-center rounded-full border border-line-2 transition-all duration-500 group-hover:border-gold group-hover:bg-gold group-hover:text-bg">
+              <span className="flex h-11 w-11 items-center justify-center rounded-full border border-line-2 transition-all duration-500 group-hover:border-brand group-hover:bg-brand group-hover:text-white">
                 <Arrow />
               </span>
             </Link>
@@ -109,7 +109,7 @@ export function WorkGrid({ t, limit }: { t: Dictionary; limit?: number }) {
             aria-label={`${p.name} — ${t.work.view}`}
             className="group block"
           >
-            <div className="gold-border relative aspect-[4/3.2] overflow-hidden rounded-3xl">
+            <div className="brand-border relative aspect-[4/3.2] overflow-hidden rounded-3xl">
               <Image
                 src={p.image}
                 alt={p.name}
@@ -124,7 +124,7 @@ export function WorkGrid({ t, limit }: { t: Dictionary; limit?: number }) {
             </div>
             <div className="mt-6 flex items-start justify-between gap-6">
               <div>
-                <p className="text-[11px] uppercase tracking-[0.25em] text-gold">
+                <p className="text-[11px] uppercase tracking-[0.25em] text-brand">
                   {p.category}
                 </p>
                 <h3 className="mt-2 font-serif text-3xl sm:text-4xl">
@@ -132,7 +132,7 @@ export function WorkGrid({ t, limit }: { t: Dictionary; limit?: number }) {
                 </h3>
                 <p className="mt-3 max-w-md text-muted">{p.text}</p>
               </div>
-              <span className="mt-1 flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-line-2 text-ink transition-all duration-500 group-hover:border-gold group-hover:bg-gold group-hover:text-bg">
+              <span className="mt-1 flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-line-2 text-ink transition-all duration-500 group-hover:border-brand group-hover:bg-brand group-hover:text-white">
                 <Arrow />
               </span>
             </div>
@@ -148,21 +148,21 @@ export function ProcessSteps({ t }: { t: Dictionary }) {
     <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
       {t.process.steps.map((s, i) => (
         <Reveal key={s.title} delay={i * 120} className="h-full">
-          <article className="spotlight group relative flex h-full flex-col overflow-hidden rounded-3xl border border-line bg-surface/60 p-7 transition-all duration-500 hover:-translate-y-1 hover:border-gold/40 sm:p-8">
+          <article className="spotlight group relative flex h-full flex-col overflow-hidden rounded-3xl border border-line bg-surface/60 p-7 transition-all duration-500 hover:-translate-y-1 hover:border-brand/40 sm:p-8">
             <span
-              className="pointer-events-none absolute -right-1 -top-5 select-none font-serif text-[7.5rem] leading-none text-ink/[0.04] transition-colors duration-500 group-hover:text-gold/10"
+              className="pointer-events-none absolute -right-1 -top-5 select-none font-serif text-[7.5rem] leading-none text-ink/[0.04] transition-colors duration-500 group-hover:text-brand/10"
               aria-hidden
             >
               0{i + 1}
             </span>
             <StepIcon index={i} />
-            <p className="mt-8 text-[11px] uppercase tracking-[0.25em] text-gold">
+            <p className="mt-8 text-[11px] uppercase tracking-[0.25em] text-brand">
               {t.process.step} 0{i + 1}
             </p>
             <h3 className="mt-2 font-serif text-3xl">{s.title}</h3>
             <p className="mt-3 leading-relaxed text-muted">{s.text}</p>
             <span
-              className="absolute inset-x-0 bottom-0 h-px origin-left scale-x-0 bg-gradient-to-r from-gold to-gold-2 transition-transform duration-700 group-hover:scale-x-100"
+              className="absolute inset-x-0 bottom-0 h-px origin-left scale-x-0 bg-gradient-to-r from-brand to-brand-2 transition-transform duration-700 group-hover:scale-x-100"
               aria-hidden
             />
           </article>
@@ -178,7 +178,7 @@ export function ManifestoQuote({ t }: { t: Dictionary }) {
       <Logo className="mx-auto h-14 w-14" />
       <blockquote className="mx-auto mt-10 max-w-5xl font-serif text-[clamp(2rem,5vw,4.5rem)] leading-[1.08] tracking-[-0.01em]">
         “{t.manifesto.quote}{" "}
-        <em className="text-gold-gradient">{t.manifesto.quoteEm}</em>”
+        <em className="text-brand-gradient">{t.manifesto.quoteEm}</em>”
       </blockquote>
     </Reveal>
   );
@@ -210,7 +210,7 @@ export function FaqList({ t }: { t: Dictionary }) {
               <span className="faq-q font-serif text-2xl transition-colors duration-300 sm:text-[1.7rem]">
                 {f.q}
               </span>
-              <span className="faq-icon flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-line-2 text-gold transition-transform duration-500">
+              <span className="faq-icon flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-line-2 text-brand transition-transform duration-500">
                 <svg
                   viewBox="0 0 16 16"
                   className="h-3.5 w-3.5"
@@ -264,7 +264,7 @@ export function ContactBlock({ t }: { t: Dictionary }) {
         </ul>
       </Reveal>
       <Reveal delay={150}>
-        <div className="gold-border rounded-3xl bg-surface/70 p-7 backdrop-blur-sm sm:p-12">
+        <div className="brand-border rounded-3xl bg-surface/70 p-7 backdrop-blur-sm sm:p-12">
           <ContactForm t={t.contact} email={site.email} />
         </div>
       </Reveal>
@@ -290,9 +290,9 @@ function ContactLink({
         className="group flex items-center justify-between gap-6 border-b border-line py-5"
       >
         <span className="text-sm text-muted">{label}</span>
-        <span className="flex items-center gap-3 font-serif text-xl transition-colors group-hover:text-gold-2 sm:text-2xl">
+        <span className="flex items-center gap-3 font-serif text-xl transition-colors group-hover:text-brand-2 sm:text-2xl">
           {value}
-          <Arrow className="text-gold" />
+          <Arrow className="text-brand" />
         </span>
       </a>
     </li>

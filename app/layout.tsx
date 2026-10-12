@@ -24,7 +24,7 @@ const sans = Manrope({
 });
 
 export const viewport: Viewport = {
-  themeColor: "#0a0908",
+  themeColor: "#070d17",
 };
 
 export const metadata: Metadata = {
