@@ -10,7 +10,7 @@ export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 export default async function Image() {
-  const logo = await readFile(join(process.cwd(), "public/vinsaltech-logo-white.svg"));
+  const logo = await readFile(join(process.cwd(), "public/vinsaltech-logo-header-white.svg"));
   const logoSrc = `data:image/svg+xml;base64,${logo.toString("base64")}`;
 
   return new ImageResponse(
@@ -27,7 +27,7 @@ export default async function Image() {
           color: "#ede8df",
         }}
       >
-        <img src={logoSrc} width={406 * 1.1} height={71 * 1.1} alt="" />
+        <img src={logoSrc} width={406 * 1.1} height={73.3 * 1.1} alt="" />
         <div style={{ display: "flex", flexDirection: "column" }}>
           <div style={{ fontSize: 64, lineHeight: 1.1, maxWidth: 950 }}>{"Websites, Software & Digital Products"}</div>
           <div style={{ marginTop: 28, fontSize: 30, color: "#2F6BFF" }}>{site.url.replace("https://", "")}</div>

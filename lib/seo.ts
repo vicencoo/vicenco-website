@@ -59,7 +59,7 @@ export const jsonLd = {
       "@id": `${site.url}/#organization`,
       name: site.name,
       url: site.url,
-      logo: `${site.url}/vinsaltech-logo.svg`,
+      logo: `${site.url}/vinsaltech-logo-header.svg`,
       image: `${site.url}/opengraph-image`,
       description: en.meta.description,
       email: site.email,

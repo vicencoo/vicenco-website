@@ -3,7 +3,7 @@ import { site } from "@/lib/site";
 
 // Full VinsalTech logo (mark + wordmark), white version for the dark background.
 export function Wordmark({ className = "h-8 w-auto" }: { className?: string }) {
-  return <Image src="/vinsaltech-logo-white.svg" alt={site.name} width={406} height={71} priority className={className} />;
+  return <Image src="/vinsaltech-logo-header-white.svg" alt={site.name} width={406} height={73} priority className={className} />;
 }
 
 // The VinsalTech mark on its own (from vinsaltech-icon.svg), with the dark half drawn white.
