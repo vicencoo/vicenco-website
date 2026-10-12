@@ -3,6 +3,7 @@ import { Instrument_Serif, Manrope } from "next/font/google";
 import { en } from "@/lib/dictionaries/en";
 import { LanguageProvider, languageScript } from "@/lib/i18n";
 import { site } from "@/lib/site";
+import { jsonLd, keywords, openGraphBase } from "@/lib/seo";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { Spotlight } from "@/components/Spotlight";
@@ -27,15 +28,23 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
-  // Inner pages set a short title, e.g. "Services — Vicenco".
+  // Inner pages set a short title, e.g. "Services — VinsalTech".
   title: { default: en.meta.title, template: `%s — ${site.name}` },
   description: en.meta.description,
-  openGraph: {
-    title: en.meta.title,
-    description: en.meta.description,
-    siteName: site.name,
-    type: "website",
+  keywords,
+  applicationName: site.name,
+  authors: [{ name: site.name, url: site.url }],
+  creator: site.name,
+  publisher: site.name,
+  alternates: { canonical: "/" },
+  openGraph: { ...openGraphBase, url: "/", title: en.meta.title, description: en.meta.description },
+  twitter: { card: "summary_large_image", title: en.meta.title, description: en.meta.description },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 },
   },
+  formatDetection: { telephone: false, email: false, address: false },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -44,6 +53,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" data-scroll-behavior="smooth" className={`${serif.variable} ${sans.variable} antialiased`} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: languageScript }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
       </head>
       <body className="min-h-screen bg-bg font-sans text-ink">
         <LanguageProvider>

@@ -247,13 +247,14 @@ export const sq: Dictionary = {
       "Ridizajnim",
       "Tjetër",
     ],
-    budget: "Buxheti",
-    budgets: ["< €1,000", "€1,000 – €3,000", "€3,000 – €7,000", "€7,000+"],
-    message: "Na tregoni për projektin tuaj",
+    phone: "Numri i telefonit",
+    message: "Përshkrimi i projektit",
     messagePlaceholder:
       "P.sh. Një faqe për biznesin tim me rezervim online dhe panel administrimi…",
     send: "Dërgo mesazhin",
-    sent: "Po hapet aplikacioni i email-it…",
+    sending: "Duke u dërguar…",
+    sent: "Faleminderit! Mesazhi juaj u dërgua — do t'ju kontaktojmë së shpejti.",
+    error: "Diçka shkoi keq. Ju lutemi provoni përsëri ose na shkruani në",
     or: "Ose na kontaktoni direkt",
     emailLabel: "Email",
     whatsapp: "WhatsApp",
@@ -281,7 +282,7 @@ export const sq: Dictionary = {
         {
           title: "Të dhënat që mbledhim",
           body: [
-            "Të dhënat që na dërgoni: kur përdorni formularin e kontaktit, na shkruani me email ose na dërgoni mesazh në WhatsApp apo Instagram, marrim të dhënat që zgjidhni të ndani — si emrin, adresën e email-it, numrin e telefonit, llojin e projektit, buxhetin dhe mesazhin.",
+            "Të dhënat që na dërgoni: kur përdorni formularin e kontaktit, na shkruani me email ose na dërgoni mesazh në WhatsApp apo Instagram, marrim të dhënat që zgjidhni të ndani — si emrin, adresën e email-it, numrin e telefonit, llojin e projektit dhe përshkrimin e projektit.",
             "Preferenca e gjuhës: faqja e mban mend gjuhën që zgjidhni (shqip ose anglisht) në hapësirën lokale të shfletuesit tuaj. Kjo mbetet në pajisjen tuaj dhe nuk na dërgohet neve.",
             "Të dhëna teknike: si shumica e faqeve, ofruesi ynë i hostingut mund të regjistrojë automatikisht disa të dhëna teknike bazë, si adresën IP, llojin e shfletuesit dhe faqet e vizituara, për siguri dhe për mbarëvajtjen e faqes.",
           ],

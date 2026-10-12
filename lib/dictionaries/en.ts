@@ -246,13 +246,14 @@ export const en = {
       "Redesign",
       "Other",
     ],
-    budget: "Budget",
-    budgets: ["< €1,000", "€1,000 – €3,000", "€3,000 – €7,000", "€7,000+"],
-    message: "Tell us about your project",
+    phone: "Phone number",
+    message: "Project description",
     messagePlaceholder:
       "e.g. A website for my business with online booking and an admin panel…",
     send: "Send message",
-    sent: "Opening your email app…",
+    sending: "Sending…",
+    sent: "Thank you! Your message has been sent — we'll get back to you soon.",
+    error: "Something went wrong. Please try again or email us at",
     or: "Or reach us directly",
     emailLabel: "Email",
     whatsapp: "WhatsApp",
@@ -280,7 +281,7 @@ export const en = {
         {
           title: "Information we collect",
           body: [
-            "Information you send us: when you use the contact form, write to us by email or message us on WhatsApp or Instagram, we receive the details you choose to share — such as your name, email address, phone number, project type, budget and message.",
+            "Information you send us: when you use the contact form, write to us by email or message us on WhatsApp or Instagram, we receive the details you choose to share — such as your name, email address, phone number, project type and project description.",
             "Language preference: the website remembers the language you select (English or Albanian) in your browser's local storage. It stays on your device and is not sent to us.",
             "Technical data: like most websites, our hosting provider may automatically record basic technical information such as IP address, browser type and the pages requested, for security and to keep the site running.",
           ],

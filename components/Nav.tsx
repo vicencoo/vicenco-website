@@ -4,8 +4,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { languages, setLanguage, useLanguage } from "@/lib/i18n";
-import { pageKeys, site } from "@/lib/site";
-import { Logo } from "./Logo";
+import { pageKeys } from "@/lib/site";
+import { Wordmark } from "./Logo";
 
 export function Nav() {
   const { lang, t: dict } = useLanguage();
@@ -43,8 +43,7 @@ export function Nav() {
     >
       <nav className="mx-auto flex h-18 max-w-[1600px] items-center justify-between px-5 sm:px-8 lg:px-12 xl:px-16">
         <Link href="/" className="flex items-center gap-3">
-          <Logo />
-          <span className="font-serif text-2xl tracking-wide">{site.name}</span>
+          <Wordmark />
         </Link>
 
         <ul className="hidden items-center gap-9 lg:flex xl:gap-11">

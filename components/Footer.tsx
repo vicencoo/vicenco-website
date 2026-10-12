@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useLanguage } from "@/lib/i18n";
 import { pageKeys, site } from "@/lib/site";
-import { Logo } from "./Logo";
+import { Wordmark } from "./Logo";
 
 const linkClass = "text-[15px] text-muted transition-colors duration-300 hover:text-gold-2";
 
@@ -19,8 +19,7 @@ export function Footer() {
           {/* Brand */}
           <div className="col-span-2 lg:col-span-1 lg:pr-12">
             <Link href="/" className="inline-flex items-center gap-3">
-              <Logo />
-              <span className="font-serif text-2xl tracking-wide">{site.name}</span>
+              <Wordmark />
             </Link>
             <p className="mt-6 max-w-sm leading-relaxed text-muted">{t.footer.tagline}</p>
           </div>

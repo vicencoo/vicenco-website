@@ -1,16 +1,17 @@
+import Image from "next/image";
+import { site } from "@/lib/site";
+
+// Full VinsalTech logo (mark + wordmark), white version for the dark background.
+export function Wordmark({ className = "h-8 w-auto" }: { className?: string }) {
+  return <Image src="/vinsaltech-logo-white.svg" alt={site.name} width={406} height={71} priority className={className} />;
+}
+
+// The VinsalTech mark on its own (from vinsaltech-icon.svg), with the dark half drawn white.
 export function Logo({ className = "h-9 w-9" }: { className?: string }) {
   return (
-    <svg viewBox="0 0 40 40" className={className} aria-hidden>
-      <defs>
-        <linearGradient id="vg" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stopColor="#ecd9ae" />
-          <stop offset="0.5" stopColor="#c9a96e" />
-          <stop offset="1" stopColor="#8a6d3b" />
-        </linearGradient>
-      </defs>
-      <rect x="1" y="1" width="38" height="38" rx="10" fill="none" stroke="url(#vg)" strokeOpacity="0.6" />
-      <path d="M11 12 L20 29 L29 12" fill="none" stroke="url(#vg)" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
-      <circle cx="20" cy="12" r="1.6" fill="#c9a96e" />
+    <svg viewBox="12.48 16.64 79.04 70.72" className={className} aria-hidden>
+      <polygon points="12.48,16.64 33.28,16.64 62.4,87.36 41.6,87.36" fill="#fff" />
+      <polygon points="70.72,16.64 91.52,16.64 62.4,87.36 41.6,87.36" fill="#2F6BFF" />
     </svg>
   );
 }
