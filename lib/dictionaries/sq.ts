@@ -302,7 +302,7 @@ export const sq: Dictionary = {
         {
           title: "Cookies dhe gjurmimi",
           body: [
-            "Kjo faqe nuk përdor cookies reklamash apo analitike dhe nuk ju gjurmon në faqe të tjera. Shkronjat dhe imazhet shërbehen nga vetë faqja jonë.",
+            "Kjo faqe nuk përdor cookies dhe nuk ju gjurmon në faqe të tjera. Përdorim Vercel Web Analytics për të numëruar vizitat — funksionon pa cookies dhe mbledh vetëm të dhëna anonime dhe të përmbledhura (si faqja e vizituar, shteti dhe lloji i pajisjes), ndaj nuk mund t'ju identifikojë. Shkronjat dhe imazhet shërbehen nga vetë faqja jonë.",
           ],
         },
         {

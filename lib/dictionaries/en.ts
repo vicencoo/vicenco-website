@@ -301,7 +301,7 @@ export const en = {
         {
           title: "Cookies and tracking",
           body: [
-            "This website does not use advertising or analytics cookies and does not track you across other websites. Fonts and images are served from our own website.",
+            "This website does not use cookies and does not track you across other websites. We use Vercel Web Analytics to count page visits — it works without cookies and only collects anonymous, aggregated data (such as the page visited, country and device type), so it cannot identify you. Fonts and images are served from our own website.",
           ],
         },
         {
