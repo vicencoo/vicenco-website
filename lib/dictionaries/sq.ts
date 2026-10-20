@@ -7,7 +7,7 @@ const N = site.name;
 export const sq: Dictionary = {
   meta: {
     title: `${N} — Faqe Interneti, Software & Produkte Dixhitale`,
-    description: `${N} është një studio dixhitale që dizajnon dhe zhvillon faqe interneti, software të personalizuar dhe dyqane online — nga ideja e parë deri te lansimi dhe më tej. Në shqip dhe anglisht.`,
+    description: `${N} është një studio dixhitale që dizajnon dhe zhvillon faqe interneti, software të personalizuar dhe dyqane online — nga ideja e parë deri te lansimi dhe më tej. Në shqip, anglisht dhe italisht.`,
   },
   nav: {
     home: "Kreu",
@@ -112,6 +112,14 @@ export const sq: Dictionary = {
     view: "Shiko projektin",
     items: [
       {
+        name: "L’Aurora Pizzeria & Ristorante",
+        category: "Restorant · Faqe interneti",
+        text: "Faqe dygjuhëshe për një piceri në zemër të Pavias, me një menu dixhitale elegante, historinë e dy vëllezërve dhe rezervim tavoline online.",
+        year: "Online",
+        url: "https://www.pizzeriaaurorapavia.it/",
+        image: "/work/pizzeria-aurora.webp",
+      },
+      {
         name: "Trio Travel",
         category: "Udhëtime · Faqe interneti",
         text: "Faqe për agjenci udhëtimesh me paketa turistike, bileta avioni dhe prona, së bashku me një panel administrimi për t’i menaxhuar të gjitha.",
@@ -215,7 +223,7 @@ export const sq: Dictionary = {
       },
       {
         q: "A punoni me klientë jashtë Shqipërisë?",
-        a: "Po — punojmë në distancë me klientë kudo, në shqip ose anglisht.",
+        a: "Po — punojmë në distancë me klientë kudo, në shqip, anglisht ose italisht.",
       },
       {
         q: "Si funksionon pagesa?",
@@ -283,7 +291,7 @@ export const sq: Dictionary = {
           title: "Të dhënat që mbledhim",
           body: [
             "Të dhënat që na dërgoni: kur përdorni formularin e kontaktit, na shkruani me email ose na dërgoni mesazh në WhatsApp apo Instagram, marrim të dhënat që zgjidhni të ndani — si emrin, adresën e email-it, numrin e telefonit, llojin e projektit dhe përshkrimin e projektit.",
-            "Preferenca e gjuhës: faqja e mban mend gjuhën që zgjidhni (shqip ose anglisht) në hapësirën lokale të shfletuesit tuaj. Kjo mbetet në pajisjen tuaj dhe nuk na dërgohet neve.",
+            "Preferenca e gjuhës: faqja e mban mend gjuhën që zgjidhni (shqip, anglisht ose italisht) në hapësirën lokale të shfletuesit tuaj. Kjo mbetet në pajisjen tuaj dhe nuk na dërgohet neve.",
             "Të dhëna teknike: si shumica e faqeve, ofruesi ynë i hostingut mund të regjistrojë automatikisht disa të dhëna teknike bazë, si adresën IP, llojin e shfletuesit dhe faqet e vizituara, për siguri dhe për mbarëvajtjen e faqes.",
           ],
         },

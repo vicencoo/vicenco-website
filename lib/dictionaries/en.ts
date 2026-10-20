@@ -6,7 +6,7 @@ const N = site.name;
 export const en = {
   meta: {
     title: `${N} — Websites, Software & Digital Products`,
-    description: `${N} is a digital studio that designs and develops websites, custom software and online stores — from the first idea to launch and beyond. In English and Albanian.`,
+    description: `${N} is a digital studio that designs and develops websites, custom software and online stores — from the first idea to launch and beyond. In English, Albanian and Italian.`,
   },
   nav: {
     home: "Home",
@@ -111,6 +111,14 @@ export const en = {
     view: "View project",
     items: [
       {
+        name: "L’Aurora Pizzeria & Ristorante",
+        category: "Restaurant · Website",
+        text: "Bilingual website for a pizzeria in the heart of Pavia, with an elegant digital menu, the brothers’ story and online table booking.",
+        year: "Live",
+        url: "https://www.pizzeriaaurorapavia.it/",
+        image: "/work/pizzeria-aurora.webp",
+      },
+      {
         name: "Trio Travel",
         category: "Travel · Website",
         text: "Travel agency website with tour packages, flights and property listings, plus an admin panel to manage it all.",
@@ -214,7 +222,7 @@ export const en = {
       },
       {
         q: "Do you work with clients outside Albania?",
-        a: "Yes — we work remotely with clients everywhere, in English or Albanian.",
+        a: "Yes — we work remotely with clients everywhere, in English, Albanian or Italian.",
       },
       {
         q: "How does payment work?",
@@ -282,7 +290,7 @@ export const en = {
           title: "Information we collect",
           body: [
             "Information you send us: when you use the contact form, write to us by email or message us on WhatsApp or Instagram, we receive the details you choose to share — such as your name, email address, phone number, project type and project description.",
-            "Language preference: the website remembers the language you select (English or Albanian) in your browser's local storage. It stays on your device and is not sent to us.",
+            "Language preference: the website remembers the language you select (English, Albanian or Italian) in your browser's local storage. It stays on your device and is not sent to us.",
             "Technical data: like most websites, our hosting provider may automatically record basic technical information such as IP address, browser type and the pages requested, for security and to keep the site running.",
           ],
         },

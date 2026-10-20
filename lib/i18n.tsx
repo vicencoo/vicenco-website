@@ -3,11 +3,12 @@
 import { createContext, useContext, useEffect, useSyncExternalStore } from "react";
 import { en, type Dictionary } from "./dictionaries/en";
 import { sq } from "./dictionaries/sq";
+import { it } from "./dictionaries/it";
 
-export const languages = ["en", "sq"] as const;
+export const languages = ["en", "sq", "it"] as const;
 export type Language = (typeof languages)[number];
 
-const dictionaries: Record<Language, Dictionary> = { en, sq };
+const dictionaries: Record<Language, Dictionary> = { en, sq, it };
 const STORAGE_KEY = "lang";
 const CHANGE_EVENT = "languagechange-local";
 
@@ -15,9 +16,10 @@ const CHANGE_EVENT = "languagechange-local";
 function readLanguage(): Language {
   try {
     const saved = localStorage.getItem(STORAGE_KEY);
-    if (saved === "en" || saved === "sq") return saved;
+    if (languages.includes(saved as Language)) return saved as Language;
   } catch {}
-  return navigator.language?.toLowerCase().startsWith("sq") ? "sq" : "en";
+  const browser = navigator.language?.toLowerCase() ?? "";
+  return languages.find((l) => browser.startsWith(l)) ?? "en";
 }
 
 function subscribe(onChange: () => void) {
@@ -59,4 +61,4 @@ export function useLanguage() {
  * Runs before the page is painted: if the visitor's language isn't English,
  * hide the page until React has swapped the text, so English never flashes.
  */
-export const languageScript = `try{var l=localStorage.getItem("${STORAGE_KEY}");if(l!=="en"&&l!=="sq")l=(navigator.language||"").toLowerCase().indexOf("sq")===0?"sq":"en";if(l!=="en"){var d=document.documentElement;d.lang=l;d.dataset.pending="1";setTimeout(function(){delete d.dataset.pending},1500)}}catch(e){}`;
+export const languageScript = `try{var l=localStorage.getItem("${STORAGE_KEY}");var a=${JSON.stringify(languages)};if(a.indexOf(l)<0){var b=(navigator.language||"").toLowerCase();l="en";for(var i=0;i<a.length;i++)if(b.indexOf(a[i])===0)l=a[i]}if(l!=="en"){var d=document.documentElement;d.lang=l;d.dataset.pending="1";setTimeout(function(){delete d.dataset.pending},1500)}}catch(e){}`;

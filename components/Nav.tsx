@@ -7,6 +7,9 @@ import { languages, setLanguage, useLanguage } from "@/lib/i18n";
 import { pageKeys } from "@/lib/site";
 import { Wordmark } from "./Logo";
 
+const languageNames = { en: "English", sq: "Shqip", it: "Italiano" };
+const languageCodes = { en: "EN", sq: "AL", it: "IT" };
+
 export function Nav() {
   const { lang, t: dict } = useLanguage();
   const t = dict.nav;
@@ -70,12 +73,12 @@ export function Nav() {
                 type="button"
                 onClick={() => setLanguage(l)}
                 aria-pressed={lang === l}
-                aria-label={l === "sq" ? "Shqip" : "English"}
+                aria-label={languageNames[l]}
                 className={`cursor-pointer rounded-full px-2.5 py-1 transition-all duration-300 ${
                   lang === l ? "bg-ink text-bg" : "text-muted hover:text-ink"
                 }`}
               >
-                {l === "sq" ? "AL" : "EN"}
+                {languageCodes[l]}
               </button>
             ))}
           </div>
