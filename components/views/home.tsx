@@ -1,8 +1,7 @@
-"use client";
-
-import { useLanguage } from "@/lib/i18n";
+import { getDictionary } from "@/lib/i18n-server";
 import Link from "next/link";
 import { site } from "@/lib/site";
+import { localePath } from "@/lib/i18n";
 import { Arrow } from "@/components/Logo";
 import { Reveal } from "@/components/Reveal";
 import { CtaBand, MoreLink, RotatingBadge, SectionHead } from "@/components/ui";
@@ -14,8 +13,8 @@ import {
   WorkGrid,
 } from "@/components/sections";
 
-export function HomeView() {
-  const { t } = useLanguage();
+export async function HomeView() {
+  const { lang, t } = await getDictionary();
 
   return (
     <>
@@ -62,14 +61,14 @@ export function HomeView() {
                 style={{ animationDelay: "850ms" }}
               >
                 <Link
-                  href="/contact"
+                  href={localePath(lang, "/contact")}
                   className="group inline-flex items-center gap-3 rounded-full bg-brand px-8 py-4 text-sm font-semibold text-white transition-all duration-500 hover:bg-brand-hover hover:shadow-[0_0_50px_-5px_rgba(47,107,255,0.6)]"
                 >
                   {t.hero.primary}
                   <Arrow />
                 </Link>
                 <Link
-                  href="/work"
+                  href={localePath(lang, "/work")}
                   className="inline-flex items-center gap-3 rounded-full border border-line-2 px-8 py-4 text-sm transition-colors duration-500 hover:border-ink"
                 >
                   {t.hero.secondary}
@@ -79,7 +78,7 @@ export function HomeView() {
 
             <RotatingBadge
               text={`${t.hero.eyebrow} • ${site.name} • `}
-              href="/contact"
+              href={localePath(lang, "/contact")}
             />
           </div>
         </div>
@@ -98,7 +97,7 @@ export function HomeView() {
       <Marquee t={t} />
 
       {/* ───────────── SERVICES PREVIEW ───────────── */}
-      <section id="services" className="py-28 sm:py-36">
+      <section id="services" className="py-20 sm:py-36">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
             <SectionHead
@@ -109,17 +108,17 @@ export function HomeView() {
               index="01"
             />
             <Reveal className="shrink-0">
-              <MoreLink href="/services">{t.more.services}</MoreLink>
+              <MoreLink href={localePath(lang, "/services")}>{t.more.services}</MoreLink>
             </Reveal>
           </div>
-          <div className="mt-16">
-            <ServicesList t={t} />
+          <div className="mt-10 sm:mt-16">
+            <ServicesList lang={lang} t={t} />
           </div>
         </div>
       </section>
 
       {/* ───────────── FEATURED WORK ───────────── */}
-      <section className="border-t border-line bg-bg-2 py-28 sm:py-36">
+      <section className="border-t border-line bg-bg-2 py-20 sm:py-36">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
             <SectionHead
@@ -130,30 +129,30 @@ export function HomeView() {
               index="02"
             />
             <Reveal className="shrink-0">
-              <MoreLink href="/work">{t.more.work}</MoreLink>
+              <MoreLink href={localePath(lang, "/work")}>{t.more.work}</MoreLink>
             </Reveal>
           </div>
-          <div className="mt-16">
-            <WorkGrid t={t} limit={2} />
+          <div className="mt-10 sm:mt-16">
+            <WorkGrid lang={lang} t={t} limit={2} />
           </div>
         </div>
       </section>
 
       {/* ───────────── MANIFESTO ───────────── */}
-      <section className="relative overflow-hidden border-t border-line py-28 sm:py-40">
+      <section className="relative overflow-hidden border-t border-line py-20 sm:py-40">
         <div className="orb left-1/2 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 bg-brand/10" />
         <div className="relative mx-auto max-w-6xl px-5 sm:px-8">
           <ManifestoQuote t={t} />
-          <div className="mt-20">
+          <div className="mt-12 sm:mt-20">
             <Values t={t} />
           </div>
-          <Reveal className="mt-14 text-center">
-            <MoreLink href="/about">{t.more.about}</MoreLink>
+          <Reveal className="mt-10 sm:mt-14 text-center">
+            <MoreLink href={localePath(lang, "/about")}>{t.more.about}</MoreLink>
           </Reveal>
         </div>
       </section>
 
-      <CtaBand t={t.cta} />
+      <CtaBand lang={lang} t={t.cta} />
     </>
   );
 }

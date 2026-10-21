@@ -8,6 +8,13 @@ export const it: Dictionary = {
   meta: {
     title: `${N} — Siti Web, Software & Prodotti Digitali`,
     description: `${N} è uno studio digitale che progetta e sviluppa siti web, software su misura e negozi online — dalla prima idea al lancio e oltre. In italiano, inglese e albanese.`,
+    tagline: "Siti Web, Software & Prodotti Digitali",
+    pages: {
+      services: "Servizi di Web Design & Sviluppo",
+      work: "I Nostri Progetti: Siti Web & Software",
+      about: "Chi Siamo",
+      contact: "Contattaci",
+    },
   },
   nav: {
     home: "Home",
@@ -73,34 +80,243 @@ export const it: Dictionary = {
     lead: `Ti affianchiamo dal primo schizzo al lancio e oltre. ${N} si occupa di strategia, design, sviluppo e assistenza — un unico partner, responsabile dell'intero risultato.`,
     items: [
       {
+        slug: "website-design",
         title: "Siti Web Professionali",
         text: "Siti su misura per aziende e brand, con un design raffinato, una struttura chiara e prestazioni veloci su ogni dispositivo.",
         tags: ["Design unico", "Per ogni schermo", "Facile da aggiornare"],
+        metaTitle: "Realizzazione Siti Web Professionali",
+        intro: [
+          "Il tuo sito è spesso il primo luogo in cui un cliente conosce la tua azienda. Progettiamo e sviluppiamo siti su misura — non template — con una struttura chiara, un design raffinato e prestazioni veloci su smartphone, tablet e computer.",
+          "Ogni sito è costruito per permetterti di aggiornare da solo testi, immagini e pagine, e nasce già con le basi per i motori di ricerca: codice pulito, caricamento veloce, titoli e descrizioni per ogni pagina e sitemap.",
+        ],
+        includes: [
+          "Design su misura basato sul tuo brand",
+          "Layout responsive per ogni schermo",
+          "Caricamento veloce e codice moderno e sicuro",
+          "Pannello di gestione semplice per i contenuti",
+          "Modulo di contatto, WhatsApp e mappa",
+          "SEO di base: titoli, descrizioni, sitemap",
+          "Versioni multilingue quando servono",
+          "Configurazione di dominio, hosting e SSL",
+        ],
+        idealFor: [
+          "Aziende che hanno bisogno di una presenza online professionale",
+          "Ristoranti, cliniche, hotel e attività locali",
+          "Brand che vogliono sostituire un sito datato o lento",
+          "Attività con clienti che parlano lingue diverse",
+        ],
+        faq: [
+          {
+            q: "Quanto tempo serve per realizzare un sito web?",
+            a: "Un sito più piccolo richiede di solito 1–2 settimane, un sito aziendale completo 3–5 settimane, in base al numero di pagine e funzionalità. Ricevi una tempistica precisa insieme al preventivo.",
+          },
+          {
+            q: "Il mio sito funzionerà bene da smartphone?",
+            a: "Sì. Ogni sito viene progettato e testato per smartphone, tablet e computer, perché la maggior parte dei visitatori arriva da mobile.",
+          },
+          {
+            q: "Potete rifare il mio sito attuale?",
+            a: "Sì. Possiamo riprogettare il tuo sito, mantenere i contenuti che funzionano e portarlo su una base più veloce e moderna.",
+          },
+        ],
       },
       {
+        slug: "web-applications",
         title: "Applicazioni Web & Software",
         text: "Piattaforme su misura, pannelli di gestione, portali clienti, sistemi di prenotazione e gestionali — costruiti attorno al modo in cui lavora la tua azienda.",
         tags: ["Dashboard", "Gestione", "Integrazioni"],
+        metaTitle: "Sviluppo di Applicazioni Web & Software su Misura",
+        intro: [
+          "Quando fogli Excel, carta o strumenti già pronti iniziano a rallentare il tuo team, il software su misura fa la differenza. Sviluppiamo applicazioni web attorno al modo in cui lavora davvero la tua azienda — pannelli di gestione, portali clienti, sistemi di prenotazione e gestionali.",
+          "Partiamo dall'analisi dei tuoi processi, poi progettiamo e sviluppiamo l'applicazione passo dopo passo, con anteprime regolari per provarla mentre cresce. Funziona nel browser, quindi il tuo team può usarla da qualsiasi dispositivo senza installare nulla.",
+        ],
+        includes: [
+          "Analisi dei processi e dei requisiti",
+          "Pannelli di gestione e dashboard",
+          "Portali clienti con account sicuri",
+          "Sistemi di prenotazione e pianificazione",
+          "Ruoli e permessi utente",
+          "Integrazioni con pagamenti, email e altri servizi",
+          "Hosting, backup e assistenza continua",
+        ],
+        idealFor: [
+          "Aziende che gestiscono il lavoro su Excel o su carta",
+          "Aziende che hanno bisogno di uno strumento interno su misura",
+          "Attività di servizi che ricevono prenotazioni o richieste online",
+          "Startup che costruiscono un nuovo prodotto digitale",
+        ],
+        faq: [
+          {
+            q: "Quanto costa un software su misura?",
+            a: "Dipende dalle funzionalità e dalla complessità. Dopo una consulenza gratuita ti inviamo un preventivo scritto con perimetro, tempistiche e prezzo, così conosci il costo prima di iniziare.",
+          },
+          {
+            q: "Il codice sarà mio?",
+            a: "Sì. Una volta saldato il progetto, il design, i contenuti e il codice creati appositamente per te sono di tua proprietà.",
+          },
+          {
+            q: "L'applicazione potrà crescere in futuro?",
+            a: "Sì. Usiamo tecnologie moderne e affidabili, così è possibile aggiungere nuove funzionalità man mano che l'azienda cresce.",
+          },
+        ],
       },
       {
+        slug: "e-commerce",
         title: "Negozi Online",
         text: "Negozi online che vendono — dai nuovi shop ai grandi cataloghi, con acquisti semplici, pagamenti, magazzino e funzionalità personalizzate.",
         tags: ["E-commerce", "Pagamenti", "Catalogo"],
+        metaTitle: "Realizzazione E-commerce & Negozi Online",
+        intro: [
+          "Un negozio online ha bisogno di più di un elenco di prodotti. Realizziamo e-commerce facili da navigare, veloci da caricare e semplici da cui acquistare — dai nuovi shop con pochi prodotti ai grandi cataloghi.",
+          "Gestisci prodotti, prezzi, magazzino e ordini da un pannello chiaro, mentre i clienti acquistano facilmente da qualsiasi dispositivo. Configuriamo pagamenti, opzioni di spedizione e le funzionalità su misura di cui ha bisogno il tuo negozio.",
+        ],
+        includes: [
+          "Design del negozio su misura",
+          "Catalogo con categorie, filtri e ricerca",
+          "Carrello e checkout semplice",
+          "Integrazione dei pagamenti online",
+          "Gestione di magazzino e ordini",
+          "Codici sconto e promozioni",
+          "Pagine prodotto ottimizzate per i motori di ricerca",
+        ],
+        idealFor: [
+          "Negozi che vogliono iniziare a vendere online",
+          "Attività che vendono sui social e vogliono un proprio negozio",
+          "Negozi con grandi cataloghi che necessitano di una gestione migliore",
+          "Brand che hanno superato la loro attuale piattaforma e-commerce",
+        ],
+        faq: [
+          {
+            q: "Quali metodi di pagamento può accettare il mio negozio?",
+            a: "Integriamo i sistemi di pagamento disponibili nel tuo paese, come carte e bonifico bancario, e possiamo aggiungere il pagamento alla consegna.",
+          },
+          {
+            q: "Posso gestire i prodotti da solo?",
+            a: "Sì. Aggiungi e modifichi prodotti, prezzi, foto e magazzino da un pannello semplice, senza toccare il codice.",
+          },
+          {
+            q: "Potete trasferire il mio negozio attuale su un nuovo sito?",
+            a: "Sì. Possiamo migrare prodotti e contenuti e costruire attorno a essi un negozio più veloce e curato.",
+          },
+        ],
       },
       {
+        slug: "ui-ux-design",
         title: "Design UI / UX",
         text: "Interfacce progettate con uno scopo: gerarchia chiara, tipografia curata ed esperienze che le persone usano con piacere.",
         tags: ["Wireframe", "Prototipi", "Design system"],
+        metaTitle: "Design UI/UX per Siti Web & App",
+        intro: [
+          "Un buon design non riguarda solo l'aspetto, ma quanto facilmente le persone trovano ciò che cercano. Progettiamo interfacce con una gerarchia chiara, una tipografia curata e percorsi che guidano i visitatori verso l'azione.",
+          "Lavoriamo dalla struttura ai dettagli: prima i wireframe, poi il design definitivo e prototipi cliccabili che approvi prima dello sviluppo — così non ci sono sorprese dopo.",
+        ],
+        includes: [
+          "Ricerca sugli utenti e struttura dei contenuti",
+          "Wireframe di pagine e flussi principali",
+          "Design visivo definitivo",
+          "Prototipi cliccabili",
+          "Design system e librerie di componenti",
+          "Design per smartphone, tablet e desktop",
+        ],
+        idealFor: [
+          "Prodotti difficili da usare o con poche conversioni",
+          "Startup che hanno bisogno di una prima versione curata",
+          "Team con sviluppatori ma senza designer",
+          "Brand che rinnovano la propria identità digitale",
+        ],
+        faq: [
+          {
+            q: "Potete occuparvi solo del design, senza sviluppo?",
+            a: "Sì. Possiamo consegnare design e prototipi al tuo team di sviluppo, oppure occuparci anche dello sviluppo.",
+          },
+          {
+            q: "Cosa ricevo alla fine?",
+            a: "File di design organizzati, un prototipo e i componenti e gli stili di cui i tuoi sviluppatori hanno bisogno per realizzare il prodotto in modo coerente.",
+          },
+          {
+            q: "Come vi assicurate che il design funzioni per gli utenti?",
+            a: "Partiamo dai tuoi obiettivi e dalle esigenze degli utenti, testiamo i flussi nei prototipi e li perfezioniamo con il tuo feedback prima dello sviluppo.",
+          },
+        ],
       },
       {
+        slug: "mvp-development",
         title: "Progetti da Zero",
         text: "Hai un'idea ma non sai da dove cominciare? La trasformiamo in un piano chiaro, definiamo le funzionalità e costruiamo la prima versione, pronta per utenti reali.",
         tags: ["Strategia", "Pianificazione", "MVP"],
+        metaTitle: "Sviluppo MVP & Nuovi Prodotti Digitali",
+        intro: [
+          "Molti grandi prodotti nascono da un'idea senza un piano. Ti aiutiamo a trasformarla in qualcosa di concreto: chiariamo l'obiettivo, definiamo le funzionalità essenziali e pianifichiamo il lavoro perché il budget vada dove conta.",
+          "Poi progettiamo e sviluppiamo una prima versione — un minimum viable product (MVP) — pronta per utenti reali. Puoi lanciarla, raccogliere feedback e far crescere il prodotto con fiducia.",
+        ],
+        includes: [
+          "Consulenza gratuita per capire la tua idea",
+          "Elenco delle funzionalità e priorità per la prima versione",
+          "Piano tecnico, tempistiche e budget",
+          "Design delle schermate principali",
+          "Sviluppo della prima versione funzionante",
+          "Lancio, hosting e configurazione delle statistiche",
+          "Supporto per le versioni successive",
+        ],
+        idealFor: [
+          "Fondatori con un'idea ma senza un team tecnico",
+          "Aziende che lanciano un nuovo servizio digitale",
+          "Team che vogliono testare un'idea prima di un grande investimento",
+          "Progetti che hanno bisogno di un piano chiaro prima di iniziare",
+        ],
+        faq: [
+          {
+            q: "Ho solo un'idea. Basta per iniziare?",
+            a: "Sì. Iniziamo con una conversazione, poi trasformiamo l'idea in un piano scritto con funzionalità, tempistiche e prezzo.",
+          },
+          {
+            q: "Che cos'è un MVP?",
+            a: "Un minimum viable product è la prima versione con solo le funzionalità necessarie a risolvere il problema principale per utenti reali. Ti permette di lanciare prima e capire cosa sviluppare dopo.",
+          },
+          {
+            q: "Continuerete a lavorare con me dopo il lancio?",
+            a: "Sì. L'assistenza è inclusa e possiamo continuare a sviluppare nuove funzionalità man mano che il prodotto cresce.",
+          },
+        ],
       },
       {
+        slug: "maintenance-seo",
         title: "Assistenza & Crescita",
         text: "Hosting, sicurezza, SEO, aggiornamenti e nuove funzionalità dopo il lancio, perché il tuo prodotto continui a migliorare.",
         tags: ["Hosting", "SEO", "Assistenza"],
+        metaTitle: "Manutenzione Siti Web, Hosting & SEO",
+        intro: [
+          "Il lancio è solo l'inizio. Manteniamo il tuo sito o software veloce, sicuro e aggiornato, e lo aiutiamo a farsi trovare sui motori di ricerca, perché continui a lavorare per la tua azienda.",
+          "L'assistenza è inclusa in ogni pacchetto, mentre i piani mensili opzionali coprono aggiornamenti, backup, monitoraggio e nuove funzionalità — con un partner che conosce già il tuo progetto.",
+        ],
+        includes: [
+          "Configurazione di hosting, dominio, SSL ed email professionale",
+          "Aggiornamenti regolari e correzioni di sicurezza",
+          "Backup e monitoraggio",
+          "SEO: struttura delle pagine, metadati, velocità e Google Search Console",
+          "Aggiornamento dei contenuti e nuove pagine",
+          "Nuove funzionalità e miglioramenti",
+        ],
+        idealFor: [
+          "Aziende senza un team tecnico interno",
+          "Siti lenti, datati o difficili da trovare su Google",
+          "Progetti realizzati da noi che continuano a crescere",
+          "Siti esistenti che hanno bisogno di un partner tecnico affidabile",
+        ],
+        faq: [
+          {
+            q: "Offrite assistenza per siti che non avete realizzato voi?",
+            a: "Sì. Prima analizziamo il sito, poi proponiamo ciò che serve per mantenerlo sicuro, veloce e facile da gestire.",
+          },
+          {
+            q: "Potete aiutare il mio sito a comparire su Google?",
+            a: "Sì. Miglioriamo la SEO tecnica — velocità, struttura, metadati, sitemap — configuriamo Google Search Console e ti consigliamo sui contenuti. Il posizionamento dipende anche da contenuti e concorrenza, quindi non promettiamo posizioni specifiche.",
+          },
+          {
+            q: "L'assistenza è inclusa?",
+            a: "Ogni pacchetto include assistenza dopo il lancio. Aggiornamenti continui, backup e nuove funzionalità sono disponibili con piani mensili opzionali.",
+          },
+        ],
       },
     ],
   },
@@ -112,44 +328,275 @@ export const it: Dictionary = {
     view: "Visita il progetto",
     items: [
       {
+        slug: "pizzeria-aurora",
         name: "L’Aurora Pizzeria & Ristorante",
         category: "Ristorante · Sito web",
         text: "Sito bilingue per una pizzeria nel cuore di Pavia, con un elegante menù digitale, la storia di due fratelli e la prenotazione del tavolo online.",
         year: "Online",
         url: "https://www.pizzeriaaurorapavia.it/",
         image: "/work/pizzeria-aurora.webp",
+        services: ["website-design", "ui-ux-design"],
+        overview: [
+          "L’Aurora è una pizzeria e ristorante nel centro storico di Pavia, gestita dai fratelli Klaudjo e Marko. Impasto leggero, materie prime selezionate con cura e un'atmosfera calda e informale la rendono speciale — e il sito doveva trasmettere proprio questo.",
+          "Abbiamo progettato e sviluppato un sito in italiano e inglese con la storia dei fratelli, il menù digitale completo con prezzi, una galleria fotografica, le indicazioni stradali e la prenotazione del tavolo online — veloce e semplice sugli smartphone che gli ospiti usano per scegliere dove mangiare.",
+        ],
+        features: [
+          {
+            title: "Sito pubblico",
+            items: [
+              {
+                title: "Menù digitale",
+                text: "Il menù completo — antipasti, pizze classiche e speciali, primi e secondi — ogni piatto con descrizione e prezzo.",
+              },
+              {
+                title: "Prenotazioni online",
+                text: "Gli ospiti prenotano un tavolo online in pochi tocchi, oppure chiamano il ristorante direttamente dalla pagina.",
+              },
+              {
+                title: "La nostra storia",
+                text: "Una pagina dedicata ai fratelli e alla storia del ristorante.",
+              },
+              {
+                title: "Galleria dell'atmosfera",
+                text: "Foto dei piatti e della sala, perché gli ospiti sappiano cosa aspettarsi.",
+              },
+              {
+                title: "Posizione e indicazioni",
+                text: "L'indirizzo nel centro storico con indicazioni stradali in un tocco.",
+              },
+              {
+                title: "Italiano e inglese",
+                text: "Versioni complete per clienti locali e turisti.",
+              },
+            ],
+          },
+        ],
       },
       {
+        slug: "trio-travel",
         name: "Trio Travel",
-        category: "Viaggi · Sito web",
+        category: "Viaggi & immobili · Sito & gestionale",
         text: "Sito per un'agenzia di viaggi con pacchetti turistici, biglietti aerei e immobili, insieme a un pannello di gestione per amministrare tutto.",
         year: "Online",
         url: "https://www.triotravel.al/",
         image: "/work/triotravel-platform.webp",
+        services: ["website-design", "web-applications"],
+        overview: [
+          "Trio Travel & Immo è un'agenzia di viaggi e immobiliare a Valona che offre molto più dei viaggi: biglietti aerei, pacchetti turistici, assistenza visti, assicurazioni Albsig, pagamento di bollette e multe, trasferimenti MoneyGram e immobili in affitto e in vendita. Aveva bisogno di un'unica piattaforma per presentare tutto — e di un gestionale per il lavoro quotidiano dell'agenzia.",
+          "Abbiamo realizzato un sito pubblico che riunisce tutti i servizi e un pannello di gestione su misura in cui il team gestisce immobili, pacchetti e offerte di voli, registra le assicurazioni e i check-in dei clienti e riceve promemoria al momento giusto — così nulla viene dimenticato.",
+        ],
+        features: [
+          {
+            title: "Sito pubblico",
+            items: [
+              {
+                title: "Pacchetti turistici",
+                text: "Offerte stagionali — festività, Natale, le mete più richieste — con notti, categoria dell'hotel e prezzo a persona, più richieste di pacchetti personalizzati.",
+              },
+              {
+                title: "Offerte di voli",
+                text: "Tratte con codici aeroportuali e prezzi a partire da, con contatto diretto con l'agenzia per prenotare.",
+              },
+              {
+                title: "Immobili in affitto e in vendita",
+                text: "Appartamenti, case, ville, terreni e spazi commerciali con locali, superficie e prezzo, divisi tra affitti e vendite.",
+              },
+              {
+                title: "Progetto residenziale in evidenza",
+                text: "Una presentazione dedicata a Zoi Villa Residence con appartamenti, unità in vendita e posti auto.",
+              },
+              {
+                title: "Servizi dell'agenzia",
+                text: "Assicurazioni Albsig (auto, moto, imbarcazioni, casa, vita e viaggio), pagamento di bollette e multe e MoneyGram, spiegati in un unico posto.",
+              },
+              {
+                title: "Destinazioni e FAQ",
+                text: "Le mete più amate e risposte chiare su biglietti, pacchetti, visti e cancellazioni.",
+              },
+              {
+                title: "WhatsApp e contatti",
+                text: "Pulsanti di contatto rapido in ogni sezione, per chiedere subito informazioni su un'offerta.",
+              },
+            ],
+          },
+          {
+            title: "Pannello di gestione",
+            items: [
+              {
+                title: "Gestione immobili",
+                text: "Aggiungere, modificare e pubblicare immobili in affitto o in vendita, con foto, dettagli e stato.",
+              },
+              {
+                title: "Pacchetti e voli",
+                text: "Creare e aggiornare pacchetti turistici e offerte di voli, che compaiono subito sul sito.",
+              },
+              {
+                title: "Registrazione assicurazioni",
+                text: "La polizza di ogni cliente registrata in un unico posto, invece che su carta o in fogli Excel.",
+              },
+              {
+                title: "Promemoria assicurazioni",
+                text: "Promemoria quando una polizza si avvicina al rinnovo, per contattare il cliente in tempo.",
+              },
+              {
+                title: "Registrazione check-in",
+                text: "Viaggi e dati di check-in dei clienti registrati per ogni prenotazione.",
+              },
+              {
+                title: "Promemoria check-in",
+                text: "Promemoria perché il team non dimentichi mai il check-in di un cliente.",
+              },
+            ],
+          },
+        ],
       },
       {
+        slug: "omw-on-my-way",
         name: "OMW — On My Way",
-        category: "Carburanti · Sito web",
+        category: "Carburanti · Sito & gestionale",
         text: "Sito per una rete di distributori di carburante con la ricerca della stazione più vicina e un pannello per aggiornare i prezzi di ogni stazione.",
         year: "Online",
         url: "https://www.omw.al/",
         image: "/work/omw-platform.webp",
+        services: ["website-design", "web-applications"],
+        overview: [
+          "OMW — On My Way è una rete di distributori di carburante presente in tutta l'Albania, aperta 24/7, che offre carburante, servizi auto, mini market, caffetteria e perfino un hotel. Gli automobilisti volevano trovare velocemente la stazione più vicina e vedere i prezzi aggiornati; l'azienda doveva mantenere i prezzi corretti in ogni stazione.",
+          "Abbiamo realizzato un sito bilingue (albanese e inglese) che presenta il marchio, i prodotti e i servizi, con la ricerca della stazione più vicina e i prezzi del carburante — più un pannello in cui il team aggiorna i prezzi di ogni stazione.",
+        ],
+        features: [
+          {
+            title: "Sito pubblico",
+            items: [
+              {
+                title: "Ricerca stazioni",
+                text: "Trova la stazione OMW più vicina e vedi tutte le stazioni in Albania.",
+              },
+              {
+                title: "Prezzi del carburante",
+                text: "Prezzi aggiornati di Crystal Diesel, Diesel 10ppm, benzina e GPL, per ogni stazione.",
+              },
+              {
+                title: "Prodotti",
+                text: "Una panoramica chiara di ogni tipo di carburante offerto dalla rete.",
+              },
+              {
+                title: "Servizi",
+                text: "Servizi auto, mini market, caffetteria e l'hotel OMW a Vorë, presentati in un unico posto.",
+              },
+              {
+                title: "Albanese e inglese",
+                text: "Versioni complete del sito in entrambe le lingue.",
+              },
+              {
+                title: "Azienda e contatti",
+                text: "Pagina Chi siamo, contatti della sede e pagine legali.",
+              },
+            ],
+          },
+          {
+            title: "Pannello di gestione",
+            items: [
+              {
+                title: "Gestione prezzi",
+                text: "Aggiornamento dei prezzi del carburante di ogni stazione da un'unica schermata.",
+              },
+              {
+                title: "Aggiornamento immediato",
+                text: "I nuovi prezzi compaiono subito sul sito, così gli automobilisti vedono sempre informazioni corrette.",
+              },
+            ],
+          },
+        ],
       },
       {
+        slug: "zoi-villa-residence",
         name: "Zoi Villa Residence",
         category: "Immobiliare · Sito web",
         text: "Presentazione bilingue per una residenza privata con appartamenti moderni e ville esclusive.",
         year: "Online",
         url: "https://www.zoi-villa.al/",
         image: "/work/zoi-villa.webp",
+        services: ["website-design", "ui-ux-design"],
+        overview: [
+          "Zoi Villa Residence è una comunità residenziale privata a Tirana con appartamenti moderni 2+1 e 3+1 e ville esclusive, alcune con piscina privata. Il sito doveva vendere uno stile di vita premium — e aiutare gli acquirenti a trovare la casa giusta.",
+          "Abbiamo progettato una presentazione che mostra la residenza, gli appartamenti, le ville e i posti auto con grandi immagini e una struttura chiara, con planimetrie e disponibilità di ogni unità e un modo semplice per prenotare una visita privata.",
+        ],
+        features: [
+          {
+            title: "Sito pubblico",
+            items: [
+              {
+                title: "Presentazione della residenza",
+                text: "La comunità, l'architettura, gli spazi verdi e la sicurezza, presentati con immagini grandi e di qualità.",
+              },
+              {
+                title: "Appartamenti",
+                text: "Appartamenti 2+1 e 3+1 con planimetrie e disponibilità di ogni unità.",
+              },
+              {
+                title: "Ville",
+                text: "Ville private con giardino, alcune con piscina privata.",
+              },
+              {
+                title: "Posti auto",
+                text: "31 posti auto con le relative metrature, disponibili come opzione per i residenti.",
+              },
+              {
+                title: "Prenota una visita",
+                text: "I visitatori richiedono una presentazione privata della residenza direttamente dal sito.",
+              },
+            ],
+          },
+        ],
       },
       {
+        slug: "lotus-dental-clinic",
         name: "Lotus Dental Clinic",
         category: "Sanità · Sito web",
         text: "Sito per una clinica dentale con servizi, galleria, recensioni dei pazienti e prenotazione degli appuntamenti.",
         year: "Online",
         url: "https://www.lotusdentalclinic.al/",
         image: "/work/lotusdentalclinic.webp",
+        services: ["website-design"],
+        overview: [
+          "Lotus Dental Clinic è una clinica dentale moderna a Valona. Voleva che i pazienti — locali e dall'estero — conoscessero i trattamenti, il team e la clinica, e prenotassero un appuntamento con facilità.",
+          "Abbiamo realizzato un sito in sei lingue che presenta i trattamenti della clinica, il team, la galleria, i video dei pazienti e le recensioni, con prenotazione degli appuntamenti e contatto diretto via telefono, email o WhatsApp.",
+        ],
+        features: [
+          {
+            title: "Sito pubblico",
+            items: [
+              {
+                title: "Sei lingue",
+                text: "Albanese, inglese, italiano, francese, spagnolo e tedesco — per pazienti locali e turismo dentale.",
+              },
+              {
+                title: "Trattamenti",
+                text: "Digital Smile Design, sbiancamento, implantologia e odontoiatria familiare, estetica e d'urgenza.",
+              },
+              {
+                title: "Il team",
+                text: "I profili dei dentisti, dell'ortodontista e del personale infermieristico.",
+              },
+              {
+                title: "Galleria e video dei pazienti",
+                text: "Un tour della clinica e brevi video di esperienze dei pazienti e trasformazioni del sorriso.",
+              },
+              {
+                title: "Recensioni dei pazienti",
+                text: "Cosa dicono i pazienti, in un carosello.",
+              },
+              {
+                title: "Prenotazione appuntamenti",
+                text: "Prenota un appuntamento da ogni sezione, oppure contatta la clinica via telefono, email o WhatsApp.",
+              },
+              {
+                title: "Igiene e percorso del paziente",
+                text: "Sezioni sull'ambiente della clinica, gli standard di igiene e come si svolge una visita.",
+              },
+            ],
+          },
+        ],
       },
     ],
   },
@@ -310,7 +757,7 @@ export const it: Dictionary = {
         {
           title: "Cookie e tracciamento",
           body: [
-            "Questo sito non utilizza cookie e non ti traccia su altri siti. Usiamo Vercel Web Analytics per contare le visite — funziona senza cookie e raccoglie solo dati anonimi e aggregati (come la pagina visitata, il paese e il tipo di dispositivo), quindi non può identificarti. Font e immagini sono serviti direttamente dal nostro sito.",
+            "Questo sito non utilizza cookie e non ti traccia su altri siti. Usiamo Vercel Web Analytics per contare le visite e Vercel Speed Insights per misurare la velocità di caricamento delle pagine — entrambi funzionano senza cookie e raccoglie solo dati anonimi e aggregati (come la pagina visitata, il paese e il tipo di dispositivo), quindi non può identificarti. Font e immagini sono serviti direttamente dal nostro sito.",
           ],
         },
         {
@@ -421,6 +868,25 @@ export const it: Dictionary = {
         },
       ],
     },
+  },
+  serviceDetail: {
+    intro: "Panoramica",
+    includes: "Cosa è incluso",
+    idealFor: "Ideale per",
+    faq: "Domande frequenti",
+    work: "Progetti correlati",
+    other: "Altri servizi",
+    learnMore: "Scopri di più",
+  },
+  workDetail: {
+    visit: "Sito online",
+    industry: "Settore",
+    services: "Servizi",
+    overview: "Il progetto",
+    features: "Cosa abbiamo realizzato",
+    more: "Altri progetti",
+    visitCta: "Visita il sito",
+    caseStudy: "Caso di studio",
   },
   footer: {
     tagline:

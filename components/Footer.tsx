@@ -1,14 +1,13 @@
-"use client";
-
 import Link from "next/link";
-import { useLanguage } from "@/lib/i18n";
+import type { Dictionary } from "@/lib/dictionaries/en";
+import { localePath, type Language } from "@/lib/i18n";
 import { pageKeys, site } from "@/lib/site";
 import { Wordmark } from "./Logo";
 
 const linkClass = "text-[15px] text-muted transition-colors duration-300 hover:text-brand-2";
 
-export function Footer() {
-  const { t } = useLanguage();
+export function Footer({ lang, t }: { lang: Language; t: Dictionary }) {
+  const href = (path: string) => localePath(lang, path);
   const pages = [{ href: "/", label: t.nav.home }, ...pageKeys.map((k) => ({ href: `/${k}`, label: t.nav[k] }))];
 
   return (
@@ -18,7 +17,7 @@ export function Footer() {
         <div className="grid grid-cols-2 gap-x-6 gap-y-12 py-16 sm:py-20 lg:grid-cols-[1.4fr_1fr_1fr_1.1fr] lg:gap-0">
           {/* Brand */}
           <div className="col-span-2 lg:col-span-1 lg:pr-12">
-            <Link href="/" className="inline-flex items-center gap-3">
+            <Link href={href("/")} className="inline-flex items-center gap-3">
               <Wordmark />
             </Link>
             <p className="mt-6 max-w-sm leading-relaxed text-muted">{t.footer.tagline}</p>
@@ -27,7 +26,7 @@ export function Footer() {
           <FooterColumn title={t.footer.company}>
             {pages.map((p) => (
               <li key={p.href}>
-                <Link href={p.href} className={linkClass}>
+                <Link href={href(p.href)} className={linkClass}>
                   {p.label}
                 </Link>
               </li>
@@ -37,7 +36,7 @@ export function Footer() {
           <FooterColumn title={t.nav.services}>
             {t.services.items.map((s) => (
               <li key={s.title}>
-                <Link href="/services" className={linkClass}>
+                <Link href={href(`/services/${s.slug}`)} className={linkClass}>
                   {s.title}
                 </Link>
               </li>
@@ -75,10 +74,10 @@ export function Footer() {
             © {site.year} {site.name}. {t.footer.rights}
           </span>
           <nav className="flex flex-wrap gap-x-6 gap-y-2" aria-label={t.footer.company}>
-            <Link href="/privacy" className="transition-colors hover:text-brand-2">
+            <Link href={href("/privacy")} className="transition-colors hover:text-brand-2">
               {t.legal.privacy.label}
             </Link>
-            <Link href="/terms" className="transition-colors hover:text-brand-2">
+            <Link href={href("/terms")} className="transition-colors hover:text-brand-2">
               {t.legal.terms.label}
             </Link>
           </nav>

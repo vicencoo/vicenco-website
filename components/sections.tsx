@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Dictionary } from "@/lib/dictionaries/en";
+import { localePath, type Language } from "@/lib/i18n";
 import { site } from "@/lib/site";
 import { Reveal } from "./Reveal";
 import { ContactForm } from "./ContactForm";
@@ -28,12 +29,15 @@ export function Marquee({ t }: { t: Dictionary }) {
   );
 }
 
-export function ServicesGrid({ t }: { t: Dictionary }) {
+export function ServicesGrid({ lang, t }: { lang: Language; t: Dictionary }) {
   return (
     <div className="grid gap-px overflow-hidden rounded-3xl border border-line bg-line sm:grid-cols-2 lg:grid-cols-3">
       {t.services.items.map((s, i) => (
         <Reveal key={s.title} delay={(i % 3) * 120} className="h-full">
-          <article className="spotlight group flex h-full flex-col bg-bg p-8 transition-colors duration-500 hover:bg-surface sm:p-10">
+          <Link
+            href={localePath(lang, `/services/${s.slug}`)}
+            className="spotlight group flex h-full flex-col bg-bg p-8 transition-colors duration-500 hover:bg-surface sm:p-10"
+          >
             <div className="flex items-start justify-between">
               <ServiceIcon index={i} />
               <span className="font-serif text-lg text-faint transition-colors duration-500 group-hover:text-brand">
@@ -52,7 +56,11 @@ export function ServicesGrid({ t }: { t: Dictionary }) {
                 </li>
               ))}
             </ul>
-          </article>
+            <span className="mt-8 inline-flex items-center gap-2 text-sm text-brand-2">
+              {t.serviceDetail.learnMore}
+              <Arrow />
+            </span>
+          </Link>
         </Reveal>
       ))}
     </div>
@@ -60,15 +68,15 @@ export function ServicesGrid({ t }: { t: Dictionary }) {
 }
 
 /** Compact numbered list used on the home page. */
-export function ServicesList({ t }: { t: Dictionary }) {
+export function ServicesList({ lang, t }: { lang: Language; t: Dictionary }) {
   return (
     <ul className="border-t border-line">
       {t.services.items.map((s, i) => (
         <Reveal key={s.title} delay={i * 60}>
           <li>
             <Link
-              href="/services"
-              className="spotlight group grid grid-cols-[auto_1fr_auto] items-center gap-6 border-b border-line px-2 py-7 transition-colors duration-500 hover:bg-surface sm:gap-10 sm:px-6"
+              href={localePath(lang, `/services/${s.slug}`)}
+              className="spotlight group grid grid-cols-[1.75rem_1fr_auto] items-center gap-4 border-b border-line px-2 py-7 transition-colors duration-500 hover:bg-surface sm:gap-10 sm:px-6"
             >
               <span className="font-serif text-lg text-faint transition-colors group-hover:text-brand">
                 0{i + 1}
@@ -92,8 +100,18 @@ export function ServicesList({ t }: { t: Dictionary }) {
   );
 }
 
-export function WorkGrid({ t, limit }: { t: Dictionary; limit?: number }) {
-  const items = limit ? t.work.items.slice(0, limit) : t.work.items;
+export function WorkGrid({
+  lang,
+  t,
+  items = t.work.items,
+  limit,
+}: {
+  lang: Language;
+  t: Dictionary;
+  items?: Dictionary["work"]["items"];
+  limit?: number;
+}) {
+  if (limit) items = items.slice(0, limit);
   return (
     <div className="grid gap-6 md:grid-cols-2 lg:gap-8">
       {items.map((p, i) => (
@@ -102,13 +120,7 @@ export function WorkGrid({ t, limit }: { t: Dictionary; limit?: number }) {
           delay={(i % 2) * 150}
           className={i % 2 === 1 ? "md:mt-20" : ""}
         >
-          <a
-            href={p.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={`${p.name} — ${t.work.view}`}
-            className="group block"
-          >
+          <Link href={localePath(lang, `/work/${p.slug}`)} className="group block">
             <div className="brand-border relative aspect-[4/3.2] overflow-hidden rounded-3xl">
               <Image
                 src={p.image}
@@ -136,7 +148,7 @@ export function WorkGrid({ t, limit }: { t: Dictionary; limit?: number }) {
                 <Arrow />
               </span>
             </div>
-          </a>
+          </Link>
         </Reveal>
       ))}
     </div>
@@ -200,10 +212,10 @@ export function Values({ t }: { t: Dictionary }) {
   );
 }
 
-export function FaqList({ t }: { t: Dictionary }) {
+export function FaqList({ items }: { items: { q: string; a: string }[] }) {
   return (
     <div className="border-t border-line">
-      {t.faq.items.map((f, i) => (
+      {items.map((f, i) => (
         <Reveal key={f.q} delay={i * 60}>
           <details className="group border-b border-line">
             <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-7">
@@ -242,7 +254,7 @@ export function ContactBlock({ t }: { t: Dictionary }) {
             </li>
           ))}
         </ul>
-        <p className="mt-14 text-[11px] uppercase tracking-[0.25em] text-faint">
+        <p className="mt-10 sm:mt-14 text-[11px] uppercase tracking-[0.25em] text-faint">
           {t.contact.or}
         </p>
         <ul className="mt-5 space-y-1">

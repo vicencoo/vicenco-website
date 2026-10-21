@@ -1,18 +1,16 @@
-"use client";
-
-import { useLanguage } from "@/lib/i18n";
+import { getDictionary } from "@/lib/i18n-server";
 import { PageHero } from "@/components/ui";
 
 /** Privacy Policy and Terms of Service share one layout. */
-export function LegalView({ doc }: { doc: "privacy" | "terms" }) {
-  const { t } = useLanguage();
+export async function LegalView({ doc }: { doc: "privacy" | "terms" }) {
+  const { lang, t } = await getDictionary();
   const page = t.legal[doc];
 
   return (
     <>
-      <PageHero home={t.nav.home} crumb={page.label} title={page.title} em={page.titleEm} lead={page.lead} />
+      <PageHero lang={lang} home={t.nav.home} crumb={page.label} title={page.title} em={page.titleEm} lead={page.lead} />
 
-      <section className="py-20 sm:py-28">
+      <section className="py-14 sm:py-28">
         <div className="mx-auto grid max-w-7xl gap-14 px-5 sm:px-8 lg:grid-cols-[260px_1fr] lg:gap-20">
           <aside className="hidden lg:block">
             <nav className="sticky top-28" aria-label={t.legal.toc}>

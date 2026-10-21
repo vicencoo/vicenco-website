@@ -3,17 +3,16 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { languages, setLanguage, useLanguage } from "@/lib/i18n";
+import type { Dictionary } from "@/lib/dictionaries/en";
+import { languageNames, languages, localePath, saveLanguage, stripLanguage, type Language } from "@/lib/i18n";
 import { pageKeys } from "@/lib/site";
 import { Wordmark } from "./Logo";
 
-const languageNames = { en: "English", sq: "Shqip", it: "Italiano" };
 const languageCodes = { en: "EN", sq: "AL", it: "IT" };
 
-export function Nav() {
-  const { lang, t: dict } = useLanguage();
-  const t = dict.nav;
-  const pathname = usePathname();
+export function Nav({ lang, t }: { lang: Language; t: Dictionary["nav"] }) {
+  // Path without the language prefix, e.g. "/services" on /sq/services.
+  const pathname = stripLanguage(usePathname());
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [lastPath, setLastPath] = useState(pathname);
@@ -36,6 +35,7 @@ export function Nav() {
   }, [open]);
 
   const links = [{ href: "/", label: t.home }, ...pageKeys.map((k) => ({ href: `/${k}`, label: t[k] }))];
+  const href = (path: string) => localePath(lang, path);
   const isActive = (href: string) => pathname === href || (href !== "/" && pathname.startsWith(`${href}/`));
 
   return (
@@ -45,7 +45,7 @@ export function Nav() {
       }`}
     >
       <nav className="mx-auto flex h-18 max-w-[1600px] items-center justify-between px-5 sm:px-8 lg:px-12 xl:px-16">
-        <Link href="/" className="flex items-center gap-3">
+        <Link href={href("/")} className="flex items-center gap-3">
           <Wordmark />
         </Link>
 
@@ -53,7 +53,7 @@ export function Nav() {
           {links.map((l) => (
             <li key={l.href}>
               <Link
-                href={l.href}
+                href={href(l.href)}
                 aria-current={isActive(l.href) ? "page" : undefined}
                 className={`relative text-[13px] uppercase tracking-[0.18em] transition-colors after:absolute after:-bottom-1 after:left-0 after:h-px after:bg-brand after:transition-all after:duration-500 hover:text-ink hover:after:w-full ${
                   isActive(l.href) ? "text-ink after:w-full" : "text-muted after:w-0"
@@ -68,22 +68,23 @@ export function Nav() {
         <div className="flex items-center gap-3 sm:gap-5 lg:gap-6">
           <div className="flex items-center rounded-full border border-line p-1 text-[11px] font-medium tracking-[0.15em]">
             {languages.map((l) => (
-              <button
+              <Link
                 key={l}
-                type="button"
-                onClick={() => setLanguage(l)}
-                aria-pressed={lang === l}
+                href={localePath(l, pathname)}
+                hrefLang={l}
+                onClick={() => saveLanguage(l)}
+                aria-current={lang === l ? "true" : undefined}
                 aria-label={languageNames[l]}
                 className={`cursor-pointer rounded-full px-2.5 py-1 transition-all duration-300 ${
                   lang === l ? "bg-ink text-bg" : "text-muted hover:text-ink"
                 }`}
               >
                 {languageCodes[l]}
-              </button>
+              </Link>
             ))}
           </div>
           <Link
-            href="/contact"
+            href={href("/contact")}
             className="hidden rounded-full border border-brand/40 px-5 py-2.5 text-[13px] lg:px-6 lg:py-3 tracking-wide text-brand-2 transition-all duration-500 hover:border-brand hover:bg-brand hover:text-white sm:inline-block"
           >
             {t.cta}
@@ -111,7 +112,7 @@ export function Nav() {
           {links.map((l) => (
             <li key={l.href}>
               <Link
-                href={l.href}
+                href={href(l.href)}
                 onClick={() => setOpen(false)}
                 className={`block border-b border-line py-4 font-serif text-4xl ${
                   pathname === l.href ? "text-brand-2" : ""
@@ -123,7 +124,7 @@ export function Nav() {
           ))}
           <li className="pt-8">
             <Link
-              href="/contact"
+              href={href("/contact")}
               onClick={() => setOpen(false)}
               className="inline-block rounded-full bg-brand px-7 py-3.5 text-sm font-medium text-white"
             >

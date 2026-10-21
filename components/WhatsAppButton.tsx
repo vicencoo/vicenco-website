@@ -1,19 +1,15 @@
-"use client";
-
-import { useLanguage } from "@/lib/i18n";
 import { site } from "@/lib/site";
 
 /** Floating shortcut to WhatsApp, shown on every page. */
-export function WhatsAppButton() {
-  const { t } = useLanguage();
+export function WhatsAppButton({ label }: { label: string }) {
 
   return (
     <a
       href={`https://wa.me/${site.whatsapp}`}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label={t.contact.whatsappCta}
-      title={t.contact.whatsappCta}
+      aria-label={label}
+      title={label}
       className="group fixed bottom-5 right-5 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-[#25d366] text-white shadow-[0_10px_30px_-8px_rgba(37,211,102,0.6)] transition-transform duration-300 hover:scale-110 sm:bottom-7 sm:right-7"
     >
       <span className="absolute inset-0 rounded-full bg-[#25d366] opacity-40 [animation:ping_2.6s_cubic-bezier(0,0,0.2,1)_infinite]" aria-hidden />
