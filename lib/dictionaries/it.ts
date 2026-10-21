@@ -25,6 +25,7 @@ export const it: Dictionary = {
     cta: "Inizia un progetto",
     menu: "Menu",
     close: "Chiudi",
+    language: "Lingua",
   },
   pages: {
     services:

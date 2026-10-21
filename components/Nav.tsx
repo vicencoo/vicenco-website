@@ -55,6 +55,10 @@ export function Nav({ lang, t }: { lang: Language; t: Dictionary["nav"] }) {
     ...pageKeys.map((k) => ({ href: `/${k}`, label: t[k] })),
   ];
   const href = (path: string) => localePath(lang, path);
+  const chooseLanguage = (l: Language) => {
+    saveLanguage(l);
+    if (l !== lang) setPendingLang(l);
+  };
   const isActive = (href: string) =>
     pathname === href || (href !== "/" && pathname.startsWith(`${href}/`));
 
@@ -96,10 +100,7 @@ export function Nav({ lang, t }: { lang: Language; t: Dictionary["nav"] }) {
                 key={l}
                 href={localePath(l, pathname)}
                 hrefLang={l}
-                onClick={() => {
-                  saveLanguage(l);
-                  if (l !== lang) setPendingLang(l);
-                }}
+                onClick={() => chooseLanguage(l)}
                 aria-current={activeLang === l ? "true" : undefined}
                 aria-label={languageNames[l]}
                 className={`cursor-pointer rounded-full px-2.5 py-1 transition-all duration-300 ${
@@ -163,6 +164,29 @@ export function Nav({ lang, t }: { lang: Language; t: Dictionary["nav"] }) {
             >
               {t.cta}
             </Link>
+          </li>
+          <li className="pt-10">
+            <p className="text-[11px] uppercase tracking-[0.25em] text-faint">
+              {t.language}
+            </p>
+            <div className="mt-4 grid grid-cols-3 gap-2">
+              {languages.map((l) => (
+                <Link
+                  key={l}
+                  href={localePath(l, pathname)}
+                  hrefLang={l}
+                  onClick={() => chooseLanguage(l)}
+                  aria-current={activeLang === l ? "true" : undefined}
+                  className={`rounded-full border py-3 text-center text-sm transition-colors duration-300 ${
+                    activeLang === l
+                      ? "border-ink bg-ink text-bg"
+                      : "border-line-2 text-muted hover:border-ink hover:text-ink"
+                  }`}
+                >
+                  {languageNames[l]}
+                </Link>
+              ))}
+            </div>
           </li>
         </ul>
       </div>

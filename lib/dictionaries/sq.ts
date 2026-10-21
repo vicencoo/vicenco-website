@@ -25,6 +25,7 @@ export const sq: Dictionary = {
     cta: "Fillo një projekt",
     menu: "Menu",
     close: "Mbyll",
+    language: "Gjuha",
   },
   pages: {
     services:

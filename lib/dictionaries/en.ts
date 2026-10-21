@@ -24,6 +24,7 @@ export const en = {
     cta: "Start a project",
     menu: "Menu",
     close: "Close",
+    language: "Language",
   },
   pages: {
     services:
