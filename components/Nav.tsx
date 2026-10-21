@@ -4,7 +4,14 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import type { Dictionary } from "@/lib/dictionaries/en";
-import { languageNames, languages, localePath, saveLanguage, stripLanguage, type Language } from "@/lib/i18n";
+import {
+  languageNames,
+  languages,
+  localePath,
+  saveLanguage,
+  stripLanguage,
+  type Language,
+} from "@/lib/i18n";
 import { pageKeys } from "@/lib/site";
 import { Wordmark } from "./Logo";
 
@@ -27,7 +34,6 @@ export function Nav({ lang, t }: { lang: Language; t: Dictionary["nav"] }) {
     setOpen(false);
   }
 
-  // The new language's page has arrived.
   if (lang !== lastLang) {
     setLastLang(lang);
     setPendingLang(null);
@@ -44,14 +50,20 @@ export function Nav({ lang, t }: { lang: Language; t: Dictionary["nav"] }) {
     document.body.style.overflow = open ? "hidden" : "";
   }, [open]);
 
-  const links = [{ href: "/", label: t.home }, ...pageKeys.map((k) => ({ href: `/${k}`, label: t[k] }))];
+  const links = [
+    { href: "/", label: t.home },
+    ...pageKeys.map((k) => ({ href: `/${k}`, label: t[k] })),
+  ];
   const href = (path: string) => localePath(lang, path);
-  const isActive = (href: string) => pathname === href || (href !== "/" && pathname.startsWith(`${href}/`));
+  const isActive = (href: string) =>
+    pathname === href || (href !== "/" && pathname.startsWith(`${href}/`));
 
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
-        scrolled || open ? "border-b border-line bg-bg/80 backdrop-blur-xl" : "border-b border-transparent"
+        scrolled || open
+          ? "border-b border-line bg-bg/80 backdrop-blur-xl"
+          : "border-b border-transparent"
       }`}
     >
       <nav className="mx-auto flex h-18 max-w-[1600px] items-center justify-between px-5 sm:px-8 lg:px-12 xl:px-16">
@@ -66,7 +78,9 @@ export function Nav({ lang, t }: { lang: Language; t: Dictionary["nav"] }) {
                 href={href(l.href)}
                 aria-current={isActive(l.href) ? "page" : undefined}
                 className={`relative text-[13px] uppercase tracking-[0.18em] transition-colors after:absolute after:-bottom-1 after:left-0 after:h-px after:bg-brand after:transition-all after:duration-500 hover:text-ink hover:after:w-full ${
-                  isActive(l.href) ? "text-ink after:w-full" : "text-muted after:w-0"
+                  isActive(l.href)
+                    ? "text-ink after:w-full"
+                    : "text-muted after:w-0"
                 }`}
               >
                 {l.label}
@@ -89,7 +103,9 @@ export function Nav({ lang, t }: { lang: Language; t: Dictionary["nav"] }) {
                 aria-current={activeLang === l ? "true" : undefined}
                 aria-label={languageNames[l]}
                 className={`cursor-pointer rounded-full px-2.5 py-1 transition-all duration-300 ${
-                  activeLang === l ? "bg-ink text-bg" : "text-muted hover:text-ink"
+                  activeLang === l
+                    ? "bg-ink text-bg"
+                    : "text-muted hover:text-ink"
                 }`}
               >
                 {languageCodes[l]}
@@ -109,8 +125,12 @@ export function Nav({ lang, t }: { lang: Language; t: Dictionary["nav"] }) {
             aria-label={open ? t.close : t.menu}
             aria-expanded={open}
           >
-            <span className={`h-px w-6 bg-ink transition-transform duration-300 ${open ? "translate-y-[3.5px] rotate-45" : ""}`} />
-            <span className={`h-px w-6 bg-ink transition-transform duration-300 ${open ? "-translate-y-[3.5px] -rotate-45" : ""}`} />
+            <span
+              className={`h-px w-6 bg-ink transition-transform duration-300 ${open ? "translate-y-[3.5px] rotate-45" : ""}`}
+            />
+            <span
+              className={`h-px w-6 bg-ink transition-transform duration-300 ${open ? "-translate-y-[3.5px] -rotate-45" : ""}`}
+            />
           </button>
         </div>
       </nav>
@@ -118,7 +138,7 @@ export function Nav({ lang, t }: { lang: Language; t: Dictionary["nav"] }) {
       {/* Mobile menu */}
       <div
         className={`overflow-hidden transition-[max-height] duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] lg:hidden ${
-          open ? "max-h-[100svh]" : "max-h-0"
+          open ? "max-h-svh" : "max-h-0"
         }`}
       >
         <ul className="flex h-[calc(100svh-4.5rem)] flex-col justify-center gap-2 px-6 pb-20">
