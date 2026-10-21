@@ -66,7 +66,7 @@ export function Nav({ lang, t }: { lang: Language; t: Dictionary["nav"] }) {
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
         scrolled || open
-          ? "border-b border-line bg-bg/80 backdrop-blur-xl"
+          ? "border-b border-line bg-bg/95 lg:bg-bg/80 lg:backdrop-blur-xl"
           : "border-b border-transparent"
       }`}
     >

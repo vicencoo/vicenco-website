@@ -18,7 +18,7 @@ export async function AboutView() {
 
       {/* Values */}
       <section className="relative overflow-hidden py-20 sm:py-36">
-        <div className="orb left-1/2 top-1/3 h-[500px] w-[500px] -translate-x-1/2 bg-brand/10" />
+        <div className="orb left-1/2 top-1/3 h-[500px] w-[500px] -translate-x-1/2 text-brand/10" />
         <div className="relative mx-auto max-w-6xl px-5 sm:px-8">
           <ManifestoQuote t={t} />
           <div className="mt-12 sm:mt-20">

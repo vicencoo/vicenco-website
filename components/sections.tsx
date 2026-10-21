@@ -276,7 +276,7 @@ export function ContactBlock({ t }: { t: Dictionary }) {
         </ul>
       </Reveal>
       <Reveal delay={150}>
-        <div className="brand-border rounded-3xl bg-surface/70 p-7 backdrop-blur-sm sm:p-12">
+        <div className="brand-border rounded-3xl bg-surface/70 p-7 sm:p-12 sm:backdrop-blur-sm">
           <ContactForm t={t.contact} email={site.email} />
         </div>
       </Reveal>

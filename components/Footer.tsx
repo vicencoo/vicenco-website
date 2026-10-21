@@ -12,7 +12,7 @@ export function Footer({ lang, t }: { lang: Language; t: Dictionary }) {
 
   return (
     <footer className="relative overflow-hidden border-t border-line bg-bg-2">
-      <div className="orb -bottom-40 left-1/4 h-[360px] w-[360px] bg-brand/[0.07]" aria-hidden />
+      <div className="orb -bottom-40 left-1/4 h-[360px] w-[360px] text-brand/[0.07]" aria-hidden />
       <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
         <div className="grid grid-cols-2 gap-x-6 gap-y-12 py-16 sm:py-20 lg:grid-cols-[1.4fr_1fr_1fr_1.1fr] lg:gap-0">
           {/* Brand */}

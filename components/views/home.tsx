@@ -20,8 +20,8 @@ export async function HomeView() {
     <>
       {/* ───────────── HERO ───────────── */}
       <section className="relative flex min-h-[100svh] flex-col justify-center overflow-hidden pt-28 pb-16">
-        <div className="orb -left-40 top-10 h-[420px] w-[420px] bg-brand/20" />
-        <div className="orb -right-32 bottom-0 h-[520px] w-[520px] bg-[#1d3a7a]/30 [animation-delay:-6s]" />
+        <div className="orb -left-40 top-10 h-[420px] w-[420px] text-brand/20" />
+        <div className="orb -right-32 bottom-0 h-[520px] w-[520px] text-[#1d3a7a]/30 [animation-delay:-6s]" />
         <div
           className="pointer-events-none absolute inset-0 opacity-[0.35] [background-image:linear-gradient(var(--line)_1px,transparent_1px),linear-gradient(90deg,var(--line)_1px,transparent_1px)] [background-size:88px_88px] [mask-image:radial-gradient(ellipse_at_center,#000_20%,transparent_70%)]"
           aria-hidden
@@ -140,7 +140,7 @@ export async function HomeView() {
 
       {/* ───────────── MANIFESTO ───────────── */}
       <section className="relative overflow-hidden border-t border-line py-20 sm:py-40">
-        <div className="orb left-1/2 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 bg-brand/10" />
+        <div className="orb left-1/2 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 text-brand/10" />
         <div className="relative mx-auto max-w-6xl px-5 sm:px-8">
           <ManifestoQuote t={t} />
           <div className="mt-12 sm:mt-20">

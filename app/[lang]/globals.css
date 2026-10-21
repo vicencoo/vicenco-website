@@ -166,11 +166,13 @@ body {
   }
 }
 
-/* Orbs */
+/* Orbs: soft glows in the current text colour. A radial gradient instead of
+   filter: blur() looks the same but costs almost nothing to draw on phones. */
 .orb {
   position: absolute;
   border-radius: 9999px;
-  filter: blur(90px);
+  background: radial-gradient(closest-side, currentColor 35%, transparent);
+  scale: 1.4;
   pointer-events: none;
   animation: float 18s ease-in-out infinite;
 }
@@ -320,6 +322,17 @@ select.field option {
   }
   .line-reveal > span {
     transform: none;
+  }
+}
+
+/* Phones: keep the look, drop the effects that never stop running. */
+@media (max-width: 639px) {
+  .grain {
+    display: none;
+  }
+  .orb,
+  .text-brand-gradient {
+    animation: none;
   }
 }
 

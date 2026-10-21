@@ -10,7 +10,7 @@ export async function ContactView() {
       <PageHero lang={lang} home={t.nav.home} crumb={t.nav.contact} title={t.contact.title} em={t.contact.titleEm} lead={t.pages.contact} />
 
       <section className="relative overflow-hidden py-16 sm:py-32">
-        <div className="orb -right-40 top-20 h-[480px] w-[480px] bg-brand/15" />
+        <div className="orb -right-40 top-20 h-[480px] w-[480px] text-brand/15" />
         <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
           <ContactBlock t={t} />
         </div>

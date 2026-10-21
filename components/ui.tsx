@@ -62,8 +62,8 @@ export function PageHero({
 }) {
   return (
     <section className="relative overflow-hidden border-b border-line pt-32 pb-14 sm:pt-48 sm:pb-28">
-      <div className="orb -left-40 -top-20 h-105 w-105 bg-brand/15" />
-      <div className="orb -right-40 top-20 h-95 w-95 bg-[#1d3a7a]/25 [animation-delay:-6s]" />
+      <div className="orb -left-40 -top-20 h-105 w-105 text-brand/15" />
+      <div className="orb -right-40 top-20 h-95 w-95 text-[#1d3a7a]/25 [animation-delay:-6s]" />
       <div
         className="pointer-events-none absolute inset-0 opacity-30 [background-image:linear-gradient(var(--line)_1px,transparent_1px),linear-gradient(90deg,var(--line)_1px,transparent_1px)] [background-size:88px_88px] [mask-image:radial-gradient(ellipse_at_top,#000_10%,transparent_65%)]"
         aria-hidden
@@ -146,7 +146,7 @@ export function MoreLink({
 export function CtaBand({ lang, t }: { lang: Language; t: Dictionary["cta"] }) {
   return (
     <section className="relative overflow-hidden border-t border-line py-20 sm:py-36">
-      <div className="orb left-1/2 top-1/2 h-115 w-115 -translate-x-1/2 -translate-y-1/2 bg-brand/15" />
+      <div className="orb left-1/2 top-1/2 h-115 w-115 -translate-x-1/2 -translate-y-1/2 text-brand/15" />
       <Reveal className="relative mx-auto max-w-4xl px-5 text-center sm:px-8">
         <h2 className="font-serif text-[clamp(2.6rem,7vw,6rem)] leading-none tracking-[-0.02em]">
           {t.title} <em className="text-brand-gradient pr-2">{t.titleEm}</em>
