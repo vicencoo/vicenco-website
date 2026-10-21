@@ -16,11 +16,21 @@ export function Nav({ lang, t }: { lang: Language; t: Dictionary["nav"] }) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [lastPath, setLastPath] = useState(pathname);
+  // The language just tapped, highlighted right away while its page loads.
+  const [pendingLang, setPendingLang] = useState<Language | null>(null);
+  const [lastLang, setLastLang] = useState(lang);
+  const activeLang = pendingLang ?? lang;
 
   // Close the mobile menu whenever the route changes.
   if (pathname !== lastPath) {
     setLastPath(pathname);
     setOpen(false);
+  }
+
+  // The new language's page has arrived.
+  if (lang !== lastLang) {
+    setLastLang(lang);
+    setPendingLang(null);
   }
 
   useEffect(() => {
@@ -72,11 +82,14 @@ export function Nav({ lang, t }: { lang: Language; t: Dictionary["nav"] }) {
                 key={l}
                 href={localePath(l, pathname)}
                 hrefLang={l}
-                onClick={() => saveLanguage(l)}
-                aria-current={lang === l ? "true" : undefined}
+                onClick={() => {
+                  saveLanguage(l);
+                  if (l !== lang) setPendingLang(l);
+                }}
+                aria-current={activeLang === l ? "true" : undefined}
                 aria-label={languageNames[l]}
                 className={`cursor-pointer rounded-full px-2.5 py-1 transition-all duration-300 ${
-                  lang === l ? "bg-ink text-bg" : "text-muted hover:text-ink"
+                  activeLang === l ? "bg-ink text-bg" : "text-muted hover:text-ink"
                 }`}
               >
                 {languageCodes[l]}
