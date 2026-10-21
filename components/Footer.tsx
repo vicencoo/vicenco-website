@@ -1,12 +1,15 @@
+"use client";
+
 import Link from "next/link";
-import type { Dictionary } from "@/lib/dictionaries/en";
-import { localePath, type Language } from "@/lib/i18n";
+import { localePath } from "@/lib/i18n";
+import { useLanguage } from "@/lib/language-context";
 import { pageKeys, site } from "@/lib/site";
 import { Wordmark } from "./Logo";
 
 const linkClass = "text-[15px] text-muted transition-colors duration-300 hover:text-brand-2";
 
-export function Footer({ lang, t }: { lang: Language; t: Dictionary }) {
+export function Footer() {
+  const { lang, t } = useLanguage();
   const href = (path: string) => localePath(lang, path);
   const pages = [{ href: "/", label: t.nav.home }, ...pageKeys.map((k) => ({ href: `/${k}`, label: t.nav[k] }))];
 
@@ -35,7 +38,7 @@ export function Footer({ lang, t }: { lang: Language; t: Dictionary }) {
 
           <FooterColumn title={t.nav.services}>
             {t.services.items.map((s) => (
-              <li key={s.title}>
+              <li key={s.slug}>
                 <Link href={href(`/services/${s.slug}`)} className={linkClass}>
                   {s.title}
                 </Link>

@@ -37,7 +37,7 @@ export default async function ServicePage({ params }: PageProps<"/[lang]/service
       />
       <JsonLd data={serviceJsonLd(lang, service)} />
       <JsonLd data={faqJsonLd(service.faq)} />
-      <ServiceDetailView lang={lang} t={t} service={service} />
+      <ServiceDetailView slug={service.slug} />
     </>
   );
 }

@@ -1,9 +1,11 @@
-import { getDictionary } from "@/lib/i18n-server";
+"use client";
+
+import { useLanguage } from "@/lib/language-context";
 import { CtaBand, PageHero } from "@/components/ui";
 import { WorkGrid } from "@/components/sections";
 
-export async function WorkView() {
-  const { lang, t } = await getDictionary();
+export function WorkView() {
+  const { lang, t } = useLanguage();
 
   return (
     <>

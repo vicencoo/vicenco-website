@@ -1,9 +1,11 @@
-import { getDictionary } from "@/lib/i18n-server";
+"use client";
+
+import { useLanguage } from "@/lib/language-context";
 import { CtaBand, PageHero, SectionHead } from "@/components/ui";
 import { ManifestoQuote, ProcessSteps, Values } from "@/components/sections";
 
-export async function AboutView() {
-  const { lang, t } = await getDictionary();
+export function AboutView() {
+  const { lang, t } = useLanguage();
 
   return (
     <>
@@ -18,7 +20,7 @@ export async function AboutView() {
 
       {/* Values */}
       <section className="relative overflow-hidden py-20 sm:py-36">
-        <div className="orb left-1/2 top-1/3 h-[500px] w-[500px] -translate-x-1/2 text-brand/10" />
+        <div className="orb left-1/2 top-1/3 h-125 w-125 -translate-x-1/2 text-brand/10" />
         <div className="relative mx-auto max-w-6xl px-5 sm:px-8">
           <ManifestoQuote t={t} />
           <div className="mt-12 sm:mt-20">

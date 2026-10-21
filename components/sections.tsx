@@ -33,7 +33,7 @@ export function ServicesGrid({ lang, t }: { lang: Language; t: Dictionary }) {
   return (
     <div className="grid gap-px overflow-hidden rounded-3xl border border-line bg-line sm:grid-cols-2 lg:grid-cols-3">
       {t.services.items.map((s, i) => (
-        <Reveal key={s.title} delay={(i % 3) * 120} className="h-full">
+        <Reveal key={s.slug} delay={(i % 3) * 120} className="h-full">
           <Link
             href={localePath(lang, `/services/${s.slug}`)}
             className="spotlight group flex h-full flex-col bg-bg p-8 transition-colors duration-500 hover:bg-surface sm:p-10"
@@ -72,7 +72,7 @@ export function ServicesList({ lang, t }: { lang: Language; t: Dictionary }) {
   return (
     <ul className="border-t border-line">
       {t.services.items.map((s, i) => (
-        <Reveal key={s.title} delay={i * 60}>
+        <Reveal key={s.slug} delay={i * 60}>
           <li>
             <Link
               href={localePath(lang, `/services/${s.slug}`)}
@@ -159,7 +159,7 @@ export function ProcessSteps({ t }: { t: Dictionary }) {
   return (
     <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
       {t.process.steps.map((s, i) => (
-        <Reveal key={s.title} delay={i * 120} className="h-full">
+        <Reveal key={i} delay={i * 120} className="h-full">
           <article className="spotlight group relative flex h-full flex-col overflow-hidden rounded-3xl border border-line bg-surface/60 p-7 transition-all duration-500 hover:-translate-y-1 hover:border-brand/40 sm:p-8">
             <span
               className="pointer-events-none absolute -right-1 -top-5 select-none font-serif text-[7.5rem] leading-none text-ink/[0.04] transition-colors duration-500 group-hover:text-brand/10"
@@ -200,7 +200,7 @@ export function Values({ t }: { t: Dictionary }) {
   return (
     <div className="grid gap-px overflow-hidden rounded-2xl border border-line bg-line text-left sm:grid-cols-2 lg:grid-cols-4">
       {t.manifesto.values.map((v, i) => (
-        <Reveal key={v.title} delay={i * 100} className="h-full">
+        <Reveal key={i} delay={i * 100} className="h-full">
           <div className="h-full bg-bg-2 p-7">
             <Check />
             <h3 className="mt-5 text-base font-semibold">{v.title}</h3>
@@ -216,7 +216,7 @@ export function FaqList({ items }: { items: { q: string; a: string }[] }) {
   return (
     <div className="border-t border-line">
       {items.map((f, i) => (
-        <Reveal key={f.q} delay={i * 60}>
+        <Reveal key={i} delay={i * 60}>
           <details className="group border-b border-line">
             <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-7">
               <span className="faq-q font-serif text-2xl transition-colors duration-300 sm:text-[1.7rem]">

@@ -1,18 +1,29 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
-import type { Dictionary } from "@/lib/dictionaries/en";
-import { localePath, type Language } from "@/lib/i18n";
+import { localePath } from "@/lib/i18n";
+import { useLanguage } from "@/lib/language-context";
 import { Arrow } from "@/components/Logo";
 import { Reveal } from "@/components/Reveal";
-import { Check, CtaBand, MoreLink, PageHero, SectionHead } from "@/components/ui";
+import {
+  Check,
+  CtaBand,
+  MoreLink,
+  PageHero,
+  SectionHead,
+} from "@/components/ui";
 import { WorkGrid } from "@/components/sections";
 
-type Project = Dictionary["work"]["items"][number];
-
 /** A case study per project: overview, what we built, services used and a link to the live site. */
-export function WorkDetailView({ lang, t, project }: { lang: Language; t: Dictionary; project: Project }) {
+export function WorkDetailView({ slug }: { slug: string }) {
+  const { lang, t } = useLanguage();
+  // The page checks the slug exists before rendering this view.
+  const project = t.work.items.find((w) => w.slug === slug)!;
   const d = t.workDetail;
-  const services = t.services.items.filter((s) => project.services.includes(s.slug));
+  const services = t.services.items.filter((s) =>
+    project.services.includes(s.slug),
+  );
   const others = t.work.items.filter((w) => w.slug !== project.slug);
 
   return (
@@ -69,21 +80,31 @@ export function WorkDetailView({ lang, t, project }: { lang: Language; t: Dictio
           {/* Key facts */}
           <dl className="mt-12 grid gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-3">
             <div className="bg-bg p-7">
-              <dt className="text-[11px] uppercase tracking-[0.25em] text-faint">{d.industry}</dt>
+              <dt className="text-[11px] uppercase tracking-[0.25em] text-faint">
+                {d.industry}
+              </dt>
               <dd className="mt-3 text-lg">{project.category}</dd>
             </div>
             <div className="bg-bg p-7">
-              <dt className="text-[11px] uppercase tracking-[0.25em] text-faint">{d.services}</dt>
+              <dt className="text-[11px] uppercase tracking-[0.25em] text-faint">
+                {d.services}
+              </dt>
               <dd className="mt-3 flex flex-col gap-1 text-lg">
                 {services.map((s) => (
-                  <Link key={s.slug} href={localePath(lang, `/services/${s.slug}`)} className="transition-colors hover:text-brand-2">
+                  <Link
+                    key={s.slug}
+                    href={localePath(lang, `/services/${s.slug}`)}
+                    className="transition-colors hover:text-brand-2"
+                  >
                     {s.title}
                   </Link>
                 ))}
               </dd>
             </div>
             <div className="bg-bg p-7">
-              <dt className="text-[11px] uppercase tracking-[0.25em] text-faint">{d.visit}</dt>
+              <dt className="text-[11px] uppercase tracking-[0.25em] text-faint">
+                {d.visit}
+              </dt>
               <dd className="mt-3 text-lg">
                 <a
                   href={project.url}
@@ -91,7 +112,9 @@ export function WorkDetailView({ lang, t, project }: { lang: Language; t: Dictio
                   rel="noopener"
                   className="group inline-flex items-center gap-2 text-brand-2 transition-colors hover:text-ink"
                 >
-                  {project.url.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "")}
+                  {project.url
+                    .replace(/^https?:\/\/(www\.)?/, "")
+                    .replace(/\/$/, "")}
                   <Arrow />
                 </a>
               </dd>
@@ -104,7 +127,9 @@ export function WorkDetailView({ lang, t, project }: { lang: Language; t: Dictio
       <section className="border-t border-line bg-bg-2 py-16 sm:py-32">
         <div className="mx-auto grid max-w-7xl gap-10 px-5 sm:px-8 lg:grid-cols-[1fr_1.6fr] lg:gap-20">
           <Reveal>
-            <h2 className="font-serif text-[clamp(2rem,4vw,3.25rem)] leading-[1.05]">{d.overview}</h2>
+            <h2 className="font-serif text-[clamp(2rem,4vw,3.25rem)] leading-[1.05]">
+              {d.overview}
+            </h2>
           </Reveal>
           <Reveal delay={100}>
             <div className="space-y-5 text-lg leading-relaxed text-muted">
@@ -122,23 +147,27 @@ export function WorkDetailView({ lang, t, project }: { lang: Language; t: Dictio
           <SectionHead eyebrow={project.name} title={d.features} />
           <div className="mt-10 sm:mt-16 space-y-16">
             {project.features.map((group, gi) => (
-              <div key={group.title}>
+              <div key={gi}>
                 <Reveal>
                   <h3 className="flex items-center gap-4 text-[12px] font-semibold uppercase tracking-[0.25em] text-brand-2">
-                    <span className="font-serif text-base normal-case tracking-normal text-brand">0{gi + 1}</span>
+                    <span className="font-serif text-base normal-case tracking-normal text-brand">
+                      0{gi + 1}
+                    </span>
                     {group.title}
                     <span className="h-px flex-1 bg-line" />
                   </h3>
                 </Reveal>
                 <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                   {group.items.map((f, i) => (
-                    <li key={f.title} className="h-full">
+                    <li key={i} className="h-full">
                       <Reveal delay={(i % 3) * 100} className="h-full">
                         <div className="flex h-full gap-4 rounded-2xl border border-line bg-surface/40 p-7 transition-colors duration-500 hover:border-brand/40">
                           <Check small />
                           <div>
                             <h4 className="font-semibold">{f.title}</h4>
-                            <p className="mt-2 text-sm leading-relaxed text-muted">{f.text}</p>
+                            <p className="mt-2 text-sm leading-relaxed text-muted">
+                              {f.text}
+                            </p>
                           </div>
                         </div>
                       </Reveal>
@@ -157,7 +186,9 @@ export function WorkDetailView({ lang, t, project }: { lang: Language; t: Dictio
           <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
             <SectionHead eyebrow={t.work.eyebrow} title={d.more} />
             <Reveal className="shrink-0">
-              <MoreLink href={localePath(lang, "/work")}>{t.more.work}</MoreLink>
+              <MoreLink href={localePath(lang, "/work")}>
+                {t.more.work}
+              </MoreLink>
             </Reveal>
           </div>
           <div className="mt-10 sm:mt-16">

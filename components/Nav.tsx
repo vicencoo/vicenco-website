@@ -3,40 +3,32 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import type { Dictionary } from "@/lib/dictionaries/en";
 import {
   languageNames,
   languages,
   localePath,
-  saveLanguage,
   stripLanguage,
   type Language,
 } from "@/lib/i18n";
+import { useLanguage } from "@/lib/language-context";
 import { pageKeys } from "@/lib/site";
 import { Wordmark } from "./Logo";
 
 const languageCodes = { en: "EN", sq: "AL", it: "IT" };
 
-export function Nav({ lang, t }: { lang: Language; t: Dictionary["nav"] }) {
+export function Nav() {
+  const { lang, t: dict, setLanguage } = useLanguage();
+  const t = dict.nav;
   // Path without the language prefix, e.g. "/services" on /sq/services.
   const pathname = stripLanguage(usePathname());
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [lastPath, setLastPath] = useState(pathname);
-  // The language just tapped, highlighted right away while its page loads.
-  const [pendingLang, setPendingLang] = useState<Language | null>(null);
-  const [lastLang, setLastLang] = useState(lang);
-  const activeLang = pendingLang ?? lang;
 
   // Close the mobile menu whenever the route changes.
   if (pathname !== lastPath) {
     setLastPath(pathname);
     setOpen(false);
-  }
-
-  if (lang !== lastLang) {
-    setLastLang(lang);
-    setPendingLang(null);
   }
 
   useEffect(() => {
@@ -55,9 +47,10 @@ export function Nav({ lang, t }: { lang: Language; t: Dictionary["nav"] }) {
     ...pageKeys.map((k) => ({ href: `/${k}`, label: t[k] })),
   ];
   const href = (path: string) => localePath(lang, path);
-  const chooseLanguage = (l: Language) => {
-    saveLanguage(l);
-    if (l !== lang) setPendingLang(l);
+  // Language links keep a real href (crawlers follow it), but a tap swaps the language in place.
+  const chooseLanguage = (e: React.MouseEvent, l: Language) => {
+    e.preventDefault();
+    setLanguage(l);
   };
   const isActive = (href: string) =>
     pathname === href || (href !== "/" && pathname.startsWith(`${href}/`));
@@ -94,17 +87,18 @@ export function Nav({ lang, t }: { lang: Language; t: Dictionary["nav"] }) {
         </ul>
 
         <div className="flex items-center gap-3 sm:gap-5 lg:gap-6">
-          <div className="flex items-center rounded-full border border-line p-1 text-[11px] font-medium tracking-[0.15em]">
+          <div className="sm:flex items-center rounded-full border border-line p-1 text-[11px] font-medium tracking-[0.15em] hidden">
             {languages.map((l) => (
               <Link
                 key={l}
                 href={localePath(l, pathname)}
                 hrefLang={l}
-                onClick={() => chooseLanguage(l)}
-                aria-current={activeLang === l ? "true" : undefined}
+                prefetch={false}
+                onClick={(e) => chooseLanguage(e, l)}
+                aria-current={lang === l ? "true" : undefined}
                 aria-label={languageNames[l]}
                 className={`cursor-pointer rounded-full px-2.5 py-1 transition-all duration-300 ${
-                  activeLang === l
+                  lang === l
                     ? "bg-ink text-bg"
                     : "text-muted hover:text-ink"
                 }`}
@@ -175,10 +169,11 @@ export function Nav({ lang, t }: { lang: Language; t: Dictionary["nav"] }) {
                   key={l}
                   href={localePath(l, pathname)}
                   hrefLang={l}
-                  onClick={() => chooseLanguage(l)}
-                  aria-current={activeLang === l ? "true" : undefined}
+                  prefetch={false}
+                onClick={(e) => chooseLanguage(e, l)}
+                  aria-current={lang === l ? "true" : undefined}
                   className={`rounded-full border py-3 text-center text-sm transition-colors duration-300 ${
-                    activeLang === l
+                    lang === l
                       ? "border-ink bg-ink text-bg"
                       : "border-line-2 text-muted hover:border-ink hover:text-ink"
                   }`}

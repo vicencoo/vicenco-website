@@ -1,9 +1,11 @@
-import { getDictionary } from "@/lib/i18n-server";
+"use client";
+
+import { useLanguage } from "@/lib/language-context";
 import { CtaBand, PageHero, SectionHead } from "@/components/ui";
 import { Marquee, ProcessSteps, ServicesGrid } from "@/components/sections";
 
-export async function ServicesView() {
-  const { lang, t } = await getDictionary();
+export function ServicesView() {
+  const { lang, t } = useLanguage();
 
   return (
     <>

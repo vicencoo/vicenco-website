@@ -40,7 +40,7 @@ export default async function ProjectPage({ params }: PageProps<"/[lang]/work/[s
         ])}
       />
       <JsonLd data={caseStudyJsonLd(lang, project)} />
-      <WorkDetailView lang={lang} t={t} project={project} />
+      <WorkDetailView slug={project.slug} />
     </>
   );
 }

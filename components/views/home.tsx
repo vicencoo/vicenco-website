@@ -1,4 +1,6 @@
-import { getDictionary } from "@/lib/i18n-server";
+"use client";
+
+import { useLanguage } from "@/lib/language-context";
 import Link from "next/link";
 import { site } from "@/lib/site";
 import { localePath } from "@/lib/i18n";
@@ -13,15 +15,15 @@ import {
   WorkGrid,
 } from "@/components/sections";
 
-export async function HomeView() {
-  const { lang, t } = await getDictionary();
+export function HomeView() {
+  const { lang, t } = useLanguage();
 
   return (
     <>
       {/* ───────────── HERO ───────────── */}
       <section className="relative flex min-h-[100svh] flex-col justify-center overflow-hidden pt-28 pb-16">
-        <div className="orb -left-40 top-10 h-[420px] w-[420px] text-brand/20" />
-        <div className="orb -right-32 bottom-0 h-[520px] w-[520px] text-[#1d3a7a]/30 [animation-delay:-6s]" />
+        <div className="orb -left-40 top-10 h-105 w-105 text-brand/20" />
+        <div className="orb -right-32 bottom-0 h-130 w-130 text-[#1d3a7a]/30 [animation-delay:-6s]" />
         <div
           className="pointer-events-none absolute inset-0 opacity-[0.35] [background-image:linear-gradient(var(--line)_1px,transparent_1px),linear-gradient(90deg,var(--line)_1px,transparent_1px)] [background-size:88px_88px] [mask-image:radial-gradient(ellipse_at_center,#000_20%,transparent_70%)]"
           aria-hidden
@@ -108,7 +110,9 @@ export async function HomeView() {
               index="01"
             />
             <Reveal className="shrink-0">
-              <MoreLink href={localePath(lang, "/services")}>{t.more.services}</MoreLink>
+              <MoreLink href={localePath(lang, "/services")}>
+                {t.more.services}
+              </MoreLink>
             </Reveal>
           </div>
           <div className="mt-10 sm:mt-16">
@@ -129,7 +133,9 @@ export async function HomeView() {
               index="02"
             />
             <Reveal className="shrink-0">
-              <MoreLink href={localePath(lang, "/work")}>{t.more.work}</MoreLink>
+              <MoreLink href={localePath(lang, "/work")}>
+                {t.more.work}
+              </MoreLink>
             </Reveal>
           </div>
           <div className="mt-10 sm:mt-16">
@@ -147,7 +153,9 @@ export async function HomeView() {
             <Values t={t} />
           </div>
           <Reveal className="mt-10 sm:mt-14 text-center">
-            <MoreLink href={localePath(lang, "/about")}>{t.more.about}</MoreLink>
+            <MoreLink href={localePath(lang, "/about")}>
+              {t.more.about}
+            </MoreLink>
           </Reveal>
         </div>
       </section>

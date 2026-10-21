@@ -1,7 +1,11 @@
+"use client";
+
+import { useLanguage } from "@/lib/language-context";
 import { site } from "@/lib/site";
 
 /** Floating shortcut to WhatsApp, shown on every page. */
-export function WhatsAppButton({ label }: { label: string }) {
+export function WhatsAppButton() {
+  const label = useLanguage().t.contact.whatsappCta;
 
   return (
     <a

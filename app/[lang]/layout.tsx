@@ -10,6 +10,7 @@ import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { InlineScript } from "@/components/InlineScript";
 import { JsonLd } from "@/components/JsonLd";
+import { LanguageProvider } from "@/lib/language-context";
 import { Spotlight } from "@/components/Spotlight";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import "./globals.css";
@@ -94,12 +95,14 @@ export default async function RootLayout({ children }: LayoutProps<"/[lang]">) {
         <JsonLd data={organizationJsonLd(lang, t)} />
       </head>
       <body className="min-h-screen bg-bg font-sans text-ink">
-        <div className="grain" aria-hidden />
-        <Spotlight />
-        <Nav lang={lang} t={t.nav} />
-        <main>{children}</main>
-        <Footer lang={lang} t={t} />
-        <WhatsAppButton label={t.contact.whatsappCta} />
+        <LanguageProvider>
+          <div className="grain" aria-hidden />
+          <Spotlight />
+          <Nav />
+          <main>{children}</main>
+          <Footer />
+          <WhatsAppButton />
+        </LanguageProvider>
         <Analytics />
         <SpeedInsights />
       </body>
