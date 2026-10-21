@@ -37,7 +37,7 @@ export default async function Image({ params }: { params: Promise<{ lang: string
         <img src={logoSrc} width={406 * 1.1} height={73.3 * 1.1} alt="" />
         <div style={{ display: "flex", flexDirection: "column" }}>
           <div style={{ fontSize: 64, lineHeight: 1.1, maxWidth: 950 }}>{t.meta.tagline}</div>
-          <div style={{ marginTop: 28, fontSize: 30, color: "#2F6BFF" }}>{site.url.replace("https://", "")}</div>
+          <div style={{ marginTop: 28, fontSize: 30, color: "#2F6BFF" }}>{site.url.replace(/^https:\/\/(www\.)?/, "")}</div>
         </div>
       </div>
     ),
