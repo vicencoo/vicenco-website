@@ -2,18 +2,12 @@
 
 import { useLanguage } from "@/lib/language-context";
 import Link from "next/link";
-import { site } from "@/lib/site";
 import { localePath } from "@/lib/i18n";
 import { Arrow } from "@/components/Logo";
 import { Reveal } from "@/components/Reveal";
-import { CtaBand, MoreLink, RotatingBadge, SectionHead } from "@/components/ui";
-import {
-  ManifestoQuote,
-  Marquee,
-  ServicesList,
-  Values,
-  WorkGrid,
-} from "@/components/sections";
+import { CtaBand, MoreLink, SectionHead } from "@/components/ui";
+import { ManifestoQuote, Marquee, ProcessSteps, Values, WorkGrid } from "@/components/sections";
+import { ProjectShowcase, ServiceExplorer } from "@/components/motion";
 
 export function HomeView() {
   const { lang, t } = useLanguage();
@@ -21,7 +15,7 @@ export function HomeView() {
   return (
     <>
       {/* ───────────── HERO ───────────── */}
-      <section className="relative flex min-h-[100svh] flex-col justify-center overflow-hidden pt-28 pb-16">
+      <section className="relative flex min-h-[100svh] flex-col justify-center overflow-hidden pt-28 pb-16 sm:pb-20">
         <div className="orb -left-40 top-10 h-105 w-105 text-brand/20" />
         <div className="orb -right-32 bottom-0 h-130 w-130 text-[#1d3a7a]/30 [animation-delay:-6s]" />
         <div
@@ -38,7 +32,7 @@ export function HomeView() {
             {t.hero.eyebrow}
           </div>
 
-          <h1 className="mt-8 font-serif text-[clamp(2.9rem,9vw,8.5rem)] leading-[0.95] tracking-[-0.02em]">
+          <h1 className="mt-8 font-serif text-[clamp(2.9rem,8.5vw,7.75rem)] leading-[0.95] tracking-[-0.02em]">
             <span className="line-reveal">
               <span style={{ animationDelay: "200ms" }}>{t.hero.titleA}</span>
             </span>
@@ -50,7 +44,7 @@ export function HomeView() {
             </span>
           </h1>
 
-          <div className="mt-12 grid items-end gap-10 lg:grid-cols-[1fr_auto]">
+          <div className="mt-12 grid items-start gap-14 lg:grid-cols-[1fr_minmax(0,32rem)] lg:gap-16">
             <div>
               <p
                 className="fade-up max-w-xl text-lg leading-relaxed text-muted sm:text-xl"
@@ -64,7 +58,7 @@ export function HomeView() {
               >
                 <Link
                   href={localePath(lang, "/contact")}
-                  className="group inline-flex items-center gap-3 rounded-full bg-brand px-8 py-4 text-sm font-semibold text-white transition-all duration-500 hover:bg-brand-hover hover:shadow-[0_0_50px_-5px_rgba(47,107,255,0.6)]"
+                  className="btn-shine group inline-flex items-center gap-3 rounded-full bg-brand px-8 py-4 text-sm font-semibold text-white transition-all duration-500 hover:bg-brand-hover hover:shadow-[0_0_50px_-5px_rgba(47,107,255,0.6)]"
                 >
                   {t.hero.primary}
                   <Arrow />
@@ -76,29 +70,36 @@ export function HomeView() {
                   {t.hero.secondary}
                 </Link>
               </div>
+
+              {/* Quick picks: one tap to the service a visitor is looking for. */}
+              <div className="fade-up mt-12" style={{ animationDelay: "1000ms" }}>
+                <p className="text-[11px] uppercase tracking-[0.25em] text-faint">{t.home.pickLabel}</p>
+                <ul className="mt-4 flex flex-wrap gap-2">
+                  {t.home.picks.map((p) => (
+                    <li key={p.slug}>
+                      <Link
+                        href={localePath(lang, `/services/${p.slug}`)}
+                        className="group inline-flex items-center gap-2 rounded-full border border-line-2 bg-bg/40 py-2 pr-3 pl-4 text-sm text-ink/90 backdrop-blur transition-all duration-300 hover:-translate-y-0.5 hover:border-brand hover:bg-brand/10 hover:text-ink"
+                      >
+                        {p.label}
+                        <Arrow className="h-3 w-3 text-brand transition-transform duration-300 group-hover:translate-x-0.5" />
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
 
-            <RotatingBadge
-              text={`${t.hero.eyebrow} • ${site.name} • `}
-              href={localePath(lang, "/contact")}
-            />
+            <div className="fade-up" style={{ animationDelay: "600ms" }}>
+              <ProjectShowcase lang={lang} t={t} />
+            </div>
           </div>
         </div>
-
-        <a
-          href="#services"
-          className="absolute bottom-8 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-3 text-[10px] uppercase tracking-[0.3em] text-faint sm:flex"
-        >
-          {t.hero.scroll}
-          <span className="h-12 w-px overflow-hidden bg-line">
-            <span className="block h-1/2 w-full animate-[drip_2s_ease-in-out_infinite] bg-brand" />
-          </span>
-        </a>
       </section>
 
       <Marquee t={t} />
 
-      {/* ───────────── SERVICES PREVIEW ───────────── */}
+      {/* ───────────── SERVICES ───────────── */}
       <section id="services" className="py-20 sm:py-36">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
@@ -116,7 +117,7 @@ export function HomeView() {
             </Reveal>
           </div>
           <div className="mt-10 sm:mt-16">
-            <ServicesList lang={lang} t={t} />
+            <ServiceExplorer lang={lang} t={t} />
           </div>
         </div>
       </section>
@@ -140,6 +141,21 @@ export function HomeView() {
           </div>
           <div className="mt-10 sm:mt-16">
             <WorkGrid lang={lang} t={t} limit={2} />
+          </div>
+        </div>
+      </section>
+
+      {/* ───────────── PROCESS ───────────── */}
+      <section className="border-t border-line py-20 sm:py-36">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8">
+          <SectionHead
+            eyebrow={t.process.eyebrow}
+            title={t.process.title}
+            em={t.process.titleEm}
+            index="03"
+          />
+          <div className="mt-12 sm:mt-20">
+            <ProcessSteps t={t} />
           </div>
         </div>
       </section>

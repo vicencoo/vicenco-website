@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { localePath } from "@/lib/i18n";
+import { site } from "@/lib/site";
 import { useLanguage } from "@/lib/language-context";
 import { Arrow } from "@/components/Logo";
 import { Reveal } from "@/components/Reveal";
@@ -15,7 +16,11 @@ export function ServiceDetailView({ slug }: { slug: string }) {
   const service = t.services.items.find((s) => s.slug === slug)!;
   const d = t.serviceDetail;
   const related = t.work.items.filter((w) => w.services.includes(service.slug));
-  const others = t.services.items.filter((s) => s.slug !== service.slug);
+  // Other services from the same group first, then the rest.
+  const others = t.services.items
+    .filter((s) => s.slug !== service.slug)
+    .sort((a, b) => Number(b.category === service.category) - Number(a.category === service.category))
+    .slice(0, 6);
 
   return (
     <>
@@ -26,7 +31,24 @@ export function ServiceDetailView({ slug }: { slug: string }) {
         crumb={service.title}
         title={service.title}
         lead={service.text}
-      />
+      >
+        <Link
+          href={localePath(lang, `/contact?service=${service.slug}#form`)}
+          className="btn-shine group inline-flex items-center gap-3 rounded-full bg-brand px-8 py-4 text-sm font-semibold text-white transition-all duration-500 hover:bg-brand-hover hover:shadow-[0_0_50px_-5px_rgba(47,107,255,0.6)]"
+        >
+          {d.quote}
+          <Arrow />
+        </Link>
+        <a
+          href={`https://wa.me/${site.whatsapp}?text=${encodeURIComponent(`${d.whatsappText} "${service.title}".`)}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-3 rounded-full border border-line-2 px-8 py-4 text-sm transition-colors duration-500 hover:border-[#25d366] hover:text-[#25d366]"
+        >
+          <span className="pulse-dot h-2 w-2 rounded-full bg-[#25d366] text-[#25d366]" aria-hidden />
+          {d.whatsapp}
+        </a>
+      </PageHero>
 
       {/* Overview + what's included */}
       <section className="py-16 sm:py-32">

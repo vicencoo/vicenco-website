@@ -29,19 +29,26 @@ export function Marquee({ t }: { t: Dictionary }) {
   );
 }
 
-export function ServicesGrid({ lang, t }: { lang: Language; t: Dictionary }) {
+type Service = Dictionary["services"]["items"][number];
+
+export function ServicesGrid({ lang, t, items }: { lang: Language; t: Dictionary; items: Service[] }) {
   return (
-    <div className="grid gap-px overflow-hidden rounded-3xl border border-line bg-line sm:grid-cols-2 lg:grid-cols-3">
-      {t.services.items.map((s, i) => (
+    // Groups of 2 or 4 fill a 2-column grid; everything else uses 3 columns.
+    <div
+      className={`grid gap-px overflow-hidden rounded-3xl border border-line bg-line sm:grid-cols-2 ${
+        items.length % 3 !== 0 && items.length % 2 === 0 ? "" : "lg:grid-cols-3"
+      }`}
+    >
+      {items.map((s, i) => (
         <Reveal key={s.slug} delay={(i % 3) * 120} className="h-full">
           <Link
             href={localePath(lang, `/services/${s.slug}`)}
             className="spotlight group flex h-full flex-col bg-bg p-8 transition-colors duration-500 hover:bg-surface sm:p-10"
           >
             <div className="flex items-start justify-between">
-              <ServiceIcon index={i} />
+              <ServiceIcon slug={s.slug} />
               <span className="font-serif text-lg text-faint transition-colors duration-500 group-hover:text-brand">
-                0{i + 1}
+                {String(t.services.items.indexOf(s) + 1).padStart(2, "0")}
               </span>
             </div>
             <h3 className="mt-10 font-serif text-3xl">{s.title}</h3>
@@ -64,39 +71,6 @@ export function ServicesGrid({ lang, t }: { lang: Language; t: Dictionary }) {
         </Reveal>
       ))}
     </div>
-  );
-}
-
-/** Compact numbered list used on the home page. */
-export function ServicesList({ lang, t }: { lang: Language; t: Dictionary }) {
-  return (
-    <ul className="border-t border-line">
-      {t.services.items.map((s, i) => (
-        <Reveal key={s.slug} delay={i * 60}>
-          <li>
-            <Link
-              href={localePath(lang, `/services/${s.slug}`)}
-              className="spotlight group grid grid-cols-[1.75rem_1fr_auto] items-center gap-4 border-b border-line px-2 py-7 transition-colors duration-500 hover:bg-surface sm:gap-10 sm:px-6"
-            >
-              <span className="font-serif text-lg text-faint transition-colors group-hover:text-brand">
-                0{i + 1}
-              </span>
-              <span className="grid gap-2 md:grid-cols-[1fr_1.2fr] md:items-center md:gap-10">
-                <span className="font-serif text-3xl transition-transform duration-500 group-hover:translate-x-2 sm:text-4xl">
-                  {s.title}
-                </span>
-                <span className="text-sm leading-relaxed text-muted">
-                  {s.text}
-                </span>
-              </span>
-              <span className="flex h-11 w-11 items-center justify-center rounded-full border border-line-2 transition-all duration-500 group-hover:border-brand group-hover:bg-brand group-hover:text-white">
-                <Arrow />
-              </span>
-            </Link>
-          </li>
-        </Reveal>
-      ))}
-    </ul>
   );
 }
 
@@ -276,8 +250,12 @@ export function ContactBlock({ t }: { t: Dictionary }) {
         </ul>
       </Reveal>
       <Reveal delay={150}>
-        <div className="brand-border rounded-3xl bg-surface/70 p-7 sm:p-12 sm:backdrop-blur-sm">
-          <ContactForm t={t.contact} email={site.email} />
+        <div id="form" className="brand-border scroll-mt-28 rounded-3xl bg-surface/70 p-7 sm:p-12 sm:backdrop-blur-sm">
+          <ContactForm
+            t={t.contact}
+            email={site.email}
+            services={t.services.items.map((s) => ({ slug: s.slug, title: s.title }))}
+          />
         </div>
       </Reveal>
     </div>

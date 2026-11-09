@@ -306,6 +306,150 @@ select.field option {
   outline: none;
 }
 
+
+/* ───────── Motion added for the redesign ───────── */
+
+/* Thin progress line under the header that fills as the page scrolls (CSS only). */
+.scroll-progress {
+  display: none;
+}
+@supports (animation-timeline: scroll()) {
+  .scroll-progress {
+    display: block;
+    transform-origin: left;
+    transform: scaleX(0);
+    animation: progress linear both;
+    animation-timeline: scroll(root);
+  }
+}
+@keyframes progress {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* A light sweep across primary buttons on hover. */
+.btn-shine {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.btn-shine::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(110deg, transparent 35%, rgba(255, 255, 255, 0.28) 50%, transparent 65%);
+  transform: translateX(-120%);
+  transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-shine:hover::after {
+  transform: translateX(120%);
+}
+
+/* Marquee pauses while hovered. */
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+.marquee-reverse {
+  animation-direction: reverse;
+}
+
+/* Gentle floating for the hero showcase badges. */
+.bob {
+  animation: bob 6s ease-in-out infinite;
+}
+@keyframes bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Cards entering when a services tab changes. */
+.pop-in {
+  opacity: 0;
+  animation: popIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: var(--delay, 0ms);
+}
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Slow progress bar inside the showcase while each project is shown. */
+.showcase-timer {
+  animation: timer var(--duration, 4s) linear forwards;
+  transform-origin: left;
+}
+@keyframes timer {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* Live dot pulse. */
+.pulse-dot {
+  position: relative;
+}
+.pulse-dot::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  background: currentColor;
+  animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+@keyframes ping {
+  75%,
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+
+/* Rotating gradient border for highlighted cards. */
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+.glow-border {
+  position: relative;
+}
+.glow-border::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: conic-gradient(from var(--angle), transparent 0 60%, var(--brand) 75%, var(--brand-2) 85%, transparent 100%);
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: angle 6s linear infinite;
+  pointer-events: none;
+}
+@keyframes angle {
+  to {
+    --angle: 360deg;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -323,6 +467,13 @@ select.field option {
   .line-reveal > span {
     transform: none;
   }
+  .pop-in {
+    opacity: 1;
+  }
+  .scroll-progress,
+  .showcase-timer {
+    display: none;
+  }
 }
 
 /* Phones: keep the look, drop the effects that never stop running. */
@@ -331,7 +482,8 @@ select.field option {
     display: none;
   }
   .orb,
-  .text-brand-gradient {
+  .text-brand-gradient,
+  .glow-border::before {
     animation: none;
   }
 }

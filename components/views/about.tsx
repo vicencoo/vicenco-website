@@ -3,6 +3,7 @@
 import { useLanguage } from "@/lib/language-context";
 import { CtaBand, PageHero, SectionHead } from "@/components/ui";
 import { ManifestoQuote, ProcessSteps, Values } from "@/components/sections";
+import { StatsBand } from "@/components/motion";
 
 export function AboutView() {
   const { lang, t } = useLanguage();
@@ -17,6 +18,7 @@ export function AboutView() {
         em={t.about.titleEm}
         lead={t.about.lead}
       />
+      <StatsBand t={t} />
 
       {/* Values */}
       <section className="relative overflow-hidden py-20 sm:py-36">

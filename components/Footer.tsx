@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { localePath } from "@/lib/i18n";
 import { useLanguage } from "@/lib/language-context";
-import { pageKeys, site } from "@/lib/site";
+import { featuredServices, pageKeys, site } from "@/lib/site";
 import { Wordmark } from "./Logo";
 
 const linkClass = "text-[15px] text-muted transition-colors duration-300 hover:text-brand-2";
@@ -37,13 +37,23 @@ export function Footer() {
           </FooterColumn>
 
           <FooterColumn title={t.nav.services}>
-            {t.services.items.map((s) => (
-              <li key={s.slug}>
-                <Link href={href(`/services/${s.slug}`)} className={linkClass}>
-                  {s.title}
-                </Link>
-              </li>
-            ))}
+            {featuredServices.map((slug) => {
+              const s = t.services.items.find((item) => item.slug === slug);
+              return (
+                s && (
+                  <li key={slug}>
+                    <Link href={href(`/services/${slug}`)} className={linkClass}>
+                      {s.title}
+                    </Link>
+                  </li>
+                )
+              );
+            })}
+            <li>
+              <Link href={href("/services")} className="text-[15px] text-brand-2 transition-colors duration-300 hover:text-ink">
+                {t.nav.allServices} →
+              </Link>
+            </li>
           </FooterColumn>
 
           <FooterColumn title={t.nav.contact} className="col-span-2 lg:col-span-1">

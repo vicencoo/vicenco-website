@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { Dictionary } from "@/lib/dictionaries/en";
 import { site } from "@/lib/site";
 import { Arrow } from "./Logo";
@@ -9,10 +9,21 @@ import { Arrow } from "./Logo";
 export function ContactForm({
   t,
   email,
+  services,
 }: {
   t: Dictionary["contact"];
   email: string;
+  services: { slug: string; title: string }[];
 }) {
+  const typeRef = useRef<HTMLSelectElement>(null);
+
+  // Arriving from a service page (/contact?service=seo) preselects that service.
+  useEffect(() => {
+    const slug = new URLSearchParams(window.location.search).get("service");
+    const match = services.find((s) => s.slug === slug);
+    if (match && typeRef.current) typeRef.current.value = match.title;
+  }, [services]);
+
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
     "idle",
   );
@@ -71,8 +82,8 @@ export function ContactForm({
         />
       </Field>
       <Field label={t.type}>
-        <select name="type" className="field" defaultValue={t.types[0]}>
-          {t.types.map((o) => (
+        <select ref={typeRef} name="type" className="field" defaultValue={services[0]?.title}>
+          {[...services.map((s) => s.title), ...t.otherTypes].map((o) => (
             <option key={o}>{o}</option>
           ))}
         </select>
@@ -90,7 +101,7 @@ export function ContactForm({
         <button
           type="submit"
           disabled={status === "sending"}
-          className="group disabled:cursor-wait disabled:opacity-60 inline-flex items-center gap-3 rounded-full bg-brand px-8 py-4 text-sm font-semibold text-white transition-all duration-500 hover:bg-brand-hover hover:shadow-[0_0_40px_-5px_rgba(47,107,255,0.6)]"
+          className="btn-shine group disabled:cursor-wait disabled:opacity-60 inline-flex items-center gap-3 rounded-full bg-brand px-8 py-4 text-sm font-semibold text-white transition-all duration-500 hover:bg-brand-hover hover:shadow-[0_0_40px_-5px_rgba(47,107,255,0.6)]"
         >
           {status === "sending" ? t.sending : t.send}
           <Arrow />

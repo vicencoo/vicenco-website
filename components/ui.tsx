@@ -154,39 +154,13 @@ export function CtaBand({ lang, t }: { lang: Language; t: Dictionary["cta"] }) {
         <p className="mx-auto mt-6 max-w-lg text-lg text-muted">{t.lead}</p>
         <Link
           href={localePath(lang, "/contact")}
-          className="group mt-10 inline-flex items-center gap-3 rounded-full bg-brand px-9 py-4 text-sm font-semibold text-white transition-all duration-500 hover:bg-brand-hover hover:shadow-[0_0_50px_-5px_rgba(47,107,255,0.6)]"
+          className="btn-shine group mt-10 inline-flex items-center gap-3 rounded-full bg-brand px-9 py-4 text-sm font-semibold text-white transition-all duration-500 hover:bg-brand-hover hover:shadow-[0_0_50px_-5px_rgba(47,107,255,0.6)]"
         >
           {t.button}
           <Arrow />
         </Link>
       </Reveal>
     </section>
-  );
-}
-
-export function RotatingBadge({ text, href }: { text: string; href: string }) {
-  return (
-    <Link
-      href={href}
-      className="group relative hidden h-40 w-40 shrink-0 lg:block"
-      aria-hidden
-      tabIndex={-1}
-    >
-      <svg viewBox="0 0 200 200" className="spin-slow h-full w-full">
-        <defs>
-          <path
-            id="circle"
-            d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0"
-          />
-        </defs>
-        <text className="fill-muted text-[13px] uppercase tracking-[0.32em]">
-          <textPath href="#circle">{text.repeat(2)}</textPath>
-        </text>
-      </svg>
-      <span className="absolute inset-0 m-auto flex h-16 w-16 items-center justify-center rounded-full bg-brand text-white transition-transform duration-500 group-hover:scale-110">
-        <Arrow className="h-5 w-5" />
-      </span>
-    </Link>
   );
 }
 
@@ -226,42 +200,87 @@ export function Check({ small = false }: { small?: boolean }) {
   );
 }
 
-export function ServiceIcon({ index }: { index: number }) {
-  const paths = [
-    // website
+// One line icon per service, keyed by its slug (drawn on a 32×32 grid).
+const serviceIcons: Record<string, React.ReactNode> = {
+  "website-design": (
     <>
       <rect x="3" y="5" width="26" height="20" rx="2" />
       <path d="M3 10h26M7 7.5h.01M10 7.5h.01" />
-    </>,
-    // platform
+    </>
+  ),
+  "web-applications": (
     <>
       <rect x="4" y="4" width="10" height="10" rx="1.5" />
       <rect x="18" y="4" width="10" height="10" rx="1.5" />
       <rect x="4" y="18" width="10" height="10" rx="1.5" />
       <path d="M18 23h10M23 18v10" />
-    </>,
-    // ecommerce
+    </>
+  ),
+  "e-commerce": (
     <>
       <path d="M5 6h3l3 15h14l3-10H10" />
       <circle cx="13" cy="26" r="1.5" />
       <circle cx="23" cy="26" r="1.5" />
-    </>,
-    // design
+    </>
+  ),
+  "ui-ux-design": (
     <>
       <path d="M6 26 L20 12 l4 4 L10 30Z" transform="translate(0 -4)" />
       <path d="M20 8 l4-4 4 4-4 4" />
-    </>,
-    // seo
+    </>
+  ),
+  "mvp-development": (
+    <>
+      <path d="M16 4c5 3 7 8 6 14l-3 4h-6l-3-4c-1-6 1-11 6-14Z" />
+      <circle cx="16" cy="13" r="2.5" />
+      <path d="M10 18l-4 4 3 3M22 18l4 4-3 3M14 26l2 3 2-3" />
+    </>
+  ),
+  "api-integrations": (
+    <>
+      <path d="M11 9 4 16l7 7M21 9l7 7-7 7M18 6l-4 20" />
+    </>
+  ),
+  seo: (
     <>
       <circle cx="14" cy="14" r="8" />
       <path d="M20 20 l7 7M10 16 l3-3 2 2 3-4" />
-    </>,
-    // care
+    </>
+  ),
+  "google-ads": (
+    <>
+      <path d="M5 13v6l4 1 14 6V6L9 12Z" />
+      <path d="M9 20l2 7h3l-1-6M27 13v6" />
+    </>
+  ),
+  "digital-marketing": (
+    <>
+      <rect x="4" y="7" width="24" height="18" rx="2.5" />
+      <path d="m5 9 11 8 11-8" />
+    </>
+  ),
+  "analytics-growth": (
+    <>
+      <path d="M4 27h24M8 22v-5M14 22v-9M20 22v-6M26 22V8" />
+      <path d="m7 12 6-5 6 4 7-6" />
+    </>
+  ),
+  "website-maintenance": (
     <>
       <path d="M16 27 C6 20 4 15 4 11.5 A6 6 0 0 1 16 9 a6 6 0 0 1 12 2.5 C28 15 26 20 16 27Z" />
-    </>,
-  ];
-  return <IconTile>{paths[index % paths.length]}</IconTile>;
+    </>
+  ),
+  "hosting-email": (
+    <>
+      <rect x="5" y="5" width="22" height="9" rx="2" />
+      <rect x="5" y="18" width="22" height="9" rx="2" />
+      <path d="M9 9.5h.01M9 22.5h.01M14 9.5h8M14 22.5h8" />
+    </>
+  ),
+};
+
+export function ServiceIcon({ slug, small = false }: { slug: string; small?: boolean }) {
+  return <IconTile small={small}>{serviceIcons[slug] ?? serviceIcons["website-design"]}</IconTile>;
 }
 
 export function StepIcon({ index }: { index: number }) {
@@ -290,12 +309,16 @@ export function StepIcon({ index }: { index: number }) {
   return <IconTile>{paths[index % paths.length]}</IconTile>;
 }
 
-function IconTile({ children }: { children: React.ReactNode }) {
+function IconTile({ children, small = false }: { children: React.ReactNode; small?: boolean }) {
   return (
-    <span className="relative flex h-14 w-14 items-center justify-center rounded-2xl border border-line-2 bg-bg-2 text-brand transition-all duration-500 group-hover:border-brand/50 group-hover:shadow-[0_0_30px_-8px_rgba(47,107,255,0.5)]">
+    <span
+      className={`relative flex shrink-0 items-center justify-center border border-line-2 bg-bg-2 text-brand transition-all duration-500 group-hover:border-brand/50 group-hover:shadow-[0_0_30px_-8px_rgba(47,107,255,0.5)] ${
+        small ? "h-10 w-10 rounded-xl" : "h-14 w-14 rounded-2xl"
+      }`}
+    >
       <svg
         viewBox="0 0 32 32"
-        className="h-7 w-7"
+        className={small ? "h-5 w-5" : "h-7 w-7"}
         fill="none"
         stroke="currentColor"
         strokeWidth="1.4"
