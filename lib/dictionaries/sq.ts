@@ -80,12 +80,6 @@ export const sq: Dictionary = {
       { label: "Mirëmbajtje", slug: "website-maintenance" },
     ],
     showcase: "Lansimet e fundit",
-    stats: {
-      projects: "Projekte live",
-      services: "Shërbime në një vend",
-      languages: "Gjuhë në të cilat punojmë",
-      reply: "Koha e përgjigjes",
-    },
     explorerLead: "Zgjidhni çfarë ju duhet — çdo shërbim ka faqen e vet me detaje, pyetje të shpeshta dhe shembuj.",
   },
   marquee: [

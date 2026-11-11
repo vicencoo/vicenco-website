@@ -80,12 +80,6 @@ export const it: Dictionary = {
       { label: "Manutenzione", slug: "website-maintenance" },
     ],
     showcase: "Lanci recenti",
-    stats: {
-      projects: "Progetti online",
-      services: "Servizi in un unico posto",
-      languages: "Lingue in cui lavoriamo",
-      reply: "Tempo di risposta",
-    },
     explorerLead: "Scegli ciò che ti serve — ogni servizio ha la sua pagina con dettagli, domande frequenti ed esempi.",
   },
   marquee: [

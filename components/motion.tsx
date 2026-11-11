@@ -14,10 +14,14 @@ import { Arrow } from "./Logo";
 import { ServiceIcon } from "./ui";
 
 const prefersReducedMotion = () =>
-  typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  typeof window !== "undefined" &&
+  window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 /** Runs `onVisible` once, the first time the element scrolls into view. */
-function useOnVisible<T extends HTMLElement>(onVisible: () => void, threshold = 0.4) {
+function useOnVisible<T extends HTMLElement>(
+  onVisible: () => void,
+  threshold = 0.4,
+) {
   const ref = useRef<T>(null);
   const callback = useRef(onVisible);
   useEffect(() => {
@@ -41,7 +45,13 @@ function useOnVisible<T extends HTMLElement>(onVisible: () => void, threshold = 
 }
 
 /** A number that counts up when it scrolls into view. The final value is in the HTML for search engines. */
-export function CountUp({ value, suffix = "" }: { value: number; suffix?: string }) {
+export function CountUp({
+  value,
+  suffix = "",
+}: {
+  value: number;
+  suffix?: string;
+}) {
   const [shown, setShown] = useState(value);
   const ref = useOnVisible<HTMLSpanElement>(() => {
     if (prefersReducedMotion()) return;
@@ -64,43 +74,16 @@ export function CountUp({ value, suffix = "" }: { value: number; suffix?: string
   );
 }
 
-/** Row of animated numbers — all of them come from the site's real content. */
-export function StatsBand({ t }: { t: Dictionary }) {
-  const stats = [
-    { value: t.work.items.length, suffix: "+", label: t.home.stats.projects },
-    { value: t.services.items.length, suffix: "", label: t.home.stats.services },
-    { value: 3, suffix: "", label: t.home.stats.languages },
-    { value: 24, suffix: "h", label: t.home.stats.reply },
-  ];
-  return (
-    <section className="border-b border-line">
-      <div className="mx-auto grid max-w-7xl grid-cols-2 lg:grid-cols-4">
-        {stats.map((s, i) => (
-          <div
-            key={s.label}
-            className={`group relative px-5 py-10 sm:px-8 sm:py-14 ${i % 2 === 1 ? "border-l border-line" : ""} ${
-              i >= 2 ? "border-t border-line lg:border-t-0" : ""
-            } ${i === 2 ? "lg:border-l" : ""}`}
-          >
-            <p className="font-serif text-[clamp(2.75rem,6vw,4.5rem)] leading-none text-ink">
-              <CountUp value={s.value} suffix={s.suffix} />
-            </p>
-            <p className="mt-3 text-[11px] uppercase tracking-[0.22em] text-muted">{s.label}</p>
-            <span
-              className="absolute inset-x-5 bottom-0 h-px origin-left scale-x-0 bg-gradient-to-r from-brand to-brand-2 transition-transform duration-700 group-hover:scale-x-100 sm:inset-x-8"
-              aria-hidden
-            />
-          </div>
-        ))}
-      </div>
-    </section>
-  );
-}
-
 const SHOWCASE_MS = 4500;
 
 /** Browser window that cycles through real projects. Pauses on hover and when the tab is hidden. */
-export function ProjectShowcase({ lang, t }: { lang: Language; t: Dictionary }) {
+export function ProjectShowcase({
+  lang,
+  t,
+}: {
+  lang: Language;
+  t: Dictionary;
+}) {
   const items = t.work.items;
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
@@ -109,13 +92,16 @@ export function ProjectShowcase({ lang, t }: { lang: Language; t: Dictionary }) 
     if (paused || prefersReducedMotion()) return;
     // Restarts whenever the project changes, so a manual pick gets its full time on screen.
     const id = setInterval(() => {
-      if (document.visibilityState === "visible") setIndex((i) => (i + 1) % items.length);
+      if (document.visibilityState === "visible")
+        setIndex((i) => (i + 1) % items.length);
     }, SHOWCASE_MS);
     return () => clearInterval(id);
   }, [index, paused, items.length]);
 
   const project = items[index];
-  const host = project.url.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "");
+  const host = project.url
+    .replace(/^https?:\/\/(www\.)?/, "")
+    .replace(/\/$/, "");
   const serviceNames = project.services
     .map((slug) => t.services.items.find((s) => s.slug === slug)?.title)
     .filter(Boolean)
@@ -144,7 +130,14 @@ export function ProjectShowcase({ lang, t }: { lang: Language; t: Dictionary }) 
             <span className="h-2.5 w-2.5 rounded-full bg-[#28c840]/80" />
           </span>
           <span className="flex min-w-0 flex-1 items-center gap-2 rounded-full bg-bg/70 px-3 py-1 text-[11px] text-muted">
-            <svg viewBox="0 0 16 16" className="h-3 w-3 shrink-0 text-brand-2" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden>
+            <svg
+              viewBox="0 0 16 16"
+              className="h-3 w-3 shrink-0 text-brand-2"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.6"
+              aria-hidden
+            >
               <rect x="3.5" y="7" width="9" height="6.5" rx="1.5" />
               <path d="M5.5 7V5a2.5 2.5 0 0 1 5 0v2" />
             </svg>
@@ -169,8 +162,12 @@ export function ProjectShowcase({ lang, t }: { lang: Language; t: Dictionary }) 
           <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/70 to-transparent" />
           <div className="absolute inset-x-5 bottom-4 flex items-end justify-between gap-4">
             <div className="min-w-0">
-              <p className="text-[10px] uppercase tracking-[0.25em] text-brand-2">{project.category}</p>
-              <p className="mt-1 truncate font-serif text-2xl text-white">{project.name}</p>
+              <p className="text-[10px] uppercase tracking-[0.25em] text-brand-2">
+                {project.category}
+              </p>
+              <p className="mt-1 truncate font-serif text-2xl text-white">
+                {project.name}
+              </p>
             </div>
             <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand text-white transition-transform duration-500 group-hover:scale-110">
               <Arrow />
@@ -181,7 +178,9 @@ export function ProjectShowcase({ lang, t }: { lang: Language; t: Dictionary }) 
             <span
               key={index}
               className="showcase-timer absolute inset-x-0 bottom-0 h-0.5 bg-brand"
-              style={{ "--duration": `${SHOWCASE_MS}ms` } as React.CSSProperties}
+              style={
+                { "--duration": `${SHOWCASE_MS}ms` } as React.CSSProperties
+              }
               aria-hidden
             />
           )}
@@ -208,7 +207,11 @@ export function ProjectShowcase({ lang, t }: { lang: Language; t: Dictionary }) 
       )}
 
       {/* Pick a project */}
-      <div className="mt-5 flex gap-2" role="group" aria-label={t.home.showcase}>
+      <div
+        className="mt-5 flex gap-2"
+        role="group"
+        aria-label={t.home.showcase}
+      >
         {items.map((p, i) => (
           <button
             key={p.slug}
@@ -227,7 +230,13 @@ export function ProjectShowcase({ lang, t }: { lang: Language; t: Dictionary }) 
 }
 
 /** Home page services: one tab per group, with cards for every service in it. */
-export function ServiceExplorer({ lang, t }: { lang: Language; t: Dictionary }) {
+export function ServiceExplorer({
+  lang,
+  t,
+}: {
+  lang: Language;
+  t: Dictionary;
+}) {
   const [active, setActive] = useState<ServiceCategory>(serviceCategories[0]);
   const tabs = useRef<(HTMLButtonElement | null)[]>([]);
   const items = t.services.items.filter((s) => s.category === active);
@@ -237,7 +246,8 @@ export function ServiceExplorer({ lang, t }: { lang: Language; t: Dictionary }) 
     const step = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0;
     if (!step) return;
     e.preventDefault();
-    const next = (i + step + serviceCategories.length) % serviceCategories.length;
+    const next =
+      (i + step + serviceCategories.length) % serviceCategories.length;
     setActive(serviceCategories[next]);
     tabs.current[next]?.focus();
   };
@@ -251,7 +261,9 @@ export function ServiceExplorer({ lang, t }: { lang: Language; t: Dictionary }) 
       >
         {serviceCategories.map((key, i) => {
           const selected = key === active;
-          const count = t.services.items.filter((s) => s.category === key).length;
+          const count = t.services.items.filter(
+            (s) => s.category === key,
+          ).length;
           return (
             <button
               key={key}
@@ -310,11 +322,16 @@ export function ServiceExplorer({ lang, t }: { lang: Language; t: Dictionary }) 
                 <Arrow />
               </span>
             </div>
-            <h3 className="mt-8 font-serif text-[1.7rem] leading-tight">{s.title}</h3>
+            <h3 className="mt-8 font-serif text-[1.7rem] leading-tight">
+              {s.title}
+            </h3>
             <p className="mt-3 flex-1 leading-relaxed text-muted">{s.text}</p>
             <ul className="mt-6 flex flex-wrap gap-2">
               {s.tags.map((tag) => (
-                <li key={tag} className="rounded-full border border-line-2 px-3 py-1 text-xs text-muted">
+                <li
+                  key={tag}
+                  className="rounded-full border border-line-2 px-3 py-1 text-xs text-muted"
+                >
                   {tag}
                 </li>
               ))}
@@ -337,7 +354,8 @@ export function CategoryNav({ t }: { t: Dictionary }) {
     const observer = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
-          if (entry.isIntersecting) setCurrent(entry.target.id as ServiceCategory);
+          if (entry.isIntersecting)
+            setCurrent(entry.target.id as ServiceCategory);
         }
       },
       { rootMargin: "-35% 0px -60% 0px" },

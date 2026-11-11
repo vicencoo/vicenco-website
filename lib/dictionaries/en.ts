@@ -79,12 +79,6 @@ export const en = {
       { label: "Maintenance", slug: "website-maintenance" },
     ],
     showcase: "Recent launches",
-    stats: {
-      projects: "Live projects",
-      services: "Services under one roof",
-      languages: "Languages we work in",
-      reply: "Reply time",
-    },
     explorerLead: "Pick what you need — every service has its own page with details, FAQ and examples.",
   },
   marquee: [
